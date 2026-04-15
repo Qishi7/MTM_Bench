@@ -16,7 +16,7 @@ Your workflow is:
 
 1. Run `smoke_test.csv` first to verify your API key, script, and output format
 2. Run `lan_main.csv` for the full experiment
-3. Send your output CSV back to the project lead
+3. Send your output CSV back
 
 The final scoring review and analysis will be done centrally.
 
@@ -202,6 +202,7 @@ To avoid wasting tokens:
 2. If needed, test only a few rows before running all 168 instances
 3. Keep `temperature = 0`
 4. Use moderate output limits such as `--max-tokens 256`
+5. Per test, only 155 token used for each task, so in total you will use 155x256 tokens
 
 Roughly:
 - `smoke_test.csv` is small and cheap
