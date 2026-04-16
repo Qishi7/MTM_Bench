@@ -1,0 +1,15 @@
+model,item_id,output_text,input_tokens,output_tokens,total_tokens,TaskCorrect,LangCorrect,CodeSwitch,JointSuccess,evaluator_notes
+gemini-2.5-flash,LS001A,"No, the author does not. The author points out that the professor mistakes intimidation for rigor and fear for authority.",85,23,479,,,,,
+gemini-2.5-flash,LS001B,"No, porque su autoridad era en realidad miedo.",85,10,714,,,,,
+gemini-2.5-flash,LS001C,"No.
+
+El autor señala que el profesor confunde la intimidación con el rigor y el silencio con el respeto, y que su autoridad era en realidad miedo.",93,33,914,,,,,
+gemini-2.5-flash,LS002A,Friday at 4 PM,95,5,317,,,,,
+gemini-2.5-flash,LS002B,viernes a las 4 PM,95,7,277,,,,,
+gemini-2.5-flash,LS002C,viernes a las 4 PM,95,7,475,,,,,
+gemini-2.5-flash,LS003A,"The report suggests that managers impeded innovation by consistently leveraging every uncertainty as an excuse for delay, instead of it being due to the actual impossibility of change.",59,30,1305,,,,,
+gemini-2.5-flash,LS003B,"Según el informe, los gerentes frenaron la innovación no porque el cambio fuera inviable, sino por ver en cada incertidumbre un motivo para retrasar la acción.",64,34,1517,,,,,
+gemini-2.5-flash,LS003C,Los directivos frenaron la innovación al convertir cada incertidumbre en una excusa para la inacción.,59,21,1215,,,,,
+gemini-2.5-flash,LS004A,"The DataBridge workshop, scheduled for next Thursday, has been relocated from Room 401 to Room 327 instead of being canceled, and students who registered through CampusConnect should bring their ID cards.",87,43,348,,,,,
+gemini-2.5-flash,LS004B,"El taller DataBridge se reubicará el próximo jueves de la Sala 401 a la Sala 327, por lo que los estudiantes registrados en CampusConnect deberán traer sus tarjetas de identificación, enfatizando que el taller solo cambió de lugar y no fue cancelado.",89,58,1101,,,,,
+gemini-2.5-flash,LS004C,"[ERROR] ServerError: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",,,,,,,,
