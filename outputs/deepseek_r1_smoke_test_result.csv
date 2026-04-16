@@ -1,0 +1,13 @@
+model,item_id,output_text,input_tokens,output_tokens,total_tokens,TaskCorrect,LangCorrect,CodeSwitch,JointSuccess,evaluator_notes
+deepseek/deepseek-r1,LS001A,"No, because the author criticizes the professor for mistaking intimidation for rigor and fear for authority.",90,259,349,,,,,
+deepseek/deepseek-r1,LS001B,"No, porque el autor revela que la autoridad del profesor se basaba en el miedo, no en un rigor genuino.",90,276,366,,,,,
+deepseek/deepseek-r1,LS001C,"No, porque el autor critica al profesor al señalar que confunde intimidación con rigor y revela que su aparente autoridad es solo miedo disfrazado.",95,450,545,,,,,
+deepseek/deepseek-r1,LS002A,Friday at 4 PM,99,277,376,,,,,
+deepseek/deepseek-r1,LS002B,Viernes a las 4 PM.,99,620,719,,,,,
+deepseek/deepseek-r1,LS002C,Viernes a las 4 PM.,98,501,599,,,,,
+deepseek/deepseek-r1,LS003A,"Managers stifled progress not because change was unfeasible, but because they attributed stagnation to ambiguity.",64,200,264,,,,,
+deepseek/deepseek-r1,LS003B,"El informe sostiene que los gerentes frenaron la innovación no porque el cambio fuera imposible, sino porque convertían cada incertidumbre en una excusa para posponer decisiones.",67,337,404,,,,,
+deepseek/deepseek-r1,LS003C,,56,256,312,,,,,
+deepseek/deepseek-r1,LS004A,"The DataBridge workshop has been moved from Room 401 to Room 327 next Thursday, and students registered through CampusConnect should bring their ID cards, as it is not canceled but only relocated.",88,554,642,,,,,
+deepseek/deepseek-r1,LS004B,"El taller DataBridge se trasladará a la Sala 327 el próximo jueves, donde los estudiantes registrados en CampusConnect deben presentar sus carnés de identidad, aclarando que el evento no se canceló sino que solo cambió de ubicación.",90,251,341,,,,,
+deepseek/deepseek-r1,LS004C,"El taller DataBridge se trasladará del aula 401 al aula 327 el próximo jueves, y los estudiantes registrados a través de CampusConnect deben traer sus tarjetas de identificación, ya que no se cancela, solo se reubica.",85,682,767,,,,,
