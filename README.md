@@ -107,6 +107,7 @@ Examples:
 | Claude | `pip install anthropic` |
 | Gemini | `pip install -U google-genai` |
 | OpenAI | `pip install openai` |
+| OpenRouter / DeepSeek | `pip install openai` |
 | Qwen | `pip install dashscope` |
 | Together / Llama | `pip install openai` |
 | Mistral | `pip install mistralai` |
@@ -119,6 +120,8 @@ Examples:
 ```bash
 export ANTHROPIC_API_KEY="..."
 export OPENAI_API_KEY="..."
+export OPENROUTER_API_KEY="..."
+export OPENROUTER_BASE_URL="https://openrouter.ai/api/v1"
 export GEMINI_API_KEY="..."
 export DASHSCOPE_API_KEY="..."
 export TOGETHER_API_KEY="..."
@@ -129,6 +132,8 @@ export MISTRAL_API_KEY="..."
 ```powershell
 $env:ANTHROPIC_API_KEY = "..."
 $env:OPENAI_API_KEY    = "..."
+$env:OPENROUTER_API_KEY = "..."
+$env:OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 $env:GEMINI_API_KEY    = "..."
 $env:DASHSCOPE_API_KEY = "..."
 $env:TOGETHER_API_KEY  = "..."
@@ -146,7 +151,7 @@ Use the 12-item smoke test before the full benchmark.
 python scripts/run_models.py \
   --items data/smoke_test.csv \
   --model claude-haiku-4-5-20251001 \
-  --out outputs/smoke_test_result.csv \
+  --out outputs/claude_haiku_smoke_test_result.csv \
   --no-dry-run
 ```
 
@@ -155,7 +160,16 @@ python scripts/run_models.py \
 python scripts/run_models_gemini.py \
   --items data/smoke_test.csv \
   --model gemini-2.5-flash \
-  --out outputs/smoke_test_result.csv \
+  --out outputs/gemini_flash_smoke_test_result.csv \
+  --no-dry-run
+```
+
+### Example: DeepSeek via OpenRouter
+```bash
+python scripts/run_models_deepseek.py \
+  --items data/smoke_test.csv \
+  --model deepseek/deepseek-chat-v3-0324 \
+  --out outputs/deepseek_v3_2_smoke_test_result.csv \
   --no-dry-run
 ```
 
@@ -179,11 +193,22 @@ python scripts/run_models.py \
   --no-dry-run
 ```
 
+### Example: DeepSeek via OpenRouter
+```bash
+python scripts/run_models_deepseek.py \
+  --items data/lan_main.csv \
+  --model deepseek/deepseek-chat-v3-0324 \
+  --out outputs/deepseek_chat_v3_lan_main.csv \
+  --no-dry-run
+```
+
 ---
 
 ## If your model is not supported yet
 
 If there is no existing `run_models_*.py` script for your assigned model, adapt one of the existing runners or add a new runner.
+
+For DeepSeek via OpenRouter, use `scripts/run_models_deepseek.py`.
 
 Requirements:
 - input must read the same CSV format
@@ -224,7 +249,10 @@ outputs/gemini_flash_lan_main.csv
 For smoke test outputs:
 
 ```text
-outputs/smoke_test_result.csv
+outputs/smoke_test_result.csv              # reference output example
+outputs/claude_haiku_smoke_test_result.csv
+outputs/gemini_flash_smoke_test_result.csv
+outputs/deepseek_v3_2_smoke_test_result.csv
 ```
 
 ---
