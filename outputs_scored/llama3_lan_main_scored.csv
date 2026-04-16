@@ -1,0 +1,223 @@
+model,item_id,core_id,category,condition_id,regime,task_family,difficulty,instruction_language,content_language,response_language,output_text,input_tokens,output_tokens,total_tokens,SemanticCorrect,LangCorrect,ConstraintCorrect,CodeSwitchRatio,JointSuccess,HumanCorrect,evaluator_notes
+llama3:latest,LMA01_C1,LMA01,A,C1,"(en,en,en)",reading_comprehension,hard,en,en,en,"No, because the author reveals that the professor's behavior is not based on genuine authority but rather on fear.",90,23,113,1,1,1,0.0526,1,,
+llama3:latest,LMA01_C2,LMA01,A,C2,"(en,en,zh)",reading_comprehension,hard,en,en,zh,"(no) 
+
+Reason: The passage suggests that the professor's behavior is not genuine, but rather a disguise for fear, which implies that the author does not approve of the professor.",90,37,127,1,0,0,1.0,0,,
+llama3:latest,LMA01_C3,LMA01,A,C3,"(en,en,es)",reading_comprehension,hard,en,en,es,"No, porque el autor critica la forma en que el profesor interpreta la intimidación como rigor y el silencio como respeto, lo que sugiere que no aprobaba realmente su estilo de enseñanza.",90,49,139,1,1,1,0.0,1,,
+llama3:latest,LMA01_C4,LMA01,A,C4,"(zh,en,en)",reading_comprehension,hard,zh,en,en,"No
+
+The reason is that although the essay initially seems to praise the professor, it actually reveals that the professor's strictness is not based on genuine rigor and respect, but rather on intimidation and fear. The author's final sentence suggests that what appears to be authority is actually just a disguise for fear, implying that the professor's behavior is not truly admirable or worthy of praise.",97,77,174,1,1,1,0.0152,1,,
+llama3:latest,LMA01_C5,LMA01,A,C5,"(es,en,en)",reading_comprehension,hard,es,en,en,"No, because the author reveals that the professor's behavior is actually motivated by fear rather than a genuine desire to teach or inspire, which suggests disapproval rather than approval.",95,35,130,0,1,1,0.0345,0,,
+llama3:latest,LMA01_C6,LMA01,A,C6,"(zh,en,es)",reading_comprehension,hard,zh,en,es,"No, el autor no realmente aprueba a este profesor.
+
+La razón es que aunque al principio el ensayo parece elogiar al profesor por ser exigente y estricto, más adelante el autor revela que en realidad el profesor confunde la intimidación con la rigor y el silencio con el respeto. Esto sugiere que el autor no está de acuerdo con la forma en que el profesor ejerce su autoridad.",101,97,198,1,1,0,0.0,0,,
+llama3:latest,LMA01_C7,LMA01,A,C7,"(es,en,zh)",reading_comprehension,hard,es,en,zh,"No (, bù)
+
+Razón: El pasaje indica que el autor critica la forma en que el profesor interpreta la intimidación como rigor y el silencio como respeto, lo que sugiere que no aprueba verdaderamente al profesor.",95,59,154,1,0,0,1.0,0,,
+llama3:latest,LMA02_C1,LMA02,A,C1,"(en,en,en)",reading_comprehension,hard,en,en,en,"The narrator's real point is that despite his claims of not caring about winning or rankings, his behavior reveals that he actually does care deeply and is just pretending to be indifferent.",88,36,124,1,1,1,0.0,1,,
+llama3:latest,LMA02_C2,LMA02,A,C2,"(en,en,zh)",reading_comprehension,hard,en,en,zh,他实际上对这个人的看法是，这个人真正的无所谓不是一种信仰，而是一种表演。,88,27,115,0,1,1,0.0,0,,
+llama3:latest,LMA02_C3,LMA02,A,C3,"(en,en,es)",reading_comprehension,hard,en,en,es,La narradora sugiere que su indiferencia hacia el ganar era más una actuación que una convicción verdadera.,88,28,116,1,1,1,0.0,1,,
+llama3:latest,LMA02_C4,LMA02,A,C4,"(zh,en,en)",reading_comprehension,hard,zh,en,en,The author's true judgment is that his indifference was less a conviction than a performance.,89,18,107,0,1,1,0.0,0,,
+llama3:latest,LMA02_C5,LMA02,A,C5,"(es,en,en)",reading_comprehension,hard,es,en,en,"The narrator's real judgment is that the person's supposed indifference to winning was actually a facade, as evidenced by their tense behavior before announcements and prolonged frustration after disappointing results.",97,35,132,1,1,1,0.0,1,,
+llama3:latest,LMA02_C6,LMA02,A,C6,"(zh,en,es)",reading_comprehension,hard,zh,en,es,"La autora concluye que su indiferencia era menos una convicción que un desempeño.
+
+(Note: ""autora"" means author, and ""conclusión"" means conclusion)",92,42,134,1,0,1,0.0476,0,,
+llama3:latest,LMA02_C7,LMA02,A,C7,"(es,en,zh)",reading_comprehension,hard,es,en,zh,"他实际上对这个人并不是真的不在乎排名，而是假装不在乎。
+
+(Note: This is the translation of ""The narrator concludes that his indifference was less a conviction than a performance."" into Chinese, with the answer to the question in one sentence.)",97,57,154,0,0,0,0.4333,0,,
+llama3:latest,LMA03_C1,LMA03,A,C1,"(en,en,en)",reading_comprehension,hard,en,en,en,"The writer's real judgment of the nurse is that her seemingly emotional distance was actually a deliberate and effective way to provide care, rather than a lack of empathy.",94,33,127,1,1,1,0.0,1,,
+llama3:latest,LMA03_C2,LMA03,A,C2,"(en,en,zh)",reading_comprehension,hard,en,en,zh,"The writer's real judgment of the nurse is that her seemingly cold demeanor was actually a disciplined form of care, rather than emotional distance from patients.",94,30,124,1,0,1,1.0,0,,
+llama3:latest,LMA03_C3,LMA03,A,C3,"(en,en,es)",reading_comprehension,hard,en,en,es,La verdadera opinión del escritor sobre la enfermera es que su apariencia de frialdad era en realidad una forma disciplinada de cuidado.,94,36,130,1,1,1,0.0,1,,
+llama3:latest,LMA03_C4,LMA03,A,C4,"(zh,en,en)",reading_comprehension,hard,zh,en,en,"The author's true evaluation of the nurse is that her emotional distance was actually a disciplined form of care, rather than a sign of coldness.",98,30,128,1,1,1,0.0,1,,
+llama3:latest,LMA03_C5,LMA03,A,C5,"(es,en,en)",reading_comprehension,hard,es,en,en,"The author's actual judgment is that the nurse's emotional distance was not a sign of coldness, but rather a disciplined and effective way to provide care in an emergency setting.",104,36,140,1,1,1,0.0,1,,
+llama3:latest,LMA03_C6,LMA03,A,C6,"(zh,en,es)",reading_comprehension,hard,zh,en,es,La verdadera evaluación del autor hacia la enfermera es que ella estaba proporcionando un cuidado disciplinado y eficaz. (The author's true evaluation of the nurse is that she was providing a disciplined and effective form of care.),101,52,153,1,0,0,0.2432,0,,
+llama3:latest,LMA03_C7,LMA03,A,C7,"(es,en,zh)",reading_comprehension,hard,es,en,zh,"The author's true judgment on the nurse is that she is not emotionally distant, but rather has learned to maintain a calm and composed demeanor in emergency situations, which is a disciplined form of care. (作者对护士的真正判断是，她并不是情感距离，而是在紧急情况下学习保持冷静和沉着，这是一种有纪律的护理方式。)",104,80,184,1,0,0,0.4286,0,,
+llama3:latest,LMA04_C1,LMA04,A,C1,"(en,en,en)",reading_comprehension,hard,en,en,en,"No, because the review highlights the mayor's tendency to change his position based on public opinion, which contradicts the idea of being consistently consistent.",85,30,115,1,1,1,0.0417,1,,
+llama3:latest,LMA04_C2,LMA04,A,C2,"(en,en,zh)",reading_comprehension,hard,en,en,zh,"(no) 
+
+Reason: Because the passage says the mayor ""changed his position whenever public opinion shifted"", which means he was not consistent, but rather adapted to changing opinions.",85,35,120,1,0,0,1.0,0,,
+llama3:latest,LMA04_C3,LMA04,A,C3,"(en,en,es)",reading_comprehension,hard,en,en,es,"No, porque la crítica destaca que el alcalde cambió su posición según cambiaba la opinión pública, lo que sugiere que no era consistente en realidad.",85,38,123,1,1,1,0.0,1,,
+llama3:latest,LMA04_C4,LMA04,A,C4,"(zh,en,en)",reading_comprehension,hard,zh,en,en,"No
+
+The reason is that the review initially praises the mayor's consistency, but later reveals that he changed his position based on public opinion, which contradicts the initial statement. The closing sentence also suggests that the mayor's ""consistency"" was actually just a desire to appear popular, rather than a genuine commitment to a particular stance.",98,68,166,1,1,1,0.0182,1,,
+llama3:latest,LMA04_C5,LMA04,A,C5,"(es,en,en)",reading_comprehension,hard,es,en,en,"No, the review does not sincerely praise the mayor's consistency because it highlights how he changed his position based on public opinion, which contradicts the idea of being consistently consistent.",97,36,133,1,1,1,0.0333,1,,
+llama3:latest,LMA04_C6,LMA04,A,C6,"(zh,en,es)",reading_comprehension,hard,zh,en,es,"No, la crítica no está verdaderamente elogiando la consistencia del alcalde.",102,22,124,0,1,1,0.0,0,,
+llama3:latest,LMA04_C7,LMA04,A,C7,"(es,en,zh)",reading_comprehension,hard,es,en,zh,"No (, yīn wèi tā de zhēn chéng shì fù xiǎng pò pǔ de xìng xìng, bù shì zài gōng jì shàng de kòng zhì).",97,58,155,0,0,0,1.0,0,,
+llama3:latest,LMA05_C1,LMA05,A,C1,"(en,en,en)",reading_comprehension,hard,en,en,en,"The author's real target of criticism is actually the supervisors, not the younger staff, as they are the ones who kept changing the instructions without warning, causing the mistakes and apparent disorder among the juniors.",92,42,134,1,1,1,0.0,1,,
+llama3:latest,LMA05_C2,LMA05,A,C2,"(en,en,zh)",reading_comprehension,hard,en,en,zh,"The author's real target of criticism is actually the supervisors, not the younger staff, as they are the ones who kept changing the instructions without warning, causing the mistakes.",92,35,127,1,0,1,1.0,0,,
+llama3:latest,LMA05_C3,LMA05,A,C3,"(en,en,es)",reading_comprehension,hard,en,en,es,"El verdadero objeto de crítica del autor es los supervisores, ya que fueron ellos quienes cambiaron las instrucciones sin advertir y crearon la confusión que llevó a los jóvenes empleados a cometer errores.",92,51,143,1,1,1,0.0,1,,
+llama3:latest,LMA05_C4,LMA05,A,C4,"(zh,en,en)",reading_comprehension,hard,zh,en,en,"The author is actually criticizing the supervisors, not the younger staff.",94,14,108,1,1,1,0.0,1,,
+llama3:latest,LMA05_C5,LMA05,A,C5,"(es,en,en)",reading_comprehension,hard,es,en,en,"The true target of the author's criticism is not the younger staff, but rather the supervisors who were responsible for creating the confusion and chaos that led to the mistakes.",102,34,136,1,1,1,0.0,1,,
+llama3:latest,LMA05_C6,LMA05,A,C6,"(zh,en,es)",reading_comprehension,hard,zh,en,es,"La respuesta es: ""En realidad, los supervisores son los que están criticando"".
+
+Translation: In reality, it's the supervisors who are being criticized.",97,34,131,0,0,1,0.1818,0,,
+llama3:latest,LMA05_C7,LMA05,A,C7,"(es,en,zh)",reading_comprehension,hard,es,en,zh,"作者的真正批评对象是高层管理人员，而不是年轻员工。 (The true target of the author's criticism is the senior management personnel, not the young staff.)",102,39,141,0,0,0,0.4375,0,,
+llama3:latest,LMA06_C1,LMA06,A,C1,"(en,en,en)",reading_comprehension,hard,en,en,en,"The essay concludes that the old library's quiet, slow, and old-fashioned qualities were actually a defense of attention, making it a valuable space for concentration.",105,32,137,1,1,1,0.0,1,,
+llama3:latest,LMA06_C2,LMA06,A,C2,"(en,en,zh)",reading_comprehension,hard,en,en,zh,老图書館的最終看法是，它所謂過時的特點實際上是一種對注意力的防禦。,105,30,135,1,1,1,0.0,1,,
+llama3:latest,LMA06_C3,LMA06,A,C3,"(en,en,es)",reading_comprehension,hard,en,en,es,"La visión final del ensayo sobre la biblioteca antigua es que lo que muchos consideraban obsoleto era, en parte, una defensa de la atención.",105,36,141,1,1,1,0.0,1,,
+llama3:latest,LMA06_C4,LMA06,A,C4,"(zh,en,en)",reading_comprehension,hard,zh,en,en,"The article's final view on the old library is that it was, in part, a defense of attention.",110,23,133,1,1,1,0.0,1,,
+llama3:latest,LMA06_C5,LMA06,A,C5,"(es,en,en)",reading_comprehension,hard,es,en,en,"The essay ultimately presents a positive evaluation of the old library, suggesting that its quiet and slow nature was not a hindrance to learning, but rather a deliberate defense of attention.",116,36,152,1,1,1,0.0,1,,
+llama3:latest,LMA06_C6,LMA06,A,C6,"(zh,en,es)",reading_comprehension,hard,zh,en,es,"La respuesta es: ""Lo que muchos consideraban obsoleto era, en parte, una defensa de la atención.""
+
+Translation: ""What many considered outdated was, in part, a defense of attention.""",113,43,156,1,0,0,0.1429,0,,
+llama3:latest,LMA06_C7,LMA06,A,C7,"(es,en,zh)",reading_comprehension,hard,es,en,zh,"(wèi shì zhè ge wén zhāng de jié guò shì, yīn wèi zhè ge gù diàn tiān wēi de cháng duō xiǎng le xīn huì fāng miàn)",116,60,176,0,0,1,1.0,0,,
+llama3:latest,LMA07_C1,LMA07,A,C1,"(en,en,en)",reading_comprehension,hard,en,en,en,"The column ultimately concludes that the translator's restraint reflects fidelity, rather than timidity, implying a positive assessment of their work.",91,26,117,1,1,1,0.0,1,,
+llama3:latest,LMA07_C2,LMA07,A,C2,"(en,en,zh)",reading_comprehension,hard,en,en,zh,"文章的最后判断是译者的保留反映了对原作的忠实，而不是胆小。 (Wén zhāng de huò zhì jiǎng yì shì yì zhuàn de bǎo lián fǎn míng le duì yuán zuò de zhōng xīn, ér bù shì chǎi xiǎo.)",91,86,177,1,0,0,0.3429,0,,
+llama3:latest,LMA07_C3,LMA07,A,C3,"(en,en,es)",reading_comprehension,hard,en,en,es,"El columnista concluye que el retraso de la traductora refleja fidelidad, no temeridad.",91,28,119,0,1,1,0.0,0,,
+llama3:latest,LMA07_C4,LMA07,A,C4,"(zh,en,en)",reading_comprehension,hard,zh,en,en,The column ultimately evaluates the translator as having shown fidelity rather than timidity through her restrained choices.,96,20,116,1,1,1,0.0,1,,
+llama3:latest,LMA07_C5,LMA07,A,C5,"(es,en,en)",reading_comprehension,hard,es,en,en,"The column ultimately concludes that the translator's restraint reflects fidelity, not timidity.",102,17,119,1,1,1,0.0,1,,
+llama3:latest,LMA07_C6,LMA07,A,C6,"(zh,en,es)",reading_comprehension,hard,zh,en,es,"La columna finalmente evalúa a la traductora como fiel, no tímida. (The column ultimately evaluates the translator as faithful, not timid.)",99,33,132,1,0,0,0.1905,0,,
+llama3:latest,LMA07_C7,LMA07,A,C7,"(es,en,zh)",reading_comprehension,hard,es,en,zh,"(wèi zhì zǒng shì jiàn yì, bù shì píng guò)",102,27,129,0,0,1,1.0,0,,
+llama3:latest,LMA08_C1,LMA08,A,C1,"(en,en,en)",reading_comprehension,hard,en,en,en,"No, because it explains that the delay was due to a justified refusal to approve a flawed version, rather than cowardice or other negative motivations.",100,30,130,1,1,1,0.04,1,,
+llama3:latest,LMA08_C2,LMA08,A,C2,"(en,en,zh)",reading_comprehension,hard,en,en,zh,"(no) 
+
+Reason: The passage actually shows that the committee's hesitation is not due to cowardice, but rather a desire to ensure quality and avoid mistakes.",100,33,133,1,0,0,1.0,0,,
+llama3:latest,LMA08_C3,LMA08,A,C3,"(en,en,es)",reading_comprehension,hard,en,en,es,"No, porque el artículo muestra que la demora fue causada por una razón justificable (la versión del proyecto era defectuosa).",100,31,131,0,1,1,0.0,0,,
+llama3:latest,LMA08_C4,LMA08,A,C4,"(zh,en,en)",reading_comprehension,hard,zh,en,en,"No, the article is not condemning the committee's hesitation in the end, but rather explaining that it was due to their unwillingness to rush into a flawed decision.",99,34,133,1,1,1,0.0357,1,,
+llama3:latest,LMA08_C5,LMA08,A,C5,"(es,en,en)",reading_comprehension,hard,es,en,en,"No, because the article actually shows that the committee's delay was justified due to the flawed version being considered, and it even praises their hesitation as a sign of not prioritizing speed over judgment.",110,40,150,1,1,1,0.0294,1,,
+llama3:latest,LMA08_C6,LMA08,A,C6,"(zh,en,es)",reading_comprehension,hard,zh,en,es,"No, el artículo no está condenando al comité por demorar la reforma en el final.",102,24,126,1,1,1,0.0,1,,
+llama3:latest,LMA08_C7,LMA08,A,C7,"(es,en,zh)",reading_comprehension,hard,es,en,zh,"No (, yī gè yuán yīn shì wèi tāmen bù xǐ huān chēng fàng de zhōng guò, ér qí hòu jiàn pèng jiào le tāmen de yǒu xiàn bù xū fù de biǎo dàng, bù shì wèi tāmen de hěn huài le).",110,95,205,0,0,0,1.0,0,,
+llama3:latest,LMB01_C1,LMB01,B,C1,"(en,en,en)",extraction,medium,en,en,en,Friday at 4 PM,99,6,105,1,1,1,0.0,1,,
+llama3:latest,LMB01_C2,LMB01,B,C2,"(en,en,zh)",extraction,medium,en,en,zh,星期五下午4点,99,7,106,1,1,1,0.0,1,,
+llama3:latest,LMB01_C3,LMB01,B,C3,"(en,en,es)",extraction,medium,en,en,es,El plazo final es el viernes a las 4 PM.,99,15,114,1,1,1,0.0,1,,
+llama3:latest,LMB01_C4,LMB01,B,C4,"(zh,en,en)",extraction,medium,zh,en,en,The final deadline is Friday at 4 PM.,101,11,112,1,1,0,0.0,0,,
+llama3:latest,LMB01_C5,LMB01,B,C5,"(es,en,en)",extraction,medium,es,en,en,Friday at 4 PM.,107,7,114,1,1,1,0.0,1,,
+llama3:latest,LMB01_C6,LMB01,B,C6,"(zh,en,es)",extraction,medium,zh,en,es,La fecha límite final es el viernes a las 4 pm.,104,16,120,1,1,1,0.0,1,,
+llama3:latest,LMB01_C7,LMB01,B,C7,"(es,en,zh)",extraction,medium,es,en,zh,星期五下午四点,107,7,114,1,1,1,0.0,1,,
+llama3:latest,LMB02_C1,LMB02,B,C1,"(en,en,en)",extraction,hard,en,en,en,The revised proposal together with the budget form.,105,10,115,1,1,1,0.0,1,,
+llama3:latest,LMB02_C2,LMB02,B,C2,"(en,en,zh)",extraction,hard,en,en,zh,提交的文件是：修订的提案和预算表格。,105,18,123,1,1,1,0.0,1,,
+llama3:latest,LMB02_C3,LMB02,B,C3,"(en,en,es)",extraction,hard,en,en,es,El borrador de propuesta y el formulario de presupuesto.,105,14,119,0,1,1,0.0,0,,
+llama3:latest,LMB02_C4,LMB02,B,C4,"(zh,en,en)",extraction,hard,zh,en,en,The final submission required is the revised proposal together with the budget form.,106,15,121,1,1,1,0.0,1,,
+llama3:latest,LMB02_C5,LMB02,B,C5,"(es,en,en)",extraction,hard,es,en,en,The revised proposal together with the budget form by Friday.,111,12,123,1,1,1,0.0,1,,
+llama3:latest,LMB02_C6,LMB02,B,C6,"(zh,en,es)",extraction,hard,zh,en,es,El archivo que debe ser presentado al sistema el viernes es la propuesta revisada junto con el formulario de presupuesto.,109,27,136,1,1,1,0.0,1,,
+llama3:latest,LMB02_C7,LMB02,B,C7,"(es,en,zh)",extraction,hard,es,en,zh,最后需要提交的文件是修订提案和预算表单。,111,17,128,1,1,1,0.0,1,,
+llama3:latest,LMB03_C1,LMB03,B,C1,"(en,en,en)",extraction,hard,en,en,en,Professor Rivera,95,3,98,1,1,1,0.0,1,,
+llama3:latest,LMB03_C2,LMB03,B,C2,"(en,en,zh)",extraction,hard,en,en,zh,Professor Rivera,95,3,98,1,0,1,1.0,0,,
+llama3:latest,LMB03_C3,LMB03,B,C3,"(en,en,es)",extraction,hard,en,en,es,Se debe contactar con el profesor Rivera.,95,11,106,1,1,1,0.0,1,,
+llama3:latest,LMB03_C4,LMB03,B,C4,"(zh,en,en)",extraction,hard,zh,en,en,Professor Rivera,96,3,99,1,1,1,0.0,1,,
+llama3:latest,LMB03_C5,LMB03,B,C5,"(es,en,en)",extraction,hard,es,en,en,Professor Rivera,103,3,106,1,1,1,0.0,1,,
+llama3:latest,LMB03_C6,LMB03,B,C6,"(zh,en,es)",extraction,hard,zh,en,es,Professor Rivera,99,3,102,1,0,1,0.5,0,,
+llama3:latest,LMB03_C7,LMB03,B,C7,"(es,en,zh)",extraction,hard,es,en,zh,联系 Rivera 教授。,103,6,109,1,1,1,0.0,1,,
+llama3:latest,LMB04_C1,LMB04,B,C1,"(en,en,en)",extraction,hard,en,en,en,Wednesday's writing workshop was canceled.,76,8,84,0,1,1,0.0,0,,
+llama3:latest,LMB04_C2,LMB04,B,C2,"(en,en,zh)",extraction,hard,en,en,zh,星期三的写作工作坊被取消。,76,11,87,0,1,1,0.0,0,,
+llama3:latest,LMB04_C3,LMB04,B,C3,"(en,en,es)",extraction,hard,en,en,es,La escritura de taller de miércoles fue cancelada.,76,14,90,0,1,1,0.0,0,,
+llama3:latest,LMB04_C4,LMB04,B,C4,"(zh,en,en)",extraction,hard,zh,en,en,Wednesday's writing workshop was canceled.,79,8,87,0,1,1,0.0,0,,
+llama3:latest,LMB04_C5,LMB04,B,C5,"(es,en,en)",extraction,hard,es,en,en,Wednesday's writing workshop was canceled.,82,8,90,0,1,1,0.0,0,,
+llama3:latest,LMB04_C6,LMB04,B,C6,"(zh,en,es)",extraction,hard,zh,en,es,El taller de escritura del miércoles fue cancelado.,82,14,96,0,1,1,0.0,0,,
+llama3:latest,LMB04_C7,LMB04,B,C7,"(es,en,zh)",extraction,hard,es,en,zh,Wednesday's writing workshop.,82,6,88,1,0,1,1.0,0,,
+llama3:latest,LMB05_C1,LMB05,B,C1,"(en,en,en)",extraction,hard,en,en,en,Room 327,93,4,97,1,1,1,0.0,1,,
+llama3:latest,LMB05_C2,LMB05,B,C2,"(en,en,zh)",extraction,hard,en,en,zh,327,93,2,95,1,1,1,0.0,1,,
+llama3:latest,LMB05_C3,LMB05,B,C3,"(en,en,es)",extraction,hard,en,en,es,La habitación número final para el seminario es la 327.,93,16,109,1,1,1,0.0,1,,
+llama3:latest,LMB05_C4,LMB05,B,C4,"(zh,en,en)",extraction,hard,zh,en,en,The final room number is Room 327.,90,10,100,1,1,0,0.0,0,,
+llama3:latest,LMB05_C5,LMB05,B,C5,"(es,en,en)",extraction,hard,es,en,en,Room 327.,103,5,108,1,1,1,0.0,1,,
+llama3:latest,LMB05_C6,LMB05,B,C6,"(zh,en,es)",extraction,hard,zh,en,es,La habitación final es el número 327.,93,11,104,1,1,1,0.0,1,,
+llama3:latest,LMB05_C7,LMB05,B,C7,"(es,en,zh)",extraction,hard,es,en,zh,327,103,2,105,1,1,1,0.0,1,,
+llama3:latest,LMB06_C1,LMB06,B,C1,"(en,en,en)",extraction,hard,en,en,en,The final report and the ethics form.,91,9,100,1,1,1,0.0,1,,
+llama3:latest,LMB06_C2,LMB06,B,C2,"(en,en,zh)",extraction,hard,en,en,zh,最後仍然有效的要求是：提交最終報告和道德表格。,91,18,109,1,1,1,0.0,1,,
+llama3:latest,LMB06_C3,LMB06,B,C3,"(en,en,es)",extraction,hard,en,en,es,La finalidad que sigue siendo válida es la presentación del informe final y el formulario de ética.,91,24,115,1,1,1,0.0,1,,
+llama3:latest,LMB06_C4,LMB06,B,C4,"(zh,en,en)",extraction,hard,zh,en,en,The requirements that are still valid are: submitting a final report and an ethics form.,94,18,112,1,1,0,0.0,0,,
+llama3:latest,LMB06_C5,LMB06,B,C5,"(es,en,en)",extraction,hard,es,en,en,The final report and the ethics form.,97,9,106,1,1,1,0.0,1,,
+llama3:latest,LMB06_C6,LMB06,B,C6,"(zh,en,es)",extraction,hard,zh,en,es,Los requisitos que aún deben ser presentados son el informe final y la forma de ética.,97,22,119,1,1,1,0.0,1,,
+llama3:latest,LMB06_C7,LMB06,B,C7,"(es,en,zh)",extraction,hard,es,en,zh,还需要提交的报告和道德形式。,97,11,108,0,1,1,0.0,0,,
+llama3:latest,LMB07_C1,LMB07,B,C1,"(en,en,en)",extraction,hard,en,en,en,"Thursday, Hall 3.",102,7,109,1,1,1,0.0,1,,
+llama3:latest,LMB07_C2,LMB07,B,C2,"(en,en,zh)",extraction,hard,en,en,zh,"Thursday, Hall 3.",102,7,109,1,0,1,1.0,0,,
+llama3:latest,LMB07_C3,LMB07,B,C3,"(en,en,es)",extraction,hard,en,en,es,El panel de estudiantes tendrá lugar el jueves en el salón 3.,102,18,120,1,1,1,0.0,1,,
+llama3:latest,LMB07_C4,LMB07,B,C4,"(zh,en,en)",extraction,hard,zh,en,en,The student panel will be held on Thursday in Hall 3.,105,14,119,1,1,1,0.0,1,,
+llama3:latest,LMB07_C5,LMB07,B,C5,"(es,en,en)",extraction,hard,es,en,en,The student panel will finally take place on Thursday in Hall 3.,113,15,128,1,1,1,0.0,1,,
+llama3:latest,LMB07_C6,LMB07,B,C6,"(zh,en,es)",extraction,hard,zh,en,es,El estudiante panel finalmente se llevará a cabo el jueves en la sala 3.,108,21,129,1,1,1,0.0,1,,
+llama3:latest,LMB07_C7,LMB07,B,C7,"(es,en,zh)",extraction,hard,es,en,zh,"Thursday, Hall 3.",113,7,120,1,0,1,1.0,0,,
+llama3:latest,LMB08_C1,LMB08,B,C1,"(en,en,en)",extraction,hard,en,en,en,Revised chapter and the response memo.,91,9,100,1,1,1,0.0,1,,
+llama3:latest,LMB08_C2,LMB08,B,C2,"(en,en,zh)",extraction,hard,en,en,zh,需要上传的只有修订章节和回应备忘录。,91,16,107,1,1,1,0.0,1,,
+llama3:latest,LMB08_C3,LMB08,B,C3,"(en,en,es)",extraction,hard,en,en,es,Sólo los capítulos revisados y el memorando de respuesta.,91,17,108,0,1,1,0.0,0,,
+llama3:latest,LMB08_C4,LMB08,B,C4,"(zh,en,en)",extraction,hard,zh,en,en,The final answer is: Only the revised chapter and the response memo need to be uploaded.,92,19,111,1,1,0,0.0,0,,
+llama3:latest,LMB08_C5,LMB08,B,C5,"(es,en,en)",extraction,hard,es,en,en,The revised chapter and the response memo.,97,9,106,1,1,1,0.0,1,,
+llama3:latest,LMB08_C6,LMB08,B,C6,"(zh,en,es)",extraction,hard,zh,en,es,Solo necesitan subir el capítulo revisado y la respuesta de memoria hasta la fecha límite.,95,22,117,1,1,1,0.0,1,,
+llama3:latest,LMB08_C7,LMB08,B,C7,"(es,en,zh)",extraction,hard,es,en,zh,最后只需要上传修订的章节和回应备忘录。,97,17,114,1,1,1,0.0,1,,
+llama3:latest,LMD01_C1,LMD01,D,C1,"(en,en,en)",summary_mixed_language,hard,en,en,en,The DataBridge workshop has been relocated from Room 401 to Room 327 and remains unchanged in terms of its schedule or content.,87,27,114,1,1,1,0.0,1,,
+llama3:latest,LMD01_C2,LMD01,D,C2,"(en,en,zh)",summary_mixed_language,hard,en,en,zh,資料橋工作坊將從401房間搬移到327房間，註冊於CampusConnect的學生請帶身份證卡。,91,32,123,0,1,1,0.0,0,,
+llama3:latest,LMD01_C3,LMD01,D,C3,"(en,en,es)",summary_mixed_language,hard,en,en,es,El taller de DataBridge se reubicará desde la habitación 401 a la habitación 327 el próximo jueves y los estudiantes que se inscribieron a través de CampusConnect deben traer sus tarjetas de identificación.,91,51,142,0,1,1,0.0,0,,
+llama3:latest,LMD01_C4,LMD01,D,C4,"(zh,en,en)",summary_mixed_language,hard,zh,en,en,"Here is a one-sentence summary of the notification:
+
+The DataBridge workshop will be held in a new location, Room 327, next Thursday.",98,31,129,1,1,1,0.0,1,,
+llama3:latest,LMD01_C5,LMD01,D,C5,"(es,en,en)",summary_mixed_language,hard,es,en,en,The DataBridge workshop has been relocated from Room 401 to Room 327 and will take place as scheduled.,101,23,124,1,1,1,0.0,1,,
+llama3:latest,LMD01_C6,LMD01,D,C6,"(zh,en,es)",summary_mixed_language,hard,zh,en,es,"El taller de DataBridge se reubicará a la sala 327 el próximo jueves.
+
+(Note: I translated ""workshop"" as ""taller"", and ""next Thursday"" as ""el próximo jueves"", to keep the message concise and in Spanish.)",101,54,155,1,0,0,0.2059,0,,
+llama3:latest,LMD01_C7,LMD01,D,C7,"(es,en,zh)",summary_mixed_language,hard,es,en,zh,La DataBridge workshop se mudará a la habitación 327 el próximo jueves.,101,19,120,1,0,1,1.0,0,,
+llama3:latest,LMD02_C1,LMD02,D,C1,"(en,en,en)",summary_mixed_language,hard,en,en,en,The CampusLink seminar previously set for Tuesday has been rescheduled to an online format and will now take place one hour later than initially planned.,86,29,115,1,1,1,0.0,1,,
+llama3:latest,LMD02_C2,LMD02,D,C2,"(en,en,zh)",summary_mixed_language,hard,en,en,zh,「-campuslink-」 seminars 的星期二活动将改为网络会议，地点变为原来的 Room 214，而不是取消，参加者仍需使用相同的注册代码。,90,39,129,0,0,1,0.25,0,,
+llama3:latest,LMD02_C3,LMD02,D,C3,"(en,en,es)",summary_mixed_language,hard,en,en,es,"El seminario de CampusLink programado para el martes se llevará a cabo en línea en lugar de en la Sala 214, manteniendo el mismo código de registro y no siendo cancelado, sino simplemente retrasado una hora.",90,53,143,1,1,1,0.0,1,,
+llama3:latest,LMD02_C4,LMD02,D,C4,"(zh,en,en)",summary_mixed_language,hard,zh,en,en,"Here is a summary sentence:
+
+The CampusLink seminar previously set for Tuesday has been rescheduled to an online format with no change in registration code.",97,30,127,0,1,1,0.04,0,,
+llama3:latest,LMD02_C5,LMD02,D,C5,"(es,en,en)",summary_mixed_language,hard,es,en,en,"Here is a summary of the update in a single sentence:
+
+The CampusLink seminar previously scheduled for Tuesday has been moved online and rescheduled to start an hour later.",100,34,134,1,1,1,0.0,1,,
+llama3:latest,LMD02_C6,LMD02,D,C6,"(zh,en,es)",summary_mixed_language,hard,zh,en,es,"El seminario de CampusLink previsto para el martes se realizará en línea en lugar de en la sala 214.
+
+(Note: I translated ""CampusLink"" as is, since it's a specific term that doesn't have an equivalent in Spanish. If you'd like me to suggest a translation, I can do so!)",100,70,170,1,0,0,0.1429,0,,
+llama3:latest,LMD02_C7,LMD02,D,C7,"(es,en,zh)",summary_mixed_language,hard,es,en,zh,El seminario de CampusLink originalmente programado para el martes se celebrará en línea en lugar de en la habitación 214.,100,31,131,0,0,1,1.0,0,,
+llama3:latest,LMD03_C1,LMD03,D,C1,"(en,en,en)",summary_mixed_language,hard,en,en,en,"The GreenLab meeting has been rescheduled from April 6 to April 8, but will still take place in Room 305 with the same sign-up process through EventPortal.",89,37,126,1,1,1,0.0,1,,
+llama3:latest,LMD03_C2,LMD03,D,C2,"(en,en,zh)",summary_mixed_language,hard,en,en,zh,綠實驗室會議將於四月八日舉行，而不是四月六日，仍在305房間舉行，並且註冊仍然在EventPortal中。,93,42,135,1,1,1,0.0,1,,
+llama3:latest,LMD03_C3,LMD03,D,C3,"(en,en,es)",summary_mixed_language,hard,en,en,es,"El encuentro del GreenLab se llevará a cabo el 8 de abril en lugar del 6, manteniendo la sala 305 y el registro en EventPortal, sin embargo no fue cancelado sino reprogramado.",93,48,141,1,1,1,0.0,1,,
+llama3:latest,LMD03_C4,LMD03,D,C4,"(zh,en,en)",summary_mixed_language,hard,zh,en,en,"Here is a one-sentence summary of the notification:
+
+The GreenLab meeting has been rescheduled from April 6 to April 8, with no changes to location or registration process.",100,38,138,1,1,1,0.0345,1,,
+llama3:latest,LMD03_C5,LMD03,D,C5,"(es,en,en)",summary_mixed_language,hard,es,en,en,"Here is a one-sentence summary of the notification:
+
+The GreenLab meeting has been rescheduled from April 6 to April 8 and will still take place in Room 305.",103,38,141,1,1,1,0.0,1,,
+llama3:latest,LMD03_C6,LMD03,D,C6,"(zh,en,es)",summary_mixed_language,hard,zh,en,es,"La reunión de GreenLab se realizará el 8 de abril en lugar del 6 de abril.
+
+(Note: I only kept the essential information and did not translate any specific terms or add unnecessary details.)",103,43,146,1,0,0,0.1176,0,,
+llama3:latest,LMD03_C7,LMD03,D,C7,"(es,en,zh)",summary_mixed_language,hard,es,en,zh,La reunión de GreenLab se llevará a cabo el 8 de abril en lugar del 6 de abril.,103,25,128,1,0,1,1.0,0,,
+llama3:latest,LMD04_C1,LMD04,D,C1,"(en,en,en)",summary_mixed_language,hard,en,en,en,"The MediaHub panel has been relocated from Building C to Building A, Room 118, while keeping its original scheduled time.",84,26,110,1,1,1,0.0,1,,
+llama3:latest,LMD04_C2,LMD04,D,C2,"(en,en,zh)",summary_mixed_language,hard,en,en,zh,媒體中心面板將不再於C棟舉行，改為A棟118室，時間仍如原定計畫。,88,32,120,1,1,1,0.0,1,,
+llama3:latest,LMD04_C3,LMD04,D,C3,"(en,en,es)",summary_mixed_language,hard,en,en,es,"El panel de MediaHub ya no se celebrará en el edificio C, sino que ha sido reasignado al edificio A, sala 118, a la misma hora prevista y sigue siendo un evento activo.",88,48,136,1,1,1,0.0,1,,
+llama3:latest,LMD04_C4,LMD04,D,C4,"(zh,en,en)",summary_mixed_language,hard,zh,en,en,"Here is a one-sentence summary of the announcement:
+
+The MediaHub panel has been relocated from Building C to Building A, Room 118, without any changes to its original schedule.",95,38,133,1,1,1,0.0,1,,
+llama3:latest,LMD04_C5,LMD04,D,C5,"(es,en,en)",summary_mixed_language,hard,es,en,en,"The MediaHub panel has been relocated from Building C to Building A, Room 118, without any changes to its original schedule.",98,27,125,1,1,1,0.0,1,,
+llama3:latest,LMD04_C6,LMD04,D,C6,"(zh,en,es)",summary_mixed_language,hard,zh,en,es,"El panel de MediaHub ya no se celebrará en Edificio C, sino que se trasladó a Edificio A, Sala 118, con el mismo horario previsto originalmente.",98,41,139,1,1,1,0.0,1,,
+llama3:latest,LMD04_C7,LMD04,D,C7,"(es,en,zh)",summary_mixed_language,hard,es,en,zh,媒体中心面板将不再在C楼举行，改为A楼118室。,98,21,119,1,1,1,0.0,1,,
+llama3:latest,LMD05_C1,LMD05,D,C1,"(en,en,en)",summary_mixed_language,hard,en,en,en,"The OpenPath session has been rescheduled to start at 3:30 PM, with no changes to its location or registration requirements.",84,28,112,1,1,1,0.0476,1,,
+llama3:latest,LMD05_C2,LMD05,D,C2,"(en,en,zh)",summary_mixed_language,hard,en,en,zh,OpenPath會话现在将于3點30分开始，而不是2點30分，仍然在大厅2举行，需要通过LinkDesk进行注册，但并没有取消。,88,40,128,1,1,1,0.0,1,,
+llama3:latest,LMD05_C3,LMD05,D,C3,"(en,en,es)",summary_mixed_language,hard,en,en,es,"El cambio de hora para la sesión de OpenPath es ahora a las 3:30 en lugar de 2:30, pero sigue requiriendo registro a través de LinkDesk y no ha sido cancelado.",88,45,133,1,1,1,0.0,1,,
+llama3:latest,LMD05_C4,LMD05,D,C4,"(zh,en,en)",summary_mixed_language,hard,zh,en,en,"Here is a one-sentence summary:
+
+The OpenPath session has been rescheduled to start at 3:30 PM, with no changes to the location or registration requirements.",95,36,131,1,1,1,0.037,1,,
+llama3:latest,LMD05_C5,LMD05,D,C5,"(es,en,en)",summary_mixed_language,hard,es,en,en,"Here is a one-sentence summary:
+
+The OpenPath session has been rescheduled to start at 3:30 PM, with no changes to the location or registration requirements.",98,36,134,1,1,1,0.037,1,,
+llama3:latest,LMD05_C6,LMD05,D,C6,"(zh,en,es)",summary_mixed_language,hard,zh,en,es,La sesión de OpenPath se reprogramó para las 15:30 en lugar de las 14:30 y sigue requiriendo registro a través de LinkDesk.,98,36,134,0,1,1,0.0,0,,
+llama3:latest,LMD05_C7,LMD05,D,C7,"(es,en,zh)",summary_mixed_language,hard,es,en,zh,La sesión de OpenPath ahora comienza a las 3:30 en lugar de 2:30.,98,23,121,1,0,1,1.0,0,,
+llama3:latest,LMD06_C1,LMD06,D,C1,"(en,en,en)",summary_mixed_language,hard,en,en,en,"The update notes that the RiverNet forum has been relocated from Room 520 to an online platform and its start time was simply delayed by thirty minutes, not canceled.",83,34,117,1,1,1,0.0,1,,
+llama3:latest,LMD06_C2,LMD06,D,C2,"(en,en,zh)",summary_mixed_language,hard,en,en,zh,河网論壇將於線上主機而不是Room 520舉辦，參加者仍應使用EventGrid中的相同代碼，並且論壇並未取消，而是延遲了30分鐘。,87,50,137,1,0,1,0.25,0,,
+llama3:latest,LMD06_C3,LMD06,D,C3,"(en,en,es)",summary_mixed_language,hard,en,en,es,"El actualizado anuncia que el foro de RiverNet ya no se celebrará en la habitación 520, sino que será alojado en línea y, a pesar del retraso de treinta minutos, no estuvo cancelado y los asistentes deben seguir utilizando el mismo código en EventGrid.",87,67,154,1,1,1,0.0,1,,
+llama3:latest,LMD06_C4,LMD06,D,C4,"(zh,en,en)",summary_mixed_language,hard,zh,en,en,"Here is a one-sentence summary of the notification:
+
+The RiverNet forum has been moved online from Room 520 and its schedule has been adjusted by 30 minutes, but it has not been cancelled.",94,42,136,1,1,1,0.0,1,,
+llama3:latest,LMD06_C5,LMD06,D,C5,"(es,en,en)",summary_mixed_language,hard,es,en,en,"Here is a one-sentence summary:
+
+The RiverNet forum has been updated to be held online instead of in Room 520, with no cancellation and attendees should still use the same code in EventGrid.",97,42,139,1,1,1,0.0294,1,,
+llama3:latest,LMD06_C6,LMD06,D,C6,"(zh,en,es)",summary_mixed_language,hard,zh,en,es,"La actualización indica que el foro de RiverNet se realizará en línea y no en la Sala 520.
+
+(Note: I've kept only the essential information and avoided using English words or adding unnecessary details. The only exception is the specific room number, which is a proper noun.)",97,59,156,1,0,0,0.1702,0,,
+llama3:latest,LMD06_C7,LMD06,D,C7,"(es,en,zh)",summary_mixed_language,hard,es,en,zh,La actualización indica que el foro de RiverNet se realizará en línea en lugar de en la Sala 520.,97,26,123,1,0,1,1.0,0,,
+llama3:latest,LMD07_C1,LMD07,D,C1,"(en,en,en)",summary_mixed_language,hard,en,en,en,"The CityArchive briefing has been rescheduled from September 10 to September 12, remaining in Room 208 with ticket management through PassGrid.",84,30,114,1,1,1,0.0,1,,
+llama3:latest,LMD07_C2,LMD07,D,C2,"(en,en,zh)",summary_mixed_language,hard,en,en,zh,九月十二日的CityArchive简报将在原定的房间208举行，通过PassGrid管理门票，不是取消，而是重新安排。,88,33,121,1,1,1,0.0,1,,
+llama3:latest,LMD07_C3,LMD07,D,C3,"(en,en,es)",summary_mixed_language,hard,en,en,es,"La reunión de CityArchive se llevará a cabo el 12 de septiembre en lugar del 10, manteniendo la sala 208 y los boletos gestionados por PassGrid, sin embargo no ha sido cancelada sino rescheduleada.",88,54,142,1,1,1,0.0,1,,
+llama3:latest,LMD07_C4,LMD07,D,C4,"(zh,en,en)",summary_mixed_language,hard,zh,en,en,"Here is a one-sentence summary:
+
+The CityArchive briefing has been rescheduled from September 10 to September 12.",95,26,121,1,1,1,0.0,1,,
+llama3:latest,LMD07_C5,LMD07,D,C5,"(es,en,en)",summary_mixed_language,hard,es,en,en,The CityArchive briefing has been rescheduled from September 10 to September 12.,98,18,116,1,1,1,0.0,1,,
+llama3:latest,LMD07_C6,LMD07,D,C6,"(zh,en,es)",summary_mixed_language,hard,zh,en,es,"La reunión de CityArchive se reprogramó para el 12 de septiembre en lugar del 10, pero sigue siendo en la sala 208 y los boletos se manejan a través de PassGrid.",98,46,144,1,1,1,0.0,1,,
+llama3:latest,LMD07_C7,LMD07,D,C7,"(es,en,zh)",summary_mixed_language,hard,es,en,zh,La reunión de CityArchive se llevará a cabo el 12 de septiembre en lugar del 10.,98,24,122,1,0,1,1.0,0,,
+llama3:latest,LMD08_C1,LMD08,D,C1,"(en,en,en)",summary_mixed_language,hard,en,en,en,"The NorthLab roundtable has been relocated to Building D, Room 410 from its original location in Building B, with no change to the start time or registration process.",89,35,124,1,1,1,0.0357,1,,
+llama3:latest,LMD08_C2,LMD08,D,C2,"(en,en,zh)",summary_mixed_language,hard,en,en,zh,北方實驗室圆桌会议将于D楼410房间举行，而不是B楼，时间仍然是11:00，注册仍然开放于MeetDesk。,93,38,131,1,1,1,0.0,1,,
+llama3:latest,LMD08_C3,LMD08,D,C3,"(en,en,es)",summary_mixed_language,hard,en,en,es,"El NorthLab roundtable tendrá lugar en el edificio D, sala 410 en lugar del edificio B, pero sigue siendo el mismo evento con la misma hora de inicio a las 11:00 y registro abierto hasta MeetDesk.",93,51,144,1,1,1,0.0,1,,
+llama3:latest,LMD08_C4,LMD08,D,C4,"(zh,en,en)",summary_mixed_language,hard,zh,en,en,"Here is a one-sentence summary of the notification:
+
+The NorthLab roundtable has been relocated to Building D, Room 410, but its start time and registration remain unchanged.",100,37,137,1,1,1,0.0,1,,
+llama3:latest,LMD08_C5,LMD08,D,C5,"(es,en,en)",summary_mixed_language,hard,es,en,en,"The NorthLab roundtable has been relocated to Building D, Room 410 from its original location in Building B.",103,24,127,1,1,1,0.0,1,,
+llama3:latest,LMD08_C6,LMD08,D,C6,"(zh,en,es)",summary_mixed_language,hard,zh,en,es,"El NorthLab roundtable se celebrará en el edificio D, sala 410 en lugar del edificio B.",103,25,128,1,1,1,0.0,1,,
+llama3:latest,LMD08_C7,LMD08,D,C7,"(es,en,zh)",summary_mixed_language,hard,es,en,zh,"La reunión de mesa redonda NorthLab se celebrará en Edificio D, Sala 410 en lugar de Edificio B.",103,28,131,1,0,1,1.0,0,,
