@@ -1,14 +1,15 @@
 model,item_id,output_text,input_tokens,output_tokens,total_tokens,TaskCorrect,LangCorrect,CodeSwitch,JointSuccess,evaluator_notes
-deepseek/deepseek-v3.2,LS001A,"No, because the author ultimately criticizes the professor's methods as fear-based rather than genuinely authoritative.",90,21,111,,,,,
-deepseek/deepseek-v3.2,LS001B,"No, porque el autor revela que la autoridad del profesor en realidad se basaba en el miedo.",84,24,108,,,,,
-deepseek/deepseek-v3.2,LS001C,"No.  
-El autor critica al profesor porque confunde intimidación con rigor y temor con autoridad.",89,24,113,,,,,
-deepseek/deepseek-v3.2,LS002A,Friday at 4 PM,93,5,98,,,,,
-deepseek/deepseek-v3.2,LS002B,Viernes a las 4 PM.,93,9,102,,,,,
-deepseek/deepseek-v3.2,LS002C,Viernes a las 4 PM.,92,9,101,,,,,
-deepseek/deepseek-v3.2,LS003A,The report contends that managers hindered innovation by using any uncertainty as an excuse for inaction rather than due to an inability to change.,58,27,85,,,,,
-deepseek/deepseek-v3.2,LS003B,"El informe sostiene que los directivos frenaron la innovación al tomar cualquier incertidumbre como pretexto para posponer decisiones, no por una imposibilidad real de cambiar.",61,39,100,,,,,
-deepseek/deepseek-v3.2,LS003C,"El informe sostiene que los directivos frenaron la innovación no por imposibilidad de cambio, sino porque convertían cada incertidumbre en un pretexto para postergar decisiones.",55,40,95,,,,,
-deepseek/deepseek-v3.2,LS004A,"The DataBridge workshop is moving from Room 401 to Room 327 next Thursday, requiring registered students to bring their ID cards, and it is not canceled, only relocated.",88,36,124,,,,,
-deepseek/deepseek-v3.2,LS004B,"El taller DataBridge se trasladará del aula 401 al 327 el próximo jueves, los inscritos por CampusConnect deben llevar su carné de identidad, y se aclara que el evento no se canceló, solo se reubicó.",84,55,139,,,,,
-deepseek/deepseek-v3.2,LS004C,"El taller DataBridge se trasladará a la sala 327 el próximo jueves y los inscritos deben llevar su carné de identidad, sin cancelarse el evento.",85,37,122,,,,,
+claude-sonnet-4-6,LS001A,"**No.** Although the essay opens with apparent praise, the author ultimately criticizes the professor, revealing that his seeming authority was based on fear and intimidation rather than genuine rigor or respect.",94,44,138,,,,,
+claude-sonnet-4-6,LS001B,"**No.** Aunque al principio parece elogiar al profesor, el autor finalmente revela que su aparente autoridad era en realidad miedo disfrazado, lo cual indica una crítica, no una aprobación.",94,56,150,,,,,
+claude-sonnet-4-6,LS001C,"**No.**
+
+Aunque al principio el ensayo parece elogiar al profesor, el autor finalmente revela que su aparente autoridad no era rigor verdadero, sino miedo disfrazado, lo que indica una crítica encubierta, no una aprobación genuina.",121,70,191,,,,,
+claude-sonnet-4-6,LS002A,Friday at 4 PM,101,9,110,,,,,
+claude-sonnet-4-6,LS002B,Viernes a las 4 PM.,101,13,114,,,,,
+claude-sonnet-4-6,LS002C,El viernes a las 4 PM.,122,13,135,,,,,
+claude-sonnet-4-6,LS003A,"According to the report, leadership stifled progress by using unanswered questions as an excuse to postpone decisions rather than moving forward despite them.",71,34,105,,,,,
+claude-sonnet-4-6,LS003B,"El informe sostiene que los gerentes frenaron la innovación no por falta de capacidad para cambiar, sino porque usaban cualquier incertidumbre como pretexto para postergar decisiones.",75,50,125,,,,,
+claude-sonnet-4-6,LS003C,"Los directivos frenaron la innovación no por imposibilidad, sino por convertir cada incertidumbre en excusa para postergar decisiones.",80,37,117,,,,,
+claude-sonnet-4-6,LS004A,"The DataBridge workshop has been relocated from Room 401 to Room 327 next Thursday, and registered students must bring their ID cards, as the event is still taking place.",96,41,137,,,,,
+claude-sonnet-4-6,LS004B,"El taller DataBridge se trasladará de la Sala 401 a la Sala 327 el próximo jueves, y los estudiantes registrados a través de CampusConnect deben traer sus tarjetas de identificación, ya que el taller no fue cancelado, solo reubicado.",98,74,172,,,,,
+claude-sonnet-4-6,LS004C,"El taller DataBridge del próximo jueves se traslada de la sala 401 a la sala 327, y los estudiantes registrados en CampusConnect deben traer su tarjeta de identificación.",109,53,162,,,,,

@@ -151,7 +151,7 @@ Use the 12-item smoke test before the full benchmark.
 python scripts/run_models.py \
   --items data/smoke_test.csv \
   --model claude-haiku-4-5-20251001 \
-  --out outputs/smoke_test_result.csv \
+  --out outputs/claude_haiku_smoke_test_result.csv \
   --no-dry-run
 ```
 
@@ -160,7 +160,7 @@ python scripts/run_models.py \
 python scripts/run_models_gemini.py \
   --items data/smoke_test.csv \
   --model gemini-2.5-flash \
-  --out outputs/smoke_test_result.csv \
+  --out outputs/gemini_flash_smoke_test_result.csv \
   --no-dry-run
 ```
 
@@ -169,7 +169,7 @@ python scripts/run_models_gemini.py \
 python scripts/run_models_deepseek.py \
   --items data/smoke_test.csv \
   --model deepseek/deepseek-chat-v3-0324 \
-  --out outputs/smoke_test_result.csv \
+  --out outputs/deepseek_v3_2_smoke_test_result.csv \
   --no-dry-run
 ```
 
@@ -249,7 +249,10 @@ outputs/gemini_flash_lan_main.csv
 For smoke test outputs:
 
 ```text
-outputs/smoke_test_result.csv
+outputs/smoke_test_result.csv              # reference output example
+outputs/claude_haiku_smoke_test_result.csv
+outputs/gemini_flash_smoke_test_result.csv
+outputs/deepseek_v3_2_smoke_test_result.csv
 ```
 
 ---
