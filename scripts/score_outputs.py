@@ -32,15 +32,28 @@ EN_MONTHS = {
 }
 
 PROPER_NAME_ALLOWLIST = {
+    # System / platform names — always allowed in any language
     "databridge", "campusconnect", "campuslink", "eventportal", "eventgrid",
     "openpath", "mediahub", "greenlab", "rivernet", "linkdesk",
-    "rivera", "chen", "professor", "room", "hall", "building",
-    "q", "a",
+    "cityarchive", "passgrid", "northlab", "meetdesk",
+    # Person names
+    "rivera", "chen",
+    # Time suffixes: internationally understood (e.g. "4 PM" in a Chinese sentence)
+    "am", "pm",
 }
 
-EN_CONTAMINATION_TOKENS = {
-    "am", "pm", "room", "building", "hall", "deadline", "report", "proposal",
-    "budget", "form", "teacher", "summary",
+# ---------------------------------------------------------------------------
+# Tokens that ARE English contamination when appearing in es/zh output.
+# Principle 3: venue words (room/hall/building), month names, and common
+# English structural words must be localized — they are NOT proper names.
+# ---------------------------------------------------------------------------
+EN_STRUCTURAL_TOKENS = {
+    # Venue descriptors — must be localized in es/zh
+    "room", "hall", "building",
+    # Academic / admin English words
+    "deadline", "report", "proposal", "budget", "form", "summary", "teacher",
+    "professor",
+    # English months — must be localized
 } | EN_MONTHS
 
 # Explanatory prefixes banned in only_output tasks
@@ -98,6 +111,30 @@ def parse_args():
 def read_csv(path: str) -> List[Dict[str, str]]:
     with open(path, "r", encoding="utf-8-sig", newline="") as f:
         return list(csv.DictReader(f))
+
+
+# Legacy column aliases produced by older versions of this script or external tools.
+_COLUMN_ALIASES: Dict[str, str] = {
+    "TaskCorrect":   "SemanticCorrect",
+    "CodeSwitch":    "CodeSwitchRatio",
+}
+
+
+def normalize_result_columns(rows: List[Dict[str, str]]) -> List[Dict[str, str]]:
+    """Rename any legacy column names to canonical names in-place."""
+    if not rows:
+        return rows
+    # Detect which aliases are present in this file's header
+    aliases_present = {old: new for old, new in _COLUMN_ALIASES.items() if old in rows[0]}
+    if not aliases_present:
+        return rows
+    normalized = []
+    for row in rows:
+        new_row = {}
+        for k, v in row.items():
+            new_row[aliases_present.get(k, k)] = v
+        normalized.append(new_row)
+    return normalized
 
 
 def index_items(items: List[Dict[str, str]]) -> Dict[str, Dict[str, str]]:
@@ -165,12 +202,21 @@ def count_sentences(text: str) -> int:
     return len([c for c in chunks if c.strip()])
 
 
+def strip_markdown_formatting(text: str) -> str:
+    """Remove leading markdown bold/italic markers (**, *, __, _) that models sometimes prepend."""
+    return re.sub(r"^[\*_]{1,3}", "", text).strip()
+
+
 def starts_with_yes_no(text: str, target_lang: str) -> bool:
-    stripped = normalize_text(text.strip())
+    # Strip markdown formatting before checking (e.g. "**No.**" -> "No.")
+    cleaned = normalize_text(strip_markdown_formatting(text.strip()))
     if target_lang == "en":
-        return stripped.startswith("yes") or stripped.startswith("no")
+        return cleaned.startswith("yes") or cleaned.startswith("no")
     if target_lang == "es":
-        return stripped.startswith("sí") or stripped.startswith("si") or stripped.startswith("no")
+        return cleaned.startswith("si") or cleaned.startswith("no")  # covers sí/si
+    if target_lang == "zh":
+        # Accept common Chinese yes/no starters
+        return text.strip().startswith(("是", "否", "不", "对", "错", "没"))
     return False
 
 
@@ -186,10 +232,9 @@ def looks_like_list_or_heading(text: str) -> bool:
 
 
 def english_like_token(token: str) -> bool:
+    """Return True if token is an English word that should be localized in es/zh output."""
     tl = normalize_text(token)
-    if tl in ENGLISH_FUNCTION_WORDS or tl in EN_CONTAMINATION_TOKENS:
-        return True
-    if re.fullmatch(r"(am|pm)", tl):
+    if tl in ENGLISH_FUNCTION_WORDS or tl in EN_STRUCTURAL_TOKENS:
         return True
     return False
 
@@ -200,8 +245,58 @@ def has_explanatory_prefix(text: str) -> bool:
 
 
 # ---------------------------------------------------------------------------
-# LangCorrect
+# LangCorrect  (Principle 3 — strict language purity)
+#
+# Rules applied to ALL non-English target languages:
+#   ALLOWED  : proper names in PROPER_NAME_ALLOWLIST, pure digits, single
+#              letters used as labels (A/B/D), "am"/"pm" as time suffixes.
+#   FORBIDDEN: English function words, English month names, venue words
+#              (room/hall/building), any other English structural tokens.
+#              Any forbidden token → contamination count rises.
+#   DECISION : if contamination_count >= 1 → LC = 0  (zero tolerance).
+#              CodeSwitchRatio = contamination_tokens / total_alpha_tokens.
+#
+# For English target language:
+#   Must contain English function words; CJK or Spanish signal words → LC = 0.
 # ---------------------------------------------------------------------------
+
+def _is_allowlisted(tok: str) -> bool:
+    """Token is a proper name or time suffix that may appear in any language."""
+    tl = normalize_text(tok)
+    if tl in PROPER_NAME_ALLOWLIST:
+        return True
+    # Pure digit strings (room numbers, years, etc.) are language-neutral
+    if re.fullmatch(r"\d+", tok):
+        return True
+    # Single letters used as building/section labels (A, B, C, D …)
+    if re.fullmatch(r"[A-Za-z]", tok):
+        return True
+    return False
+
+
+def _count_en_contamination(tokens: List[str], target_lang: str = "") -> int:
+    """
+    Count tokens that are forbidden English words in a non-English output.
+    Allowlisted proper names, digits, and single-letter labels are excluded.
+    For Spanish output, tokens that are also valid Spanish words are excluded
+    (e.g. 'no', 'a', 'con', 'en', 'solo' are both English and Spanish).
+    """
+    count = 0
+    for tok in tokens:
+        if _is_allowlisted(tok):
+            continue
+        tl = normalize_text(tok)
+        # Skip tokens that are legitimate Spanish words (even if also English)
+        if target_lang == "es" and (
+            tl in SPANISH_FUNCTION_WORDS
+            or re.search(r"[áéíóúñ]", tok.lower())
+        ):
+            continue
+        # English function words or structural tokens that must be localized
+        if tl in ENGLISH_FUNCTION_WORDS or tl in EN_STRUCTURAL_TOKENS:
+            count += 1
+    return count
+
 
 def lang_correct_and_codeswitch_ratio(
     text: str,
@@ -209,83 +304,125 @@ def lang_correct_and_codeswitch_ratio(
     constraint_correct_val: int = -1,
 ) -> Tuple[int, float]:
     """
-    Change vs previous version:
-    - es: ultra-short answers (≤ 3 word-tokens) get a ConstraintCorrect-based
-      exemption.  If ConstraintCorrect=1 and there is no CJK and no English
-      contamination, accept as language-correct even without Spanish signal words.
-      Covers legitimate extraction answers like "Plan C", "327", "No.".
+    Strict language purity scoring (Principle 3).
+
+    For zh / es targets:
+      - Any English function word or structural token (room, hall, building,
+        month names, etc.) that is NOT allowlisted counts as contamination.
+      - Even ONE contamination token → LangCorrect = 0.
+      - CodeSwitchRatio = contamination_tokens / alpha_tokens.
+
+    For en target:
+      - Must contain English function words.
+      - CJK characters → LC = 0.
+      - Spanish signal words count toward CodeSwitchRatio.
     """
-    stripped = text.strip()
+    stripped = strip_markdown_formatting(text.strip())
     if not stripped:
         return 0, 0.0
 
     tokens = tokenize_words(stripped)
-    total_tokens = max(len(tokens), 1)
+    total_alpha = max(len(tokens), 1)
+
+    # Pure numeric answers (e.g. "327", "410", "3:30") are language-neutral.
+    # If the entire output contains no alphabetic characters (only digits,
+    # colons, spaces, punctuation), accept as LC=1 regardless of target language.
+    if not re.search(r"[A-Za-zÀ-ÿ\u4e00-\u9fff]", stripped):
+        return 1, 0.0
+
+    # Pure proper-name answers (e.g. "Rivera", "Professor Rivera", "DataBridge")
+    # where every alphabetic token is allowlisted are language-neutral —
+    # they carry no language-specific shell beyond the name itself.
+    if tokens and all(_is_allowlisted(tok) for tok in tokens):
+        return 1, 0.0
 
     # ── Chinese ──────────────────────────────────────────────────────────────
     if target_lang == "zh":
+        # Must contain CJK characters
         if not contains_cjk(stripped):
             return 0, 1.0
-        english_like = sum(
-            1 for tok in tokens
-            if re.fullmatch(r"[a-z0-9]+", normalize_text(tok))
-            and normalize_text(tok) not in PROPER_NAME_ALLOWLIST
-        )
-        ratio = english_like / total_tokens
-        lang_ok = 1 if ratio <= 0.20 else 0
-        return lang_ok, round(ratio, 4)
+
+        # Check for forbidden English tokens
+        en_contam = _count_en_contamination(tokens, target_lang="zh")
+        cs_ratio = round(min(1.0, en_contam / total_alpha), 4)
+
+        # Strict: any contamination → fail
+        if en_contam >= 1:
+            return 0, cs_ratio
+
+        # Also fail if a large block of Latin text appears that isn't a proper name
+        # (catches cases like bilingual output where model writes both zh and en)
+        latin_words = [
+            tok for tok in tokens
+            if re.fullmatch(r"[A-Za-z]{2,}", tok) and not _is_allowlisted(tok)
+        ]
+        if latin_words:
+            cs_ratio = round(min(1.0, len(latin_words) / total_alpha), 4)
+            return 0, cs_ratio
+
+        return 1, cs_ratio
 
     # ── Spanish ──────────────────────────────────────────────────────────────
     if target_lang == "es":
+        # CJK in a Spanish answer → wrong language entirely
         if contains_cjk(stripped):
             return 0, 1.0
 
-        spanish_hits = 0
-        english_contam = 0
-        for tok in tokens:
-            tl = normalize_text(tok)
-            if tl in SPANISH_FUNCTION_WORDS or re.search(r"[áéíóúñ]", tok.lower()):
-                spanish_hits += 1
-            if english_like_token(tok) and tl not in PROPER_NAME_ALLOWLIST:
-                english_contam += 1
+        # Check for forbidden English tokens (excluding words valid in Spanish too)
+        en_contam = _count_en_contamination(tokens, target_lang="es")
+        cs_ratio = round(min(1.0, en_contam / total_alpha), 4)
 
-        spanish_ratio = spanish_hits / total_tokens
-        cs_ratio = round(min(1.0, english_contam / total_tokens), 4)
+        # Strict: any contamination → fail
+        if en_contam >= 1:
+            return 0, cs_ratio
 
-        # Ultra-short extraction exemption (≤ 3 word-tokens)
-        if total_tokens <= 3:
-            if constraint_correct_val == 1 and english_contam == 0:
+        # Also check that the answer actually looks Spanish (has Spanish signal)
+        spanish_hits = sum(
+            1 for tok in tokens
+            if normalize_text(tok) in SPANISH_FUNCTION_WORDS
+            or re.search(r"[áéíóúñ]", tok.lower())
+        )
+
+        # Ultra-short extraction answers (≤ 3 tokens): if no contamination
+        # and constraint is satisfied, accept even without explicit Spanish signal.
+        # Covers answers like "327", "No.", "Sala 327".
+        if total_alpha <= 3:
+            if en_contam == 0 and constraint_correct_val == 1:
                 return 1, cs_ratio
-            lang_ok = 1 if spanish_hits >= 1 else 0
-            return lang_ok, cs_ratio
+            return (1 if spanish_hits >= 1 else 0), cs_ratio
 
-        if total_tokens <= 4:
-            lang_ok = 1 if spanish_hits >= 1 else 0
-        else:
-            lang_ok = 1 if spanish_ratio >= 0.15 else 0
-
+        # Normal-length: require at least some Spanish signal
+        lang_ok = 1 if spanish_hits >= 1 or total_alpha <= 4 else 0
         return lang_ok, cs_ratio
 
     # ── English ──────────────────────────────────────────────────────────────
     if target_lang == "en":
+        # CJK → wrong language
         if contains_cjk(stripped):
             return 0, 1.0
 
-        english_hits = 0
-        spanish_like = 0
-        for tok in tokens:
-            tl = normalize_text(tok)
-            if tl in ENGLISH_FUNCTION_WORDS or tl in EN_MONTHS:
-                english_hits += 1
-            if tl in SPANISH_FUNCTION_WORDS or re.search(r"[áéíóúñ]", tok.lower()):
-                spanish_like += 1
+        english_hits = sum(
+            1 for tok in tokens
+            if normalize_text(tok) in ENGLISH_FUNCTION_WORDS
+            or normalize_text(tok) in EN_MONTHS
+        )
+        spanish_like = sum(
+            1 for tok in tokens
+            if normalize_text(tok) in SPANISH_FUNCTION_WORDS
+            or re.search(r"[áéíóúñ]", tok.lower())
+        )
+        cs_ratio = round(spanish_like / total_alpha, 4)
 
-        cs_ratio = round(spanish_like / total_tokens, 4)
+        # Short extraction answers (≤ 5 tokens) with no Spanish/CJK contamination:
+        # accept as LC=1 even without explicit English function words.
+        # Covers "Professor Rivera", "Room 327", "Friday at 4 PM", etc.
+        if total_alpha <= 5 and spanish_like == 0:
+            return 1, cs_ratio
 
-        if total_tokens <= 4:
+        if total_alpha <= 4:
             lang_ok = 1 if english_hits >= 1 else 0
         else:
-            lang_ok = 1 if (english_hits / total_tokens) >= 0.15 else 0
+            lang_ok = 1 if (english_hits / total_alpha) >= 0.15 else 0
 
         return lang_ok, cs_ratio
 
@@ -301,8 +438,19 @@ def infer_constraint_type(item: Dict[str, str]) -> str:
     question    = (item.get("question") or "").lower()
     full = instruction + " " + question
 
-    if "yes or no plus one brief reason" in full or "先写sí或no" in full or "先写yes或no" in full:
+    # yes_no_brief: English, Spanish, and Chinese variants
+    if (
+        "yes or no plus one brief reason" in full
+        or "先写sí或no" in full
+        or "先写yes或no" in full
+        or "先写sí或no" in full          # normalized form
+        or "sí o no y una razón breve" in full
+        or "sí o no más una razón breve" in full
+        or "yes or no and one brief reason" in full
+    ):
         return "yes_no_brief"
+
+    # only_output: short direct-value extraction, no explanation
     if (
         "only the final deadline" in full
         or "只用西班牙语回答最终截止时间" in full
@@ -316,8 +464,19 @@ def infer_constraint_type(item: Dict[str, str]) -> str:
         or "不要输出流程" in full
     ):
         return "only_output"
-    if "one sentence" in full or "一句话" in full or "only one sentence" in full:
+
+    # one_sentence: English, Chinese, and Spanish variants
+    if (
+        "one sentence" in full
+        or "一句话" in full
+        or "only one sentence" in full
+        or "una sola oración" in full
+        or "una oración" in full
+        or "en una sola oración" in full
+        or "en una oración" in full
+    ):
         return "one_sentence"
+
     if "do not use the word" in full or "不得使用" in full or "不要使用" in full:
         return "banned_word"
     if "must begin with" in full or "必须以" in full:
@@ -364,8 +523,10 @@ def constraint_correct(text: str, item: Dict[str, str]) -> int:
     1. only_output: block explanatory prefixes ("the answer is", "la respuesta es", etc.)
     2. yes_no_brief: relaxed — removed hard token-count cap.
        Constraint is: starts with Yes/No + at most 2 sentences. Length is secondary.
+    3. Strip leading markdown bold/italic (** or *) before all checks.
     """
-    stripped = text.strip()
+    # Strip markdown bold/italic that models sometimes prepend (e.g. "**No.**")
+    stripped = strip_markdown_formatting(text.strip())
     if not stripped or stripped.startswith("[ERROR]"):
         return 0
 
@@ -490,14 +651,24 @@ def extract_numeric_anchors(text: str) -> Set[str]:
 # ---------------------------------------------------------------------------
 
 def sentence_initial_yes_no_mismatch(output: str, gold: str, response_lang: str) -> bool:
-    out_low  = normalize_text(output).strip()
-    gold_low = normalize_text(gold).strip()
+    # Strip markdown bold/italic before comparing (e.g. "**No.**" -> "no.")
+    out_low  = normalize_text(strip_markdown_formatting(output.strip()))
+    gold_low = normalize_text(strip_markdown_formatting(gold.strip()))
     if response_lang == "es":
         out_pref  = "si" if out_low.startswith("si")  else "no" if out_low.startswith("no")  else ""
         gold_pref = "si" if gold_low.startswith("si") else "no" if gold_low.startswith("no") else ""
     elif response_lang == "en":
         out_pref  = "yes" if out_low.startswith("yes")  else "no" if out_low.startswith("no")  else ""
         gold_pref = "yes" if gold_low.startswith("yes") else "no" if gold_low.startswith("no") else ""
+    elif response_lang == "zh":
+        _ZH_YES = ("是", "对", "正确")
+        _ZH_NO  = ("否", "不", "错", "没")
+        out_raw  = output.strip()
+        gold_raw = gold.strip()
+        out_pref  = "yes" if any(out_raw.startswith(w) for w in _ZH_YES) \
+                    else "no" if any(out_raw.startswith(w) for w in _ZH_NO) else ""
+        gold_pref = "yes" if any(gold_raw.startswith(w) for w in _ZH_YES) \
+                    else "no" if any(gold_raw.startswith(w) for w in _ZH_NO) else ""
     else:
         return False
     return bool(out_pref and gold_pref and out_pref != gold_pref)
@@ -508,14 +679,30 @@ def sentence_initial_yes_no_mismatch(output: str, gold: str, response_lang: str)
 # ---------------------------------------------------------------------------
 
 _LLM_SYSTEM = (
-    "You are a strict factual evaluator for a multilingual benchmark. "
-    "Your only job is to decide whether a model output conveys the same core "
-    "factual content as the gold answer / rubric. "
-    "Ignore differences in language, phrasing, politeness, or extra context "
-    "as long as the key fact(s) are present and correct. "
-    "Key facts include both positive information AND explicit negations "
-    "(e.g. 'not canceled', 'no fue cancelada'). "
-    "If the output omits a key negation present in the gold answer, return 0. "
+    "You are a factual evaluator for a multilingual benchmark. "
+    "Decide whether a model output correctly captures the core required content. "
+    "Mark 1 if the output gets the main point right without contradiction. "
+    "Mark 0 only if the output is factually wrong, contradicts the gold answer, "
+    "or misses a critical element that changes the meaning.\n\n"
+
+    "RULE 1 — Semantic reversal tasks: Many items involve irony or criticism disguised as praise. "
+    "The gold answer captures the REAL stance. "
+    "The model output must match the real stance — a positive output when gold is negative gets 0. "
+    "Check: (1) yes/no polarity correct? (2) real target of judgment correct?\n\n"
+
+    "RULE 2 — Final-state extraction tasks: Only the FINAL valid value counts. "
+    "If gold is 'Friday at 4 PM' and output says 'Monday', return 0. "
+    "Accept equivalent cross-language expressions "
+    "('星期五下午4点' = 'Friday at 4 PM', '里维拉教授' = 'Professor Rivera'). "
+    "Extra context around the correct value is fine.\n\n"
+
+    "RULE 3 — Summary tasks: Output does NOT need to match every detail in the gold. "
+    "Mark 1 if the core update is captured correctly. "
+    "Mark 0 only if the output is factually wrong or directly contradicts the gold. "
+    "Missing minor details (ticket platform, registration code, extra context) is acceptable. "
+    "IMPORTANT: if gold says 'not canceled' but output does not mention cancellation status at all, "
+    "that is acceptable — only mark 0 if output implies it WAS canceled.\n\n"
+
     "Reply with ONLY the digit 1 (correct) or 0 (incorrect). No other text."
 )
 
@@ -545,21 +732,44 @@ def _call_anthropic(prompt: str, api_key: str, model: str) -> str:
 def semantic_correct_llm(
     output: str,
     gold: str,
+    task_family: str,
     api_key: str,
     model: str,
     cache: Dict[str, int],
     cache_path: str,
 ) -> int:
-    """LLM judge with local JSON cache. Same (output, gold) pair never calls API twice."""
-    key = _cache_key(output, gold)
+    """LLM judge with local JSON cache. Same (output, gold, task_family) never calls API twice."""
+    key = _cache_key(output + "|" + task_family, gold)
 
     if key in cache:
         return cache[key]
 
+    if task_family == "reading_comprehension":
+        task_hint = (
+            "SEMANTIC REVERSAL task. Apply RULE 1. "
+            "The gold answer is the author's REAL stance, not the surface reading. "
+            "Polarity must match exactly."
+        )
+    elif task_family == "extraction":
+        task_hint = (
+            "FINAL-STATE EXTRACTION task. Apply RULE 2. "
+            "Only the final valid value matters. "
+            "Accept cross-language equivalents. Extra context around the value is fine."
+        )
+    else:
+        # summary_mixed_language
+        task_hint = (
+            "SUMMARY task. Apply RULE 3. "
+            "Mark 1 if the core update is captured correctly. "
+            "Missing minor details is fine. "
+            "Mark 0 only if output is factually wrong or contradicts the gold. "
+            "Omitting 'not canceled' is acceptable unless output implies it WAS canceled."
+        )
+
     prompt = (
-        f"Gold answer / rubric:\n{gold}\n\n"
-        f"Model output:\n{output}\n\n"
-        "Does the model output convey the same core factual content as the gold answer? "
+        f"Task hint: {task_hint}\n\n"
+        f"Gold:\n{gold}\n\n"
+        f"Output:\n{output}\n\n"
         "Reply with only 0 or 1."
     )
     try:
@@ -590,7 +800,7 @@ def semantic_correct_binary(
     if cache is None:
         cache = {}
 
-    stripped = output.strip()
+    stripped = strip_markdown_formatting(output.strip())
     if not stripped or stripped.startswith("[ERROR]"):
         return 0
 
@@ -600,6 +810,7 @@ def semantic_correct_binary(
 
     gold          = item.get("gold_answer_or_rubric", "")
     response_lang = (item.get("response_language") or "").strip().lower()
+    task_family   = (item.get("task_family") or "").strip().lower()
 
     if sentence_initial_yes_no_mismatch(stripped, gold, response_lang):
         return 0
@@ -611,7 +822,9 @@ def semantic_correct_binary(
             return 0
 
     if api_key:
-        return semantic_correct_llm(stripped, gold, api_key, llm_model, cache, cache_path)
+        return semantic_correct_llm(
+            stripped, gold, task_family, api_key, llm_model, cache, cache_path
+        )
 
     keys = derive_keywords(item)
     if not keys:
@@ -671,6 +884,13 @@ def merge_and_score(
         output_text = row.get("output_text", "")
         target_lang = (item.get("response_language") or "").strip().lower()
 
+        # Pass through item-level metadata for downstream analysis
+        for meta_col in ("core_id", "category", "condition_id", "regime",
+                         "task_family", "difficulty",
+                         "instruction_language", "content_language", "response_language"):
+            if meta_col not in row_out and item.get(meta_col):
+                row_out[meta_col] = item[meta_col]
+
         # ConstraintCorrect first — result feeds into LangCorrect ES exemption
         constraint_ok = constraint_correct(output_text, item)
 
@@ -701,10 +921,19 @@ def merge_and_score(
 def write_csv(path: str, rows: List[Dict[str, str]]):
     ensure_parent_dir(path)
     fieldnames = [
-        "model", "item_id", "output_text",
-        "input_tokens", "output_tokens", "total_tokens",
+        # Identity
+        "model", "item_id", "core_id", "category", "condition_id",
+        # Triplet metadata
+        "regime", "task_family", "difficulty",
+        "instruction_language", "content_language", "response_language",
+        # Model output
+        "output_text", "input_tokens", "output_tokens", "total_tokens",
+        # Auto scores
         "SemanticCorrect", "LangCorrect", "ConstraintCorrect",
-        "CodeSwitchRatio", "JointSuccess", "evaluator_notes",
+        "CodeSwitchRatio", "JointSuccess",
+        # Human annotation (leave blank for manual fill-in)
+        "HumanCorrect",
+        "evaluator_notes",
     ]
     with open(path, "w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -721,7 +950,7 @@ def main():
     args = parse_args()
 
     items   = read_csv(args.items)
-    results = read_csv(args.results)
+    results = normalize_result_columns(read_csv(args.results))
 
     if not items:
         print(f"No items found in {args.items}")
