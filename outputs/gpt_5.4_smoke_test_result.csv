@@ -1,0 +1,13 @@
+model,item_id,output_text,input_tokens,output_tokens,total_tokens,TaskCorrect,LangCorrect,CodeSwitch,JointSuccess,evaluator_notes
+gpt-5.4,LS001A,"No — the author ultimately criticizes him, saying his “authority” was really fear, not true rigor or respect.",86,41,127,,,,,
+gpt-5.4,LS001B,"No, porque al final critica que su “autoridad” era en realidad miedo disfrazado.",86,43,129,,,,,
+gpt-5.4,LS001C,No. Porque al final el autor critica al profesor: confunde la intimidación con el rigor y su “autoridad” era más bien miedo disfrazado.,95,79,174,,,,,
+gpt-5.4,LS002A,Friday at 4 PM,94,23,117,,,,,
+gpt-5.4,LS002B,Viernes a las 4 PM.,94,36,130,,,,,
+gpt-5.4,LS002C,El viernes a las 4 p. m.,96,55,151,,,,,
+gpt-5.4,LS003A,"The report says innovation lagged because managers used uncertainty as an excuse to postpone decisions, not because progress couldn’t be made.",61,29,90,,,,,
+gpt-5.4,LS003B,"El informe sostiene que los directivos frenaron la innovación no porque el cambio fuera inviable, sino porque usaron cada incertidumbre como excusa para posponer decisiones.",64,38,102,,,,,
+gpt-5.4,LS003C,"El informe sostiene que los directivos frenaron la innovación no porque el cambio fuera inviable, sino porque usaron cada incertidumbre como pretexto para posponer decisiones.",64,70,134,,,,,
+gpt-5.4,LS004A,"The memo says that the DataBridge workshop is still happening next Thursday but has been moved from Room 401 to Room 327, and students who registered through CampusConnect should bring their ID cards.",85,43,128,,,,,
+gpt-5.4,LS004B,"El memorando informa que el taller DataBridge del próximo jueves no fue cancelado, sino trasladado del Room 401 al Room 327, y que los estudiantes inscritos mediante CampusConnect deben llevar sus tarjetas de identificación.",87,61,148,,,,,
+gpt-5.4,LS004C,"El aviso informa que el taller de DataBridge del próximo jueves se trasladará del aula 401 al aula 327, que los estudiantes inscritos a través de CampusConnect deben llevar su documento de identidad y que la actividad no fue cancelada, sino solo reubicada.",89,79,168,,,,,
