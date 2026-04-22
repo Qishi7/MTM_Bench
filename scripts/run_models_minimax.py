@@ -3,7 +3,7 @@ import csv
 import os
 import sys
 import time
-from typing import Dict, List
+from typing import Dict, List, Set
 
 try:
     from openai import OpenAI
@@ -11,6 +11,20 @@ except ImportError:
     OpenAI = None
 
 MINIMAX_BASE_URL = "https://api.minimax.io/v1"
+
+FIELDNAMES = [
+    "model",
+    "item_id",
+    "output_text",
+    "input_tokens",
+    "output_tokens",
+    "total_tokens",
+    "TaskCorrect",
+    "LangCorrect",
+    "CodeSwitch",
+    "JointSuccess",
+    "evaluator_notes",
+]
 
 
 def parse_args():
@@ -55,16 +69,26 @@ def read_items(path: str) -> List[Dict[str, str]]:
     return items
 
 
+def load_done_ids(out_path: str) -> Set[str]:
+    """Return the set of item_ids already written to the output file."""
+    if not os.path.exists(out_path):
+        return set()
+    done = set()
+    with open(out_path, "r", encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            item_id = row.get("item_id", "")
+            if item_id:
+                done.add(item_id)
+    return done
+
+
 def build_prompt(item: Dict[str, str]) -> str:
     instruction = (item.get("instruction_text") or "").strip()
     content = (item.get("content_text") or "").strip()
     question = (item.get("question") or "").strip()
 
-    prompt = (
-        f"{instruction}\n\n"
-        f"Content:\n{content}\n\n"
-        f"Question:\n{question}"
-    )
+    prompt = f"{instruction}\n\nContent:\n{content}\n\nQuestion:\n{question}"
     return prompt.strip()
 
 
@@ -125,25 +149,15 @@ def ensure_parent_dir(path: str):
         os.makedirs(parent, exist_ok=True)
 
 
-def write_outputs(out_path: str, rows: List[Dict[str, object]]):
+def open_output_writer(out_path: str, resuming: bool):
+    """Open the output CSV for appending (resume) or fresh writing."""
     ensure_parent_dir(out_path)
-    fieldnames = [
-        "model",
-        "item_id",
-        "output_text",
-        "input_tokens",
-        "output_tokens",
-        "total_tokens",
-        "TaskCorrect",
-        "LangCorrect",
-        "CodeSwitch",
-        "JointSuccess",
-        "evaluator_notes",
-    ]
-    with open(out_path, "w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+    mode = "a" if resuming else "w"
+    f = open(out_path, mode, encoding="utf-8", newline="")
+    writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
+    if not resuming:
         writer.writeheader()
-        writer.writerows(rows)
+    return f, writer
 
 
 def main():
@@ -169,50 +183,63 @@ def main():
 
         client = OpenAI(api_key=api_key, base_url=MINIMAX_BASE_URL)
 
-    output_rows = []
+    done_ids = load_done_ids(args.out)
+    resuming = len(done_ids) > 0
+    if resuming:
+        print(f"Resuming: {len(done_ids)} item(s) already done, skipping them.")
+
     total_items = len(items)
+    new_count = 0
+    skipped_count = 0
 
     sum_input_tokens = 0
     sum_output_tokens = 0
     sum_total_tokens = 0
 
-    for idx, item in enumerate(items, start=1):
-        item_id = item.get("item_id", f"item_{idx}")
-        prompt = build_prompt(item)
+    out_file, writer = open_output_writer(args.out, resuming)
+    try:
+        for idx, item in enumerate(items, start=1):
+            item_id = item.get("item_id", f"item_{idx}")
 
-        try:
-            if args.no_dry_run:
-                result = call_minimax(
-                    client=client,
-                    model_name=args.model,
-                    prompt=prompt,
-                    max_tokens=args.max_tokens,
-                    temperature=args.temperature,
-                )
-            else:
-                result = dry_run_output(item, args.model)
+            if item_id in done_ids:
+                skipped_count += 1
+                print(f"[{idx}/{total_items}] {item_id} skipped (already done)")
+                continue
 
-        except Exception as e:
-            result = {
-                "output_text": f"[ERROR] {type(e).__name__}: {e}",
-                "input_tokens": "",
-                "output_tokens": "",
-                "total_tokens": "",
-            }
+            prompt = build_prompt(item)
 
-        input_tokens = result["input_tokens"]
-        output_tokens = result["output_tokens"]
-        total_tokens = result["total_tokens"]
+            try:
+                if args.no_dry_run:
+                    result = call_minimax(
+                        client=client,
+                        model_name=args.model,
+                        prompt=prompt,
+                        max_tokens=args.max_tokens,
+                        temperature=args.temperature,
+                    )
+                else:
+                    result = dry_run_output(item, args.model)
 
-        if isinstance(input_tokens, int):
-            sum_input_tokens += input_tokens
-        if isinstance(output_tokens, int):
-            sum_output_tokens += output_tokens
-        if isinstance(total_tokens, int):
-            sum_total_tokens += total_tokens
+            except Exception as e:
+                result = {
+                    "output_text": f"[ERROR] {type(e).__name__}: {e}",
+                    "input_tokens": "",
+                    "output_tokens": "",
+                    "total_tokens": "",
+                }
 
-        output_rows.append(
-            {
+            input_tokens = result["input_tokens"]
+            output_tokens = result["output_tokens"]
+            total_tokens = result["total_tokens"]
+
+            if isinstance(input_tokens, int):
+                sum_input_tokens += input_tokens
+            if isinstance(output_tokens, int):
+                sum_output_tokens += output_tokens
+            if isinstance(total_tokens, int):
+                sum_total_tokens += total_tokens
+
+            row = {
                 "model": args.model,
                 "item_id": item_id,
                 "output_text": result["output_text"],
@@ -225,22 +252,32 @@ def main():
                 "JointSuccess": "",
                 "evaluator_notes": "",
             }
-        )
+            writer.writerow(row)
+            out_file.flush()
+            new_count += 1
 
+            print(
+                f"[{idx}/{total_items}] {item_id} done "
+                f"(in={input_tokens}, out={output_tokens}, total={total_tokens})"
+            )
+
+            if args.no_dry_run and idx < total_items:
+                time.sleep(args.sleep_seconds)
+
+    except KeyboardInterrupt:
         print(
-            f"[{idx}/{total_items}] {item_id} done "
-            f"(in={input_tokens}, out={output_tokens}, total={total_tokens})"
+            f"\nInterrupted. Progress saved to {args.out} ({new_count} new item(s) written)."
         )
+        sys.exit(1)
+    finally:
+        out_file.close()
 
-        if args.no_dry_run and idx < total_items:
-            time.sleep(args.sleep_seconds)
-
-    write_outputs(args.out, output_rows)
-
-    print(f"\nWrote {len(output_rows)} outputs for model '{args.model}' to {args.out}")
-    print(f"Total input tokens:  {sum_input_tokens}")
-    print(f"Total output tokens: {sum_output_tokens}")
-    print(f"Total tokens:        {sum_total_tokens}")
+    print(f"\nWrote {new_count} new output(s) for model '{args.model}' to {args.out}")
+    if skipped_count:
+        print(f"Skipped {skipped_count} already-done item(s).")
+    print(f"Total input tokens (this run):  {sum_input_tokens}")
+    print(f"Total output tokens (this run): {sum_output_tokens}")
+    print(f"Total tokens (this run):        {sum_total_tokens}")
 
 
 if __name__ == "__main__":
