@@ -3,7 +3,7 @@ import csv
 import os
 import sys
 import time
-from typing import Dict, List
+from typing import Dict, List, Set, Tuple
 
 try:
     from openai import OpenAI
@@ -48,6 +48,11 @@ def parse_args():
         help="OpenAI model name, e.g. gpt-5.4, gpt-5.4-mini, gpt-5.3-codex",
     )
     parser.add_argument("--out", required=True, help="Path to output CSV")
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="Resume from an existing output CSV and skip already completed items",
+    )
     parser.add_argument(
         "--no-dry-run",
         action="store_true",
@@ -188,6 +193,35 @@ def write_outputs(out_path: str, rows: List[Dict[str, object]]):
         writer.writerows(rows)
 
 
+def load_existing_outputs(out_path: str) -> Tuple[List[Dict[str, object]], Set[str]]:
+    if not os.path.exists(out_path):
+        return [], set()
+
+    rows: List[Dict[str, object]] = []
+    completed_ids: Set[str] = set()
+
+    with open(out_path, "r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            item_id = (row.get("item_id") or "").strip()
+            output_text = (row.get("output_text") or "").strip()
+            if output_text.startswith("[ERROR]"):
+                continue
+
+            rows.append(row)
+            if item_id and output_text:
+                completed_ids.add(item_id)
+
+    return rows, completed_ids
+
+
+def safe_int(value: object) -> int:
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return 0
+
+
 def main():
     load_dotenv()
     args = parse_args()
@@ -206,14 +240,37 @@ def main():
 
         client = build_client()
 
-    output_rows = []
+    output_rows: List[Dict[str, object]] = []
+    completed_item_ids: Set[str] = set()
+    if args.resume:
+        output_rows, completed_item_ids = load_existing_outputs(args.out)
+
     total_items = len(items)
 
-    sum_input_tokens = 0
-    sum_output_tokens = 0
-    sum_total_tokens = 0
+    sum_input_tokens = sum(safe_int(row.get("input_tokens")) for row in output_rows)
+    sum_output_tokens = sum(safe_int(row.get("output_tokens")) for row in output_rows)
+    sum_total_tokens = sum(safe_int(row.get("total_tokens")) for row in output_rows)
 
-    for idx, item in enumerate(items, start=1):
+    pending_items = [
+        item
+        for item in items
+        if (item.get("item_id", "") or "").strip() not in completed_item_ids
+    ]
+    total_pending = len(pending_items)
+
+    if args.resume and completed_item_ids:
+        print(
+            f"Resuming from {args.out}: "
+            f"{len(completed_item_ids)} completed, {total_pending} remaining."
+        )
+    else:
+        print(f"Starting fresh run: {total_pending} item(s) to process.")
+
+    if total_pending == 0:
+        print(f"No pending items. Output already complete at {args.out}")
+        return
+
+    for idx, item in enumerate(pending_items, start=1):
         item_id = item.get("item_id", f"item_{idx}")
         prompt = build_prompt(item)
 
@@ -263,16 +320,15 @@ def main():
                 "evaluator_notes": "",
             }
         )
+        write_outputs(args.out, output_rows)
 
         print(
-            f"[{idx}/{total_items}] {item_id} done "
+            f"[{idx}/{total_pending}] {item_id} done "
             f"(in={input_tokens}, out={output_tokens}, total={total_tokens})"
         )
 
-        if args.no_dry_run and idx < total_items:
+        if args.no_dry_run and idx < total_pending:
             time.sleep(args.sleep_seconds)
-
-    write_outputs(args.out, output_rows)
 
     print(f"\nWrote {len(output_rows)} outputs for model '{args.model}' to {args.out}")
     print(f"Total input tokens:  {sum_input_tokens}")
