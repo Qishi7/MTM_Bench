@@ -50,6 +50,11 @@ def parse_args():
         default=4.0,
         help="Base sleep for exponential backoff on retry (doubles each attempt)",
     )
+    parser.add_argument(
+        "--no-thinking",
+        action="store_true",
+        help="Disable thinking/reasoning (sets thinking_budget=0). Only effective for models that support it (e.g. gemini-2.5-flash).",
+    )
     return parser.parse_args()
 
 
@@ -109,10 +114,17 @@ def is_transient_error(err: Exception) -> bool:
     return False
 
 
-def _one_call(client, model_name: str, prompt: str) -> Dict[str, object]:
+def _one_call(client, model_name: str, prompt: str, no_thinking: bool = False) -> Dict[str, object]:
+    kwargs = {}
+    if no_thinking:
+        from google.genai import types
+        kwargs["config"] = types.GenerateContentConfig(
+            thinking_config=types.ThinkingConfig(thinking_budget=0)
+        )
     response = client.models.generate_content(
         model=model_name,
         contents=prompt,
+        **kwargs,
     )
 
     output_text = getattr(response, "text", "") or ""
@@ -141,11 +153,12 @@ def call_gemini(
     prompt: str,
     max_retries: int = 5,
     retry_base_seconds: float = 4.0,
+    no_thinking: bool = False,
 ) -> Dict[str, object]:
     attempt = 0
     while True:
         try:
-            return _one_call(client, model_name, prompt)
+            return _one_call(client, model_name, prompt, no_thinking=no_thinking)
         except Exception as e:
             if attempt >= max_retries or not is_transient_error(e):
                 raise
@@ -267,6 +280,7 @@ def main():
                         prompt=prompt,
                         max_retries=args.max_retries,
                         retry_base_seconds=args.retry_base_seconds,
+                        no_thinking=args.no_thinking,
                     )
                 else:
                     result = dry_run_output(item, args.model)
