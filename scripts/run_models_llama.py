@@ -11,6 +11,15 @@ except ImportError:
     OpenAI = None
 
 
+for _stream_name in ("stdout", "stderr"):
+    _stream = getattr(sys, _stream_name, None)
+    if _stream is not None and hasattr(_stream, "reconfigure"):
+        try:
+            _stream.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
+
+
 DEFAULT_OLLAMA_BASE_URL = "http://localhost:11434/v1"
 
 
@@ -86,6 +95,18 @@ def parse_args():
         default=1.0,
         help="Sleep between API calls",
     )
+    parser.add_argument(
+        "--max-retries",
+        type=int,
+        default=5,
+        help="Max retries on transient errors (429/5xx/timeout/connection)",
+    )
+    parser.add_argument(
+        "--retry-base-seconds",
+        type=float,
+        default=4.0,
+        help="Base for exponential backoff (waits base*2^attempt)",
+    )
     return parser.parse_args()
 
 
@@ -156,7 +177,36 @@ def normalize_output_text(content) -> str:
     return str(content).strip()
 
 
-def call_openai_compatible(
+TRANSIENT_STATUS_CODES = {408, 409, 425, 429, 500, 502, 503, 504}
+TRANSIENT_KEYWORDS = (
+    "unavailable",
+    "overloaded",
+    "deadline",
+    "timeout",
+    "temporarily",
+    "rate limit",
+    "rate_limit",
+    "resource_exhausted",
+    "retry",
+    "connection",
+    "reset by peer",
+)
+
+
+def is_transient_error(err: Exception) -> bool:
+    code = getattr(err, "status_code", None) or getattr(err, "code", None)
+    if isinstance(code, int) and code in TRANSIENT_STATUS_CODES:
+        return True
+    msg = str(err).lower()
+    if any(k in msg for k in TRANSIENT_KEYWORDS):
+        return True
+    cls_name = type(err).__name__.lower()
+    if any(k in cls_name for k in ("ratelimit", "timeout", "connection", "apierror")):
+        return True
+    return False
+
+
+def _one_openai_call(
     client,
     model_name: str,
     prompt: str,
@@ -187,31 +237,93 @@ def call_openai_compatible(
     }
 
 
+def call_openai_compatible(
+    client,
+    model_name: str,
+    prompt: str,
+    max_tokens: int,
+    temperature: float,
+    max_retries: int = 5,
+    retry_base_seconds: float = 4.0,
+) -> Dict[str, object]:
+    attempt = 0
+    while True:
+        try:
+            return _one_openai_call(
+                client=client,
+                model_name=model_name,
+                prompt=prompt,
+                max_tokens=max_tokens,
+                temperature=temperature,
+            )
+        except Exception as e:
+            if attempt >= max_retries or not is_transient_error(e):
+                raise
+            wait = retry_base_seconds * (2 ** attempt)
+            print(
+                f"  ! transient error (attempt {attempt + 1}/{max_retries}): "
+                f"{type(e).__name__}: {str(e)[:120]} -> sleeping {wait:.1f}s",
+                flush=True,
+            )
+            time.sleep(wait)
+            attempt += 1
+
+
 def ensure_parent_dir(path: str):
     parent = os.path.dirname(os.path.abspath(path))
     if parent and not os.path.exists(parent):
         os.makedirs(parent, exist_ok=True)
 
 
+OUTPUT_FIELDNAMES = [
+    "model",
+    "item_id",
+    "output_text",
+    "input_tokens",
+    "output_tokens",
+    "total_tokens",
+    "TaskCorrect",
+    "LangCorrect",
+    "CodeSwitch",
+    "JointSuccess",
+    "evaluator_notes",
+]
+
+
 def write_outputs(out_path: str, rows: List[Dict[str, object]]):
     ensure_parent_dir(out_path)
-    fieldnames = [
-        "model",
-        "item_id",
-        "output_text",
-        "input_tokens",
-        "output_tokens",
-        "total_tokens",
-        "TaskCorrect",
-        "LangCorrect",
-        "CodeSwitch",
-        "JointSuccess",
-        "evaluator_notes",
-    ]
     with open(out_path, "w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=OUTPUT_FIELDNAMES)
         writer.writeheader()
         writer.writerows(rows)
+
+
+def load_done_ids(out_path: str) -> set:
+    if not os.path.exists(out_path):
+        return set()
+    done = set()
+    try:
+        with open(out_path, "r", encoding="utf-8-sig", newline="") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                iid = (row.get("item_id") or "").strip()
+                if iid:
+                    done.add(iid)
+    except Exception:
+        pass
+    return done
+
+
+def open_appender(out_path: str):
+    """Open the output CSV in append mode; write header if the file is new/empty."""
+    ensure_parent_dir(out_path)
+    new_file = (not os.path.exists(out_path)) or os.path.getsize(out_path) == 0
+    f = open(out_path, "a", encoding="utf-8", newline="")
+    writer = csv.DictWriter(f, fieldnames=OUTPUT_FIELDNAMES)
+    if new_file:
+        writer.writeheader()
+        f.flush()
+    return f, writer
 
 
 def format_duration(seconds: float) -> str:
@@ -252,12 +364,17 @@ def main():
 
         client = build_client(args.base_url)
 
-    output_rows = []
     total_items = len(items)
 
     sum_input_tokens = 0
     sum_output_tokens = 0
     sum_total_tokens = 0
+
+    done_ids = load_done_ids(args.out)
+    if done_ids:
+        print(f"Resuming: found {len(done_ids)} already-completed items in {args.out}, skipping them.")
+
+    out_file, out_writer = open_appender(args.out)
 
     run_start = time.monotonic()
     print(
@@ -265,87 +382,102 @@ def main():
         f"(dry_run={not args.no_dry_run})"
     )
 
-    for idx, item in enumerate(items, start=1):
-        item_id = item.get("item_id", f"item_{idx}")
-        prompt = build_prompt(item)
+    processed = 0
+    try:
+        for idx, item in enumerate(items, start=1):
+            item_id = item.get("item_id", f"item_{idx}")
+            if item_id in done_ids:
+                continue
+            prompt = build_prompt(item)
 
-        item_start = time.monotonic()
-        try:
-            if args.no_dry_run:
-                result = call_openai_compatible(
-                    client=client,
-                    model_name=args.model,
-                    prompt=prompt,
-                    max_tokens=args.max_tokens,
-                    temperature=args.temperature,
-                )
-            else:
-                result = dry_run_output(item, args.model)
-        except Exception as e:
-            result = {
-                "output_text": f"[ERROR] {type(e).__name__}: {e}",
-                "input_tokens": "",
-                "output_tokens": "",
-                "total_tokens": "",
-            }
-        item_elapsed = time.monotonic() - item_start
+            item_start = time.monotonic()
+            try:
+                if args.no_dry_run:
+                    result = call_openai_compatible(
+                        client=client,
+                        model_name=args.model,
+                        prompt=prompt,
+                        max_tokens=args.max_tokens,
+                        temperature=args.temperature,
+                        max_retries=args.max_retries,
+                        retry_base_seconds=args.retry_base_seconds,
+                    )
+                else:
+                    result = dry_run_output(item, args.model)
+            except Exception as e:
+                result = {
+                    "output_text": f"[ERROR] {type(e).__name__}: {e}",
+                    "input_tokens": "",
+                    "output_tokens": "",
+                    "total_tokens": "",
+                }
+            item_elapsed = time.monotonic() - item_start
 
-        input_tokens = result["input_tokens"]
-        output_tokens = result["output_tokens"]
-        total_tokens = result["total_tokens"]
+            input_tokens = result["input_tokens"]
+            output_tokens = result["output_tokens"]
+            total_tokens = result["total_tokens"]
 
-        if isinstance(input_tokens, int):
-            sum_input_tokens += input_tokens
-        if isinstance(output_tokens, int):
-            sum_output_tokens += output_tokens
-        if isinstance(total_tokens, int):
-            sum_total_tokens += total_tokens
+            if isinstance(input_tokens, int):
+                sum_input_tokens += input_tokens
+            if isinstance(output_tokens, int):
+                sum_output_tokens += output_tokens
+            if isinstance(total_tokens, int):
+                sum_total_tokens += total_tokens
 
-        output_rows.append(
-            {
-                "model": args.model,
-                "item_id": item_id,
-                "output_text": result["output_text"],
-                "input_tokens": input_tokens,
-                "output_tokens": output_tokens,
-                "total_tokens": total_tokens,
-                "TaskCorrect": "",
-                "LangCorrect": "",
-                "CodeSwitch": "",
-                "JointSuccess": "",
-                "evaluator_notes": "",
-            }
-        )
+            out_writer.writerow(
+                {
+                    "model": args.model,
+                    "item_id": item_id,
+                    "output_text": result["output_text"],
+                    "input_tokens": input_tokens,
+                    "output_tokens": output_tokens,
+                    "total_tokens": total_tokens,
+                    "TaskCorrect": "",
+                    "LangCorrect": "",
+                    "CodeSwitch": "",
+                    "JointSuccess": "",
+                    "evaluator_notes": "",
+                }
+            )
+            out_file.flush()
+            try:
+                os.fsync(out_file.fileno())
+            except OSError:
+                pass
+            processed += 1
 
-        elapsed = time.monotonic() - run_start
-        avg = elapsed / idx
-        remaining = avg * (total_items - idx)
-        pct = 100.0 * idx / total_items
-        bar = render_progress_bar(idx, total_items)
+            elapsed = time.monotonic() - run_start
+            avg = elapsed / processed if processed else 0.0
+            remaining_items = total_items - idx
+            remaining = avg * remaining_items
+            pct = 100.0 * idx / total_items
+            bar = render_progress_bar(idx, total_items)
 
-        print(
-            f"{bar} {idx:>3}/{total_items} "
-            f"({pct:5.1f}%) "
-            f"elapsed={format_duration(elapsed)} "
-            f"ETA={format_duration(remaining)} "
-            f"avg={avg:5.2f}s "
-            f"last={item_elapsed:5.2f}s "
-            f"| {item_id} in={input_tokens} out={output_tokens}",
-            flush=True,
-        )
+            print(
+                f"{bar} {idx:>4}/{total_items} "
+                f"({pct:5.1f}%) "
+                f"elapsed={format_duration(elapsed)} "
+                f"ETA={format_duration(remaining)} "
+                f"avg={avg:5.2f}s "
+                f"last={item_elapsed:5.2f}s "
+                f"| {item_id} in={input_tokens} out={output_tokens}",
+                flush=True,
+            )
 
-        if args.no_dry_run and idx < total_items:
-            time.sleep(args.sleep_seconds)
-
-    write_outputs(args.out, output_rows)
+            if args.no_dry_run and idx < total_items:
+                time.sleep(args.sleep_seconds)
+    finally:
+        out_file.close()
 
     total_elapsed = time.monotonic() - run_start
-    print(f"\nWrote {len(output_rows)} outputs for model '{args.model}' to {args.out}")
-    print(f"Total input tokens:  {sum_input_tokens}")
-    print(f"Total output tokens: {sum_output_tokens}")
-    print(f"Total tokens:        {sum_total_tokens}")
-    print(f"Total time:          {format_duration(total_elapsed)} "
-          f"({total_elapsed:.1f}s, avg {total_elapsed / max(total_items, 1):.2f}s/item)")
+    print(f"\nAppended {processed} new outputs for model '{args.model}' to {args.out}")
+    print(f"(Skipped {len(done_ids)} already-done items; file now contains "
+          f"{len(done_ids) + processed}/{total_items}.)")
+    print(f"Total input tokens (this run):  {sum_input_tokens}")
+    print(f"Total output tokens (this run): {sum_output_tokens}")
+    print(f"Total tokens (this run):        {sum_total_tokens}")
+    print(f"Total time (this run):          {format_duration(total_elapsed)} "
+          f"({total_elapsed:.1f}s, avg {total_elapsed / max(processed, 1):.2f}s/item)")
 
 
 if __name__ == "__main__":
