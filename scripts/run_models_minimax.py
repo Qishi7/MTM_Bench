@@ -4,11 +4,7 @@ import os
 import sys
 import time
 from typing import Dict, List, Set
-
-try:
-    from openai import OpenAI
-except ImportError:
-    OpenAI = None
+from openai import OpenAI
 
 MINIMAX_BASE_URL = "https://api.minimax.io/v1"
 
@@ -42,7 +38,7 @@ def parse_args():
     parser.add_argument(
         "--max-tokens",
         type=int,
-        default=2048,
+        default=512,
         help="Max tokens for model output (includes reasoning tokens)",
     )
     parser.add_argument(
@@ -54,7 +50,7 @@ def parse_args():
     parser.add_argument(
         "--sleep-seconds",
         type=float,
-        default=1.0,
+        default=0.5,
         help="Sleep between API calls",
     )
     return parser.parse_args()
@@ -112,7 +108,7 @@ def call_minimax(
 ) -> Dict[str, object]:
     response = client.chat.completions.create(
         model=model_name,
-        max_tokens=max_tokens,
+        max_completion_tokens=max_tokens,
         temperature=temperature,
         messages=[
             {
