@@ -1,10 +1,10 @@
 # MTM Bench
 
+# MTM Bench
+
 MTM Bench is a controlled benchmark for evaluating language-conditioned task execution in multilingual LLMs. Each instance is defined by a language triplet:
 
-[
-(L_{\text{instr}}, L_{\text{content}}, L_{\text{resp}})
-]
+`(L_instr, L_content, L_resp)`
 
 where the instruction language, content language, and required response language may differ.
 
