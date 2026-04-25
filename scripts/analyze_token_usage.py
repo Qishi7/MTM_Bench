@@ -349,7 +349,7 @@ def main() -> None:
     parser.add_argument(
         "--sort-by",
         default="thinking",
-        choices=["model", "input", "output", "thinking", "total"],
+        choices=["model", "input", "output", "thinking", "total", "js"],
         help="Column to sort by (only used when --order sort)",
     )
     parser.add_argument(
