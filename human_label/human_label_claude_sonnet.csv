@@ -1,0 +1,117 @@
+﻿model,item_id,model_output,SC,LC,CC,JC,,human_SC,human_LC,human_CC,reason
+claude-sonnet-4-6,LMB01_C5,Friday at 4 PM,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB07_C18,"Thursday, Room 3.",1,1,0,0,,1,1,0,
+claude-sonnet-4-6,LMB16_C11,414 555 0199,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB20_C8,Watermelon,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB22_C25,0.8,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB22_C4,0.8 is larger than 0.65.,1,1,1,1,,1,1,0,only_output 只应输出 0.8；完整比较句违反格式约束
+claude-sonnet-4-6,LMB23_C1,Canada,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB24_C18,Scissors (tijeras) are normally used to cut paper.,1,1,1,1,,1,0,0,目标语言是英语，但输出夹入西语 tijeras；括号解释和完整句也违反 only_output
+claude-sonnet-4-6,LMB24_C22,Scissors,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB24_C8,Scissors,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB01_C10,Viernes a las 4:00 p.m.,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB07_C21,El jueves en el Salón 3.,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB16_C17,El número de teléfono final es 414 555 0199.,1,1,1,1,,1,1,0,"only_output 只应输出电话号码；""El número de teléfono final es ..."" 是解释性外壳"
+claude-sonnet-4-6,LMB20_C13,La sandía.,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB22_C27,0.8,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB22_C6,0.8 es mayor que 0.65.,1,1,1,1,,1,1,0,"only_output 只应输出 0.8；""0.8 es mayor que 0.65"" 是完整比较句"
+claude-sonnet-4-6,LMB23_C3,Canadá,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB24_C13,Unas tijeras.,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB24_C21,Tijeras,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB24_C24,Tijeras,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB01_C9,周五下午4点,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB07_C19,周四，3号教室。,1,1,0,0,,1,1,1,输出已是最终时间地点，没有解释性外壳；应满足 only_output
+claude-sonnet-4-6,LMB16_C14,414 555 0199,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB20_C12,西瓜,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB22_C26,0.8,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB22_C7,0.8,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB23_C2,加拿大,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB24_C12,剪刀,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB24_C19,剪刀,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMB24_C23,剪刀,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC01_C5,"The DataBridge workshop has been relocated from Room 401 to Room 327 next Thursday, and registered students must bring their ID cards.",0,1,1,0,,1,1,1,核心地点更新和时间被表达出来；遗漏未取消状态可视为次要信息，不应把 SC 打成 0
+claude-sonnet-4-6,LMC07_C18,"The CityArchive information session has been rescheduled from September 10 to September 12, still in Room 208 with tickets managed through PassGrid.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC16_C11,"The training has moved from the conference room to an online Zoom session, but the start time remains the same.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC20_C8,The originally scheduled Monday morning Q&A session has been moved to Wednesday noon.,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC22_C25,The roundtable was rescheduled from 1:00 PM to 2:30 PM on the same day.,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC22_C4,The panel discussion has been moved to 2:30 PM.,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC23_C1,"The check-in window now starts at 8:15 AM instead of 8:00 AM, and the location remains the same.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC24_C18,"The practice meeting has been rescheduled from Thursday to Friday, but will still start at 10 a.m.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC24_C22,"The practical class meeting has been rescheduled from Thursday to Friday, but still starts at 10 a.m.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC24_C8,"The practical course meeting has been rescheduled from Thursday to Friday, but still starts at 10 AM.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC01_C10,"El memorando indica que el taller DataBridge se trasladará el próximo jueves de la sala 401 a la sala 327, y que los estudiantes registrados a través de CampusConnect deben traer su identificación estudiantil, ya que el taller no ha sido cancelado, solo ha cambiado de lugar.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC07_C21,"La sesión informativa de CityArchive se ha reprogramado del 10 al 12 de septiembre, manteniéndose en la misma sala y con el mismo sistema de entradas.",0,1,1,0,,1,1,1,核心改期到 9 月 12 日被准确表达，地点和票务不变也无矛盾；SC 应为 1
+claude-sonnet-4-6,LMC16_C17,"La capacitación se realizará en línea por Zoom en lugar de en la sala de reuniones, con el mismo horario de inicio.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC20_C13,La hora de consulta del lunes por la mañana fue reprogramada para el miércoles al mediodía.,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC22_C27,La mesa redonda se retrasó una hora y media.,0,1,1,0,,1,1,1,从 1 点改到 2:30 等价于延后一个半小时；核心 update 正确
+claude-sonnet-4-6,LMC22_C6,La discusión del panel ha sido reprogramada de la 1:00 PM a las 2:30 PM del mismo día.,1,0,1,0,,1,0,1,
+claude-sonnet-4-6,LMC23_C3,"La ventana de registro ahora comienza a las 8:15 AM en lugar de las 8:00 AM, y la ubicación no ha cambiado.",1,0,1,0,,1,0,1,
+claude-sonnet-4-6,LMC24_C13,"La reunión de prácticas fue reprogramada del jueves al viernes, pero el horario de inicio a las 10 a. m. permanece igual.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC24_C21,"La reunión del practicum se cambió del jueves al viernes, pero seguirá comenzando a las 10 AM.",1,0,1,0,,1,0,1,
+claude-sonnet-4-6,LMC24_C24,"La reunión de la clase práctica se ha cambiado del jueves al viernes, manteniendo el mismo horario de las 10 de la mañana.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC01_C9,DataBridge 工作坊的地点已从401室更改为327室，时间不变，通过 CampusConnect 注册的学生需携带学生证参加。,0,1,1,0,,0,1,1,
+claude-sonnet-4-6,LMC07_C19,CityArchive信息宣讲会已从9月10日改期至9月12日，地点和售票方式不变。,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC16_C14,培训地点已从会议室改为线上Zoom会议，开始时间不变。,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC20_C12,原定周一上午的咨询时间已改至周三中午。,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC22_C26,圆桌会议已从下午1点改至同日下午2点半。,0,1,1,0,,1,1,1,中文输出准确表达从下午1点改到同日下午2点半；SC 应为 1
+claude-sonnet-4-6,LMC22_C7,小组讨论已从下午1点改至下午2点30分。,0,1,1,0,,1,1,1,中文输出准确表达从下午1点改到下午2点30分；SC 应为 1
+claude-sonnet-4-6,LMC23_C2,登机手续办理窗口的开放时间已从早上8:00更改为8:15，地点保持不变。,0,1,1,0,,1,1,1,虽然“登机手续”措辞别扭，但核心信息为 8:15 开始且地点不变；SC 应为 1
+claude-sonnet-4-6,LMC24_C12,练习会议从星期四改到了星期五，但仍将在上午10点开始。,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMC24_C19,实习会议从周四改到周五，但开始时间仍为上午10点。,0,1,1,0,,1,1,1,输出准确表达从周四改到周五且上午10点不变；SC 应为 1
+claude-sonnet-4-6,LMC24_C23,实践课会议改到周五，时间不变。,0,1,1,0,,1,1,1,输出表达实践课会议改到周五且时间不变，核心 update 正确
+claude-sonnet-4-6,LMA01_C5,"**No.**
+
+Although the essay initially appears complimentary, the author ultimately criticizes the professor, arguing that his apparent authority was based on intimidation and fear rather than genuine rigor or respect.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA07_C18,"The column ultimately praises the translator, concluding that her careful restraint reflected **fidelity** to the original text rather than timidity.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA16_C11,"**No.** The writer is being sarcastic — what they actually describe as ""constant"" is the professor consistently starting late, ending early, and falling further behind on the syllabus, which are clearly negative qualities, not admirable ones.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA20_C8,"**No.** The author concludes that the new design erases the very qualities that originally made the place worth visiting, indicating a negative final judgment.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA22_C25,"**No.** The speaker uses apparent praise (""careful work"") only to immediately undercut it, revealing that the so-called carefulness resulted in delays, confusion, and excuses — making the compliment sarcastic rather than sincere.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA22_C4,"**No.**
+
+The speaker initially appears to praise the committee, but then contradicts herself by saying their ""care"" actually resulted in delay, confusion, and excuses — revealing that the compliment was **sarcastic**, not sincere.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA23_C1,"**No.** By the end of the article, the author concludes that the reform merely renamed old problems without solving them, indicating a critical rather than supportive stance.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA24_C18,"**No.**
+
+The text describes the landlord negatively — the owner was inattentive, took six weeks and three reminders to respond, and the tenant had a leaking roof in the meantime.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA24_C22,"**No.**
+
+The passage describes the landlord negatively: after six weeks, three follow-up requests, and a ceiling leak, someone finally returned the call — implying the landlord was unresponsive and slow to act.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA24_C8,"**No.** The landlord is described negatively — after six weeks, three follow-up requests, and a ceiling leak, they only *finally* returned a phone call, indicating they were unresponsive and neglectful.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA01_C10,"No. El autor critica al profesor, señalando que confunde intimidación con rigor y silencio con respeto, y que su aparente autoridad no es más que miedo disfrazado.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA07_C21,"El juicio final de la columna es que la cautela de la traductora no era timidez, sino fidelidad al texto original, ya que sus elecciones cuidadosas preservaban intencionalmente la ambigüedad que el autor había dejado sin resolver.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA16_C17,"**No.**
+
+El autor usa la palabra ""佩服"" (admirar) de forma **irónica**. En realidad, está criticando al profesor por llegar tarde, terminar la clase antes de tiempo y no cumplir con el programa del curso.",1,0,0,0,,1,0,0,
+claude-sonnet-4-6,LMA20_C13,"**No.** El autor concluye que la ampliación destruyó el carácter esencial del lugar, lo cual es una valoración negativa.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA22_C27,"**No.** La oradora usa un elogio aparente (""trabajo cuidadoso"") de forma irónica, ya que inmediatamente después lo contradice al señalar que ese supuesto cuidado solo generó retraso, confusión y excusas.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA22_C6,"**No.**
+
+Aunque la oradora comienza agradeciendo al comité por su ""cuidadoso trabajo"", luego revela que ese supuesto cuidado solo produjo retrasos, confusión y excusas. Por lo tanto, el elogio inicial era irónico, no sincero.",1,1,0,0,,1,1,0,
+claude-sonnet-4-6,LMA23_C3,"**No.** Al final del artículo, el autor concluye que la reforma solo cambió el nombre de los problemas sin resolverlos, lo que indica una postura crítica y no de apoyo.",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA24_C13,"**No.** El propietario es descrito negativamente, ya que tardó seis semanas en responder, ignoró tres recordatorios y dejó sin atender un techo con goteras.",0,1,1,0,,1,1,1,输出明确回答 No，并指出房东被负面描述；SC 不应为 0
+claude-sonnet-4-6,LMA24_C21,"**No.** El pasaje describe al propietario de forma negativa, ya que tardó seis semanas en responder, ignoró tres recordatorios y dejó que el problema del techo con goteras persistiera sin atención oportuna.",0,1,1,0,,1,1,1,输出明确回答 No，并说明房东回应迟缓、负面描述；SC 不应为 0
+claude-sonnet-4-6,LMA24_C24,"**No.** El pasaje describe al propietario de forma negativa: tardó seis semanas en responder, fue necesario llamarle tres veces y mientras tanto el techo llegó a gotear, lo que indica una actitud pasiva e irresponsable ante los problemas.",0,1,1,0,,1,1,1,输出明确回答 No，并说明房东被负面描述；SC 不应为 0
+claude-sonnet-4-6,LMA01_C9,"不，作者实际上并不认可这位教授。作者最终揭示该教授将恐吓误当作严谨、将沉默误当作尊重，本质上不过是以""权威""外表掩盖内心的恐惧，带有明显的批判态度。",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA07_C19,专栏最终认为，译者表面上看似保守克制，实则是对原文的忠实呈现，而非胆怯退缩。,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA16_C14,"**否**
+
+作者在使用**反讽**的手法。表面上说""佩服教授的一贯性""，实际上是在讽刺这位教授每次上课都迟到、早退、还拖延教学进度，是一种负面的""一贯""，并非真正值得称赞的品质。",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA20_C12,否。作者在结尾指出新设计抹去了该场所原有的独特魅力，态度是负面的。,1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA22_C26,"否。
+
+演讲者表面上感谢委员会""认真工作""，但随即指出这种所谓的认真只带来了拖延、混乱和借口，说明最初的赞扬是反讽，并非真心称赞。",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA22_C7,"**否**
+
+演讲者表面上感谢委员会的""认真工作""，但随后指出这种所谓的认真只带来了拖延、混乱和借口，说明最初的赞扬是反讽，并非真心称赞。",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA23_C2,"**不支持。**
+
+作者最终认为该改革只是将旧问题重新命名，并未真正解决问题，态度是否定的。",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA24_C12,"**不是（否）**
+
+文中提到房东不够体贴周到，租客等了六周、发了三次提醒，屋顶还漏水，才终于有人回电话，明显是负面描述。",1,1,1,1,,1,1,1,
+claude-sonnet-4-6,LMA24_C19,"**否**
+
+短文明确指出房东不够体贴周到（""no fue precisamente atento""），租客等了六周、发了三次提醒，屋顶还漏水，才终于有人回电，整体是对房东的**负面描述**。",1,0,1,0,,1,0,1,
+claude-sonnet-4-6,LMA24_C23,"**否**
+
+房东对租客的问题反应迟缓，六周内被催了三次才有人回电话，而且天花板还漏水，说明房东态度消极、不负责任，并非正面描述。",1,1,1,1,,1,1,1,
