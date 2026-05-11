@@ -1,0 +1,138 @@
+model,audit_type,source_file,item_id,model_output,SC,LC,CC,JC,,human_SC,human_LC,human_CC,reason
+deepseek-r1,random_control,lan_main,LMB08_C7,修订后的章节和回复备忘录。,1,1,1,1,,,,,
+deepseek-r1,random_control,lan_main,LMA02_C2,叙述者的真正观点是他对胜负的漠不关心并非发自内心的信念，而只是一种表演。,1,1,1,1,,,,,
+deepseek-r1,random_control,lan_main,LMA06_C6,,0,0,0,0,,,,,
+deepseek-r1,random_control,lan_main,LMD04_C5,"The MediaHub panel has been moved to Building A, Room 118, maintaining its original schedule and active status.",1,1,1,1,,,,,
+deepseek-r1,random_control,lan_main,LMA08_C3,"No, porque al final el artículo justifica la demora como una decisión prudente.",1,1,1,1,,,,,
+deepseek-r1,random_control,tri_main,LMC05_C16,OpenPath 场次开始时间改为3:30，地点和注册方式不变，活动照常进行。,1,1,1,1,,,,,
+deepseek-r1,random_control,tri_main,LMA20_C22,"No, because the author concludes that the new design erases the most valuable traits of the original place.",1,1,1,1,,,,,
+deepseek-r1,random_control,tri_main,LMA23_C2,"no  
+因为作者最终批评改革只是重命名旧问题而未解决它们。",1,0,0,0,,1,0,1,"no + reason structure is there, the English no already counts under LC so CC shouldn't fail again"
+deepseek-r1,random_control,tri_main,LMB19_C15,Chinese Rural Dogs are usually larger than Pekingese.,1,1,1,1,,1,1,0,"instruction said only the final answer but the model added the comparison clause, so CC should be 0 — judge-too-lenient on this one"
+deepseek-r1,random_control,tri_main,LMA01_C1,"No, because the author ultimately criticizes the professor for confusing intimidation with rigor and fear with authority.",1,1,1,1,,,,,
+deepseek-v3_1,random_control,lan_main,LMB01_C5,Friday at 4 PM,1,1,1,1,,,,,
+deepseek-v3_1,random_control,lan_main,LMD01_C5,"The memo announces the relocation of the DataBridge workshop to Room 327 next Thursday, requiring registered students to bring their ID cards.",1,1,1,1,,,,,
+deepseek-v3_1,random_control,lan_main,LMD01_C7,DataBridge研讨会下周四将从401室移至327室，已通过CampusConnect报名的学生需携带身份证件参加。,0,1,1,0,,1,1,1,"main update is there (room change to 327 next Thursday), the ID-card detail doesn't contradict gold so Family C SC should be 1"
+deepseek-v3_1,random_control,lan_main,LMA02_C3,"El narrador señala que su indiferencia ante los resultados no era real, sino una actuación.",1,1,1,1,,,,,
+deepseek-v3_1,random_control,lan_main,LMB08_C1,Revised chapter and response memo.,1,1,1,1,,,,,
+deepseek-v3_1,random_control,tri_main,LMC12_C2,讲座地点已从旧礼堂改为图书馆地下室教室。,1,1,1,1,,,,,
+deepseek-v3_1,random_control,tri_main,LMB17_C23,否，因为午餐最终因日程缩短而取消。,0,1,0,0,,1,1,1,"matches gold (lunch canceled) and the no + reason format is satisfied, so SC and CC are both wrongly 0"
+deepseek-v3_1,random_control,tri_main,LMA18_C3,"No, porque el orden que impone se basa en el miedo y no en el respeto.",0,1,1,0,,1,1,1,Family A reversal is there (fear vs respect)
+deepseek-v3_1,random_control,tri_main,LMB26_C23,13,1,1,1,1,,,,,
+deepseek-v3_1,random_control,tri_main,LMA21_C6,"No. La editorial concluye que el carisma sin honestidad es solo una decepción pulida, lo que implica una crítica en lugar de aprecio.",1,1,1,1,,,,,
+deepseek-v3_2,random_control,lan_main,LMA07_C1,The column's final judgment is that the translator's restraint was an act of fidelity rather than timidity.,1,1,1,1,,,,,
+deepseek-v3_2,random_control,lan_main,LMD03_C5,"The GreenLab meeting has been rescheduled to April 8, still in Room 305 with sign-up via EventPortal.",1,1,1,1,,,,,
+deepseek-v3_2,random_control,lan_main,LMD03_C1,The GreenLab meeting has been rescheduled from April 6 to April 8 but will still be in Room 305 with sign-up via EventPortal.,1,1,1,1,,,,,
+deepseek-v3_2,random_control,lan_main,LMD04_C3,"El panel de MediaHub se reubicó del Edificio C al Edificio A, Sala 118, manteniendo su horario original y permaneciendo activo.",1,1,1,1,,,,,
+deepseek-v3_2,random_control,lan_main,LMB04_C3,El taller de escritura del miércoles.,1,1,1,1,,,,,
+deepseek-v3_2,random_control,tri_main,LMA06_C9,文章最终认为，老图书馆看似过时的特质实际上是对专注力的保护与捍卫。,1,1,1,1,,,,,
+deepseek-v3_2,random_control,tri_main,LMC27_C18,"The help desk remains open but without phone support today, so please use the online ticket system.",1,1,1,1,,,,,
+deepseek-v3_2,random_control,tri_main,LMA12_C14,"否，作者是在讽刺设计者。  
+理由：文中提到“将每个实用功能都藏在四个菜单和登录超时后面”，这暗示设计复杂且不人性化，因此所谓的“夸奖”实为反讽。",1,1,1,1,,,,,
+deepseek-v3_2,random_control,tri_main,LMA19_C3,"No, porque el autor critica el plan por estar apresurado y mal fundamentado.",1,1,1,1,,,,,
+deepseek-v3_2,random_control,tri_main,LMC01_C7,DataBridge研讨会下周四将从401室移至327室，已通过CampusConnect注册的学生需携带身份证件，活动仅更换场地并未取消。,1,1,1,1,,,,,
+deepseek-r1,boundary_targeted,lan_main,LMA03_C1,The writer ultimately judges the nurse's seemingly cold demeanor as a disciplined and necessary form of care to prevent panic in emergency wards.,0,1,1,0,,1,1,1,captures the same Family A reversal as gold (cold demeanor → disciplined care)
+deepseek-r1,boundary_targeted,lan_main,LMA05_C2,作者真正的批评目标是上级主管。,0,1,1,0,,1,1,1,"borderline — names the supervisors as the target, less specific than gold but reversal direction is right"
+deepseek-r1,boundary_targeted,lan_main,LMA08_C2,no，因为文章最终将延迟解释为审慎而非怯懦。,1,0,0,0,,1,0,1,"no + reason structure is fine, English no is already the LC issue and shouldn't fail CC too"
+deepseek-r1,boundary_targeted,lan_main,LMA01_C2,否，因为作者最终批评教授将恐吓误认为严谨，其权威只是恐惧的伪装。,1,1,1,1,,,,,
+deepseek-r1,boundary_targeted,lan_main,LMB05_C2,327号房间,0,1,1,0,,1,1,1,"contains the correct final value 327, the trailing 号房间 is just the unit"
+deepseek-r1,boundary_targeted,lan_main,LMB04_C6,El taller de escritura del miércoles fue cancelado.,0,1,1,0,,1,1,1,"contains the gold event verbatim, the appended fue cancelado is just redundant restating"
+deepseek-r1,boundary_targeted,lan_main,LMB04_C1,Wednesday's writing workshop.,1,1,1,1,,,,,
+deepseek-r1,boundary_targeted,lan_main,LMD02_C4,,0,0,0,0,,,,,
+deepseek-r1,boundary_targeted,lan_main,LMD04_C6,,0,0,0,0,,,,,
+deepseek-r1,boundary_targeted,lan_main,LMD05_C3,"La sesión de OpenPath ahora comenzará a las 3:30 en lugar de las 2:30, se mantiene en el Hall 2, aún requiere registro a través de LinkDesk y el evento no ha sido cancelado.",1,0,1,0,,,,,
+deepseek-r1,boundary_targeted,lan_main,LMD05_C6,"La sesión de OpenPath se pospone a las 3:30, permanece en el Hall 2 y requiere registro a través de LinkDesk, sin cancelarse.",1,0,1,0,,,,,
+deepseek-r1,boundary_targeted,lan_main,LMD02_C3,"El seminario CampusLink del martes se realizará en línea en lugar de en el aula 214, manteniendo el mismo código de registro y con un retraso de una hora, sin cancelarse.",1,1,1,1,,,,,
+deepseek-r1,boundary_targeted,tri_main,LMA16_C19,否。,0,1,1,0,,1,1,0,stance is correct (SC=1) but the brief reason is missing (CC=0) — the two look inverted
+deepseek-r1,boundary_targeted,tri_main,LMA18_C3,"No, porque el autor atribuye el orden al miedo en lugar del respeto.",0,1,1,0,,1,1,1,Family A reversal is there (fear vs respect)
+deepseek-r1,boundary_targeted,tri_main,LMA15_C14,否。作者使用反语，表面称更新为“杰作”，但实际描述其负面效果，如移除bug跟踪器、减慢速度并使打印更困难，表明并不认可。,1,0,1,0,,,,,
+deepseek-r1,boundary_targeted,tri_main,LMA14_C9,No，因为“鼓舞人心”使用了反讽，实际表达对会议效率低下、无成果的批评。,1,0,0,0,,1,0,1,"yes/no prefix + brief reason, the English No is an LC issue not a format one"
+deepseek-r1,boundary_targeted,tri_main,LMA16_C2,no，因为作者是在讽刺教授上课迟到早退、教学进度落后的行为。,1,0,0,0,,1,0,1,"yes/no prefix + brief reason, the English no is an LC issue not a format one"
+deepseek-r1,boundary_targeted,tri_main,LMA14_C19,否，因为短文使用反讽手法，表面赞美“鼓舞人心”，实则批评会议无成果且超时，并非真心赞美。,1,1,1,1,,,,,
+deepseek-r1,boundary_targeted,tri_main,LMB08_C19,最终必须上传修订后的章节和回复说明。,0,1,0,0,,1,1,0,"the final files are correct so SC should be 1, CC=0 stays because of the extra prefix"
+deepseek-r1,boundary_targeted,tri_main,LMB08_C14,修订后的章节和回复备忘录。,0,1,1,0,,1,1,1,"the answer matches the gold meaning, 回复备忘录 and 回应备忘录 are the same final file here"
+deepseek-r1,boundary_targeted,tri_main,LMB13_C6,El seminario está confirmado para el viernes a las 3 PM en línea.,1,0,0,0,,,,,
+deepseek-r1,boundary_targeted,tri_main,LMB01_C3,Viernes a las 4 PM.,1,0,1,0,,,,,
+deepseek-r1,boundary_targeted,tri_main,LMB15_C24,"Edificio B, habitación 410.",1,1,0,0,,1,1,1,"just the answer in Spanish with no explanation, habitación and sala are synonyms"
+deepseek-r1,boundary_targeted,tri_main,LMB08_C6,Se deben subir el capítulo revisado y el memo de respuesta.,1,1,0,0,,,,,
+deepseek-r1,boundary_targeted,tri_main,LMB29_C22,5 files.,1,1,1,1,,,,,
+deepseek-r1,boundary_targeted,tri_main,LMC10_C18,The advisory session has been moved from room 2 to room 410 in Johnston Hall and remains scheduled.,0,1,1,0,,1,1,1,"main update + not canceled both present, no contradiction"
+deepseek-r1,boundary_targeted,tri_main,LMC10_C5,The advising session has been moved from Hall 2 to Room 410 in Johnston Hall and remains scheduled.,0,1,1,0,,1,1,1,"main update is right (moved to Johnston Hall 410, still scheduled)"
+deepseek-r1,boundary_targeted,tri_main,LMC25_C23,请将所有问题发送给Dr. Rivera，而非Maria。,1,0,0,0,,1,0,1,"one-sentence Chinese summary so CC is fine, LC borderline depending on whether Dr. counts as part of the proper name"
+deepseek-r1,boundary_targeted,tri_main,LMC10_C20,La sesión de asesoría se reubicó en la sala 410 de Johnston Hall y sigue en pie.,1,0,1,0,,1,1,1,Johnston Hall is a proper name and gold itself preserves it
+deepseek-r1,boundary_targeted,tri_main,LMC25_C27,El contacto para consultas ha cambiado de María al Dr. Rivera.,1,1,0,0,,1,1,1,"one Spanish sentence, no format issue"
+deepseek-r1,boundary_targeted,tri_main,LMC25_C11,The update instructs to stop emailing Maria and now send all questions to Dr. Rivera.,1,1,0,0,,1,1,1,"one English sentence, no format issue"
+deepseek-r1,boundary_targeted,tri_main,LMC30_C14,会议照常进行，但链接已改为Zoom。,1,1,1,1,,,,,
+deepseek-v3_1,boundary_targeted,lan_main,LMA01_C1,"No, because the author criticizes the professor for mistaking intimidation for rigor.",0,1,1,0,,1,1,1,"captures the intended reversal — the author is criticizing the professor, not approving"
+deepseek-v3_1,boundary_targeted,lan_main,LMA02_C7,El narrador cree que su indiferencia era más una actuación que una convicción genuina.,1,0,1,0,,,,,
+deepseek-v3_1,boundary_targeted,lan_main,LMA04_C2,no，因为评论实际在讽刺市长只是为迎合民意而假装一致。,1,0,0,0,,1,0,1,"no + reason structure is fine, the English no is the LC issue"
+deepseek-v3_1,boundary_targeted,lan_main,LMA08_C7,"No, porque el artículo explica que la demora se debió a una razón válida (rechazar una versión defectuosa) y presenta la hesitación como prudencia, no como cobardía.",1,0,0,0,,1,0,1,"no + reason structure is there, the issue is response language not the structure"
+deepseek-v3_1,boundary_targeted,lan_main,LMA04_C7,"No, porque la reseña utiliza la ironía para señalar que su consistencia era solo en su deseo de ser popular, no en sus principios.",1,0,0,0,,1,0,1,"no + reason structure is there, language is wrong but the constraint itself is met"
+deepseek-v3_1,boundary_targeted,lan_main,LMA06_C1,The essay's final view is that the old library's outdated qualities were actually a valuable defense of attention against distraction.,1,1,1,1,,,,,
+deepseek-v3_1,boundary_targeted,lan_main,LMB04_C6,El taller de escritura del miércoles fue cancelado.,0,1,1,0,,1,1,1,"correct event identified, the fue cancelado wording is redundant"
+deepseek-v3_1,boundary_targeted,lan_main,LMB04_C2,周三的写作工作坊被取消。,0,1,1,0,,1,1,1,"names the correct canceled event, 被取消 restates context rather than changing the answer"
+deepseek-v3_1,boundary_targeted,lan_main,LMB03_C2,Professor Rivera,1,0,1,0,,,,,
+deepseek-v3_1,boundary_targeted,lan_main,LMB05_C4,The final room number is 327.,1,1,0,0,,,,,
+deepseek-v3_1,boundary_targeted,lan_main,LMB01_C5,Friday at 4 PM,1,1,1,1,,,,,
+deepseek-v3_1,boundary_targeted,lan_main,LMD01_C7,DataBridge研讨会下周四将从401室移至327室，已通过CampusConnect报名的学生需携带身份证件参加。,0,1,1,0,,1,1,1,main update (move to 327 next Thursday) is there
+deepseek-v3_1,boundary_targeted,lan_main,LMD01_C2,备忘录说明 DataBridge 研讨会将于下周四从 401 室移至 327 室，通过 CampusConnect 报名的学生需携带身份证件，并强调活动并未取消，只是更换了地点。,0,1,1,0,,1,1,1,both room change and non-cancellation are explicitly present
+deepseek-v3_1,boundary_targeted,lan_main,LMD05_C2,海报通知OpenPath会议的开始时间从2:30改为3:30，地点仍在Hall 2，且仍需通过LinkDesk注册，活动并未取消。,1,0,1,0,,,,,
+deepseek-v3_1,boundary_targeted,lan_main,LMD05_C3,"El cartel indica que la sesión de OpenPath ahora comenzará a las 3:30 en lugar de las 2:30, permanece en el Hall 2 y aún requiere registro a través de LinkDesk, ya que el evento no ha sido cancelado.",1,0,1,0,,,,,
+deepseek-v3_1,boundary_targeted,lan_main,LMD06_C3,"La actualización indica que el foro RiverNet ahora se alojará en línea en lugar de en la Sala 520, los asistentes deben seguir usando el mismo código en EventGrid, y el foro se retrasó treinta minutos, no se canceló.",1,1,1,1,,,,,
+deepseek-v3_1,boundary_targeted,tri_main,LMA05_C23,作者真正的批评对象是上层主管。,0,1,1,0,,1,1,1,"borderline — same situation as LMA05_C2 in r1 lan, identifies supervisors but less specifically than gold"
+deepseek-v3_1,boundary_targeted,tri_main,LMA10_C13,"No, porque la presentación tenía problemas como diapositivas repetitivas y el ponente no se escuchaba bien.",0,1,1,0,,1,1,1,negative stance is right and the reason is valid
+deepseek-v3_1,boundary_targeted,tri_main,LMA15_C2,no，作者在讽刺更新带来的负面影响。,1,0,0,0,,1,0,1,"no + reason is satisfied, English no is the LC issue"
+deepseek-v3_1,boundary_targeted,tri_main,LMA21_C9,"No, 因为社论最终将他的魅力定性为欺骗。",1,0,0,0,,1,0,1,"has the required no + brief reason, English No is an LC issue not a format one"
+deepseek-v3_1,boundary_targeted,tri_main,LMA08_C2,"No, because the article clarifies that the delay was due to their refusal to approve a flawed version, not cowardice, and emphasizes their careful judgment over haste.",1,0,0,0,,1,0,1,"gives a clear no and a brief reason, wrong language shouldn't also make CC fail"
+deepseek-v3_1,boundary_targeted,tri_main,LMA11_C9,"No, 因为评论使用了反讽的语气，将糟糕的停车场景观和吵闹的空调描述为“令人难忘”和“背景音乐”，实际表达的是负面体验。",1,0,0,0,,1,0,1,"has the required no + brief reason, the English No is already captured by LC"
+deepseek-v3_1,boundary_targeted,tri_main,LMA04_C25,"No, because the review uses irony to show that the mayor's consistency was actually an unprincipled effort to appear popular.",1,1,1,1,,,,,
+deepseek-v3_1,boundary_targeted,tri_main,LMB17_C7,否，因为最终取消了。,0,1,0,0,,1,1,1,"matches gold meaning (lunch canceled), no + reason is satisfied"
+deepseek-v3_1,boundary_targeted,tri_main,LMB17_C26,否，因为午餐最终因时间缩短而被取消。,0,1,0,0,,1,1,1,matches the gold meaning and gives the required no + short reason
+deepseek-v3_1,boundary_targeted,tri_main,LMB23_C24,Can,1,0,1,0,,0,0,1,"clear false positive — Can is a truncated/incomplete answer for Canadá, SC should be 0"
+deepseek-v3_1,boundary_targeted,tri_main,LMB15_C2,"Building B, Room 410",1,0,0,0,,1,0,1,"just the answer with no explanation, the English vs Chinese mismatch is the LC issue not a CC one"
+deepseek-v3_1,boundary_targeted,tri_main,LMB28_C15,The answer is 6.,1,1,0,0,,,,,
+deepseek-v3_1,boundary_targeted,tri_main,LMB25_C17,La respuesta es 12.,1,1,0,0,,,,,
+deepseek-v3_1,boundary_targeted,tri_main,LMB26_C13,13,1,1,1,1,,,,,
+deepseek-v3_1,boundary_targeted,tri_main,LMC07_C22,"The CityArchive Briefing has been rescheduled from September 10th to September 12th, while the venue (Room 208) and ticketing via PassGrid remain unchanged.",0,1,1,0,,1,1,1,"main update captured (moved to Sept 12), non-cancellation is implicit in rescheduled"
+deepseek-v3_1,boundary_targeted,tri_main,LMC22_C16,专题讨论会时间改为同日下午2:30。,0,1,1,0,,1,1,1,semantically equivalent to gold
+deepseek-v3_1,boundary_targeted,tri_main,LMC05_C3,"El cartel indica que la sesión de OpenPath ahora comenzará a las 3:30 en lugar de las 2:30, seguirá en el Hall 2, aún requiere registro a través de LinkDesk y el evento no ha sido cancelado.",1,0,1,0,,,,,
+deepseek-v3_1,boundary_targeted,tri_main,LMC17_C10,"La entrevista ya no será en la oficina de admisiones, sino que se ha cambiado al Career Center, sala 12.",1,0,1,0,,1,1,1,Career Center behaves like a proper name and gold itself preserves it
+deepseek-v3_1,boundary_targeted,tri_main,LMC25_C25,Please no longer send emails to Maria; all inquiries must now be directed to Dr. Rivera.,1,1,0,0,,1,1,1,"one sentence, no obvious format issue"
+deepseek-v3_1,boundary_targeted,tri_main,LMC25_C24,Dejen de enviar correos a María y dirijan todas las consultas al Dr. Rivera.,1,1,0,0,,1,1,1,"one Spanish sentence, no obvious format issue"
+deepseek-v3_1,boundary_targeted,tri_main,LMC28_C1,"The workshop has not been canceled, but registration is now closed because all seats are full.",1,1,1,1,,,,,
+deepseek-v3_2,boundary_targeted,lan_main,LMA08_C1,"No, because the article ultimately justifies the delay as a refusal to approve a flawed version.",0,1,1,0,,1,1,1,"captures the intended reversal — the delay is framed as justified, not cowardly"
+deepseek-v3_2,boundary_targeted,lan_main,LMA04_C5,"No, because the review uses irony to criticize the mayor's inconsistency disguised as a desire for popularity.",0,1,1,0,,1,1,1,negative stance and reason are both right
+deepseek-v3_2,boundary_targeted,lan_main,LMA04_C7,"No  
+因为评论虽然开头提到市长“非常一致”，但随后举例说明他随民意改变立场，最后指出他的一致性仅在于刻意迎合大众，所以并非真诚赞扬。",1,0,0,0,,1,0,1,"no + reason is satisfied, English No is the LC issue"
+deepseek-v3_2,boundary_targeted,lan_main,LMA04_C2,no，因为评论实际在讽刺市长仅为了迎合民意而改变立场，并非真正坚持原则。,1,0,0,0,,1,0,1,"yes/no prefix + brief reason, the English no is a language issue not a format one"
+deepseek-v3_2,boundary_targeted,lan_main,LMA08_C2,no，因为文章最终将延迟归因于委员会不愿草率批准有缺陷的方案，而非出于怯懦。,1,0,0,0,,1,0,1,"yes/no prefix + brief reason, the English no is already accounted for by LC"
+deepseek-v3_2,boundary_targeted,lan_main,LMA08_C7,"不  
+因为文章最后表明委员会的犹豫并非出于怯懦，而是不愿为了速度牺牲判断力，实际上为其延迟提供了正当理由。",1,1,1,1,,,,,
+deepseek-v3_2,boundary_targeted,lan_main,LMB04_C6,El taller de escritura del miércoles fue cancelado.,0,1,1,0,,1,1,1,"identifies the correct canceled event, the extra cancellation wording doesn't make the extraction semantically wrong"
+deepseek-v3_2,boundary_targeted,lan_main,LMB04_C2,周三的写作工作坊被取消了。,0,1,1,0,,1,1,1,"identifies the correct canceled event, 被取消了 restates the notice rather than changing the answer"
+deepseek-v3_2,boundary_targeted,lan_main,LMB08_C6,El capítulo revisado y el memo de respuesta.,1,1,1,1,,,,,
+deepseek-v3_2,boundary_targeted,lan_main,LMD04_C2,原定于Building C的MediaHub讨论会改为Building A的118室举行，时间不变，活动仍将进行。,1,0,1,0,,,,,
+deepseek-v3_2,boundary_targeted,lan_main,LMD05_C2,海报通知OpenPath会议时间从2:30改为3:30，地点仍在Hall 2，需通过LinkDesk注册，活动未取消。,1,0,1,0,,,,,
+deepseek-v3_2,boundary_targeted,lan_main,LMD01_C6,El taller DataBridge se trasladará al aula 327 el próximo jueves y los inscritos deben llevar su carné de identidad.,1,1,1,1,,,,,
+deepseek-v3_2,boundary_targeted,tri_main,LMA26_C3,"No, porque menciona varios problemas y falta de colaboración.",0,1,1,0,,1,1,1,"reads the passage as negative, which is the right direction"
+deepseek-v3_2,boundary_targeted,tri_main,LMA24_C10,"No, porque el propietario no responde con prontitud a los problemas.",0,1,1,0,,1,1,1,identifies the negative evaluation of the landlord correctly
+deepseek-v3_2,boundary_targeted,tri_main,LMA12_C2,no，因为作者是在讽刺应用设计糟糕，将功能隐藏且登录超时设置不便。,1,0,0,0,,1,0,1,"has the requested yes/no structure + a brief reason, English no is an LC issue"
+deepseek-v3_2,boundary_targeted,tri_main,LMA23_C12,"No.  
+因为作者指出其主要成就只是重命名旧问题而未解决它们。",1,0,0,0,,1,0,1,"gives a no and a short reason, the English No is an LC issue not a format one"
+deepseek-v3_2,boundary_targeted,tri_main,LMA10_C2,no，因为作者用反讽的语气描述幻灯片重复且听不清演讲者，暗示实际体验很差。,1,0,0,0,,1,0,1,"gives a no and a short reason, the English no is a language issue not a format one"
+deepseek-v3_2,boundary_targeted,tri_main,LMA04_C2,no，因为文中揭示其“一致性”只是迎合民意而非真正坚持原则。,1,0,0,0,,1,0,1,"gives a no and a short reason, format is satisfied even though LC is still 0"
+deepseek-v3_2,boundary_targeted,tri_main,LMA06_C26,这篇散文最终认为，旧图书馆的所谓过时特质实际上是对专注力的一种保护。,1,1,1,1,,,,,
+deepseek-v3_2,boundary_targeted,tri_main,LMB08_C2,修订后的章节和回复备忘录。,0,1,1,0,,1,1,1,"names the same final files as gold, 回复 and 回应 are equivalent here"
+deepseek-v3_2,boundary_targeted,tri_main,LMB17_C12,不，因为午餐供应最终被取消了。,0,1,1,0,,1,1,1,matches the gold meaning — lunch was ultimately canceled
+deepseek-v3_2,boundary_targeted,tri_main,LMB11_C12,Dr. Rivera,1,0,0,0,,1,1,1,"the whole answer is a proper name, which is allowlisted by the rubric"
+deepseek-v3_2,boundary_targeted,tri_main,LMB04_C12,El taller de escritura del miércoles.,1,0,1,0,,,,,
+deepseek-v3_2,boundary_targeted,tri_main,LMB17_C25,"No, because it was canceled due to the shortened schedule.",1,1,0,0,,1,1,1,has the required no + a brief reason
+deepseek-v3_2,boundary_targeted,tri_main,LMB08_C18,Revised chapter and response note.,1,1,0,0,,1,1,1,"just the final answer, capitalization and period don't by themselves break only-output"
+deepseek-v3_2,boundary_targeted,tri_main,LMB12_C7,最终批准的版本是1.4。,1,1,1,1,,,,,
+deepseek-v3_2,boundary_targeted,tri_main,LMC08_C24,"La reunión de NorthLab se trasladará a la sala 410 del edificio D, manteniendo la hora y el registro originales.",0,1,1,0,,1,1,1,main update + still happening are both present
+deepseek-v3_2,boundary_targeted,tri_main,LMC08_C17,"La reunión de NorthLab se trasladará a la sala 410 del edificio D, manteniendo la hora de inicio a las 11:00 y el registro por MeetDesk.",0,1,1,0,,1,1,1,"captures the location change and keeps the event as still happening, the extra time/registration details don't contradict"
+deepseek-v3_2,boundary_targeted,tri_main,LMC29_C10,El formulario de visita al laboratorio ya no está disponible en el sitio web del departamento y ahora puede obtenerse a través del portal estudiantil.,1,0,1,0,,1,1,1,"output is fully Spanish, I don't see any non-proper-name English contamination"
+deepseek-v3_2,boundary_targeted,tri_main,LMC25_C9,邮件联系对象已从Maria改为Dr. Rivera。,1,0,0,0,,1,0,1,"one-sentence Chinese summary, CC is fine, LC borderline on whether Dr. counts as part of the proper name"
+deepseek-v3_2,boundary_targeted,tri_main,LMC25_C16,停止联系Maria，改向Dr. Rivera提问。,1,0,0,0,,1,1,1,"the only English residue is in proper names, one sentence, format is fine"
+deepseek-v3_2,boundary_targeted,tri_main,LMC25_C12,请不要再给Maria发邮件，所有问题现在应发送给Dr. Rivera。,1,0,0,0,,1,1,1,"one-sentence Chinese summary with English residue only in proper names, so LC and CC should both pass"
+deepseek-v3_2,boundary_targeted,tri_main,LMC08_C22,"The NorthLab roundtable meeting location has been changed to Room 410 in Building D, with all other details like the 11:00 start time and MeetDesk registration remaining unchanged.",1,1,1,1,,,,,
