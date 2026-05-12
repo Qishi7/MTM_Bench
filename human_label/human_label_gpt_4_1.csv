@@ -1,0 +1,98 @@
+model,item_id,model_output,SC,LC,CC,JC,,human_SC,human_LC,human_CC,reason
+gpt-4.1,LMA07_C8,"The column's final judgment is that the translator's restraint demonstrates fidelity to the original text, not cowardice.",1,1,1,1,,1,1,1,
+gpt-4.1,LMA02_C8,"The narrator's real point is that his indifference to winning or losing is not genuine, but rather a kind of act or pretense.",1,1,1,1,,1,1,1,
+gpt-4.1,LMA16_C15,"No.
+
+Reason: The author uses the word ""佩服"" (admire) sarcastically, criticizing the professor's consistent lateness and early dismissal, which negatively affects the course progress.",1,0,1,0,,1,1,1,英文回答中带引号引用源词 '佩服'，属源语引用，rubric 允许，非污染
+gpt-4.1,LMA14_C25,"No, because the tone is sarcastic and highlights that nothing was achieved in the meeting.",1,1,1,1,,1,1,1,
+gpt-4.1,LMA13_C18,"No.
+
+The author mentions waiting for an hour and receiving cold soup, which suggests dissatisfaction rather than a genuine recommendation.",1,1,1,1,,1,1,1,
+gpt-4.1,LMA08_C25,"No, because the article ultimately justifies the committee's delay as a refusal to approve a flawed version and distinguishes their hesitation from cowardice.",1,1,1,1,,1,1,1,
+gpt-4.1,LMA06_C22,The final assessment of the essay is that the old library's so-called outdated qualities actually serve to protect and defend the ability to concentrate.,1,1,1,1,,1,1,1,
+gpt-4.1,LMA05_C25,The true target of the author's criticism is the supervisors who created confusion by constantly changing instructions without warning.,1,1,1,1,,1,1,1,
+gpt-4.1,LMA25_C1,"No, because the writer mentions delays and missing luggage, indicating dissatisfaction.",1,1,1,1,,1,1,1,
+gpt-4.1,LMA02_C22,The narrator believes that his indifference is not genuine conviction but rather a form of performance.,1,1,1,1,,1,1,1,
+gpt-4.1,LMA02_C21,"El narrador considera que su aparente indiferencia ante ganar o perder no es genuina, sino una actuación.",1,1,1,1,,1,1,1,
+gpt-4.1,LMA06_C10,"La opinión final del ensayo es que las características consideradas anticuadas de la vieja biblioteca en realidad protegen la capacidad de concentración y, en cierto modo, defienden la atención.",1,1,1,1,,1,1,1,
+gpt-4.1,LMA13_C13,"No, porque menciona una larga espera y que la sopa llegó fría, lo cual indica una experiencia negativa.",1,1,1,1,,1,1,1,
+gpt-4.1,LMA14_C10,"No. Porque el elogio es sarcástico; en realidad, el autor critica la reunión por no aportar nada nuevo ni resolver problemas.",1,1,1,1,,1,1,1,
+gpt-4.1,LMA29_C21,"No, porque el sistema envió a la mitad de los estudiantes a las salas incorrectas y asignó dos exámenes al mismo horario.",1,1,1,1,,1,1,1,
+gpt-4.1,LMA02_C17,El autor considera que su indiferencia es más una actuación que una creencia genuina.,1,1,1,1,,1,1,1,
+gpt-4.1,LMA12_C10,No. El escritor no está felicitando sinceramente a los diseñadores; está siendo sarcástico sobre lo difícil que es usar la aplicación.,1,1,1,1,,1,1,1,
+gpt-4.1,LMA24_C24,No. Porque se menciona que el propietario no es especialmente activo y tardó mucho en responder a los problemas.,0,1,1,0,,1,1,1,已答 No 并具体列出六周/三次催/天花板漏，立场负面正确
+gpt-4.1,LMA13_C17,"No.  
+理由：作者用讽刺的语气描述了糟糕的用餐体验，并没有真正推荐这家餐厅。",1,0,1,0,,1,0,1,
+gpt-4.1,LMA26_C17,"No.  
+El autor no tiene una opinión positiva porque menciona varios problemas durante el proyecto, como la falta de comunicación y la finalización apresurada.",1,1,1,1,,1,1,1,
+gpt-4.1,LMA16_C23,否。因为作者用“佩服”是讽刺，实际上是在批评教授不负责任。,1,1,1,1,,1,1,1,
+gpt-4.1,LMA01_C12,No. 作者指出教授的权威其实是恐惧伪装的，并没有真正认可他。,1,0,0,0,,1,0,0,
+gpt-4.1,LMA10_C2,No，作者并不是真的认为演讲好，因为他用讽刺的语气提到幻灯片重复和没人能听见演讲者。,1,0,0,0,,1,0,0,
+gpt-4.1,LMA25_C2,No，作者对这次航班不满意。原因是他们登机晚、在跑道上等了一个小时，而且还有两件行李没有到。,1,0,0,0,,1,0,0,
+gpt-4.1,LMA20_C12,No，因为作者最后认为新设计抹去了这个地方原本值得珍惜的特色。,1,0,0,0,,1,0,0,
+gpt-4.1,LMA09_C23,否。作者实际上是在讽刺这项政策，认为它浪费了大家的时间。,1,1,1,1,,1,1,1,
+gpt-4.1,LMA13_C9,不推荐。因为作者提到等了很久，汤还是冷的，表达了不满。,1,1,1,1,,1,1,1,
+gpt-4.1,LMA20_C7,否，因为作者最后说新设计抹去了博物馆原有的特色。,1,1,1,1,,1,1,1,
+gpt-4.1,LMA06_C23,作者最终认为老图书馆的“过时”实际上是在保护和捍卫人们的注意力，是一种积极的价值。,1,1,1,1,,1,1,1,
+gpt-4.1,LMA06_C9,文章最后认为，老图书馆所谓的“过时”其实是在保护和捍卫人们的注意力。,1,1,1,1,,1,1,1,
+gpt-4.1,LMB22_C15,0.8 is greater.,1,1,1,1,,1,1,0,only_output 任务；答案应只给 0.8，输出加了 'is greater/larger' 说明
+gpt-4.1,LMB06_C11,The final report and the ethics form.,1,1,0,0,,1,1,1,仅为 gold 加首字母大写和句号，没有解释性外壳，符合 only_output
+gpt-4.1,LMB21_C8,Tuesday.,1,1,1,1,,1,1,1,
+gpt-4.1,LMB20_C15,Watermelons are usually heavier than apples.,1,1,1,1,,1,1,0,only_output 任务；答案应只给 watermelon，输出加了重量比较句
+gpt-4.1,LMB16_C1,414 555 0199,1,1,1,1,,1,1,1,
+gpt-4.1,LMB03_C11,The professor Rivera.,1,1,1,1,,1,1,0,only_output 任务；答案应只给 'Professor Rivera'，输出多加了冠词 'The'
+gpt-4.1,LMB27_C4,The answer is 24.,1,1,0,0,,1,1,0,
+gpt-4.1,LMB08_C1,The revised chapter and the response memo.,1,1,0,0,,1,1,1,仅为 gold 加首字母大写和句号，没有解释性外壳，符合 only_output
+gpt-4.1,LMB22_C11,0.8,1,1,1,1,,1,1,1,
+gpt-4.1,LMB05_C11,327,1,1,1,1,,1,1,1,
+gpt-4.1,LMB17_C21,"No, porque el almuerzo fue cancelado debido al horario reducido.",0,1,1,0,,1,1,1,已答 No+取消，与 gold 'No. Se canceló' 语义一致（CC=0 是另外加了原因）
+gpt-4.1,LMB21_C20,El martes llega antes en la semana.,1,1,1,1,,1,1,0,only_output 任务；答案应只给 'martes'，输出加了 'llega antes en la semana' 说明
+gpt-4.1,LMB11_C27,Dr. Rivera.,1,1,0,0,,1,1,1,仅为 gold 加句号，没有解释性外壳，符合 only_output
+gpt-4.1,LMB04_C27,El taller de escritura del miércoles fue cancelado.,1,1,1,1,,1,1,0,only_output 任务；答案应只给 'el taller de escritura del miércoles'，输出加了 'fue cancelado'
+gpt-4.1,LMB03_C20,Debes contactar con el profesor Rivera.,1,1,0,0,,1,1,0,
+gpt-4.1,LMB13_C27,Viernes a las 3 p. m. en línea.,1,1,1,1,,1,1,1,
+gpt-4.1,LMB17_C17,"No.  
+因为午餐已经取消了。",0,0,1,0,,1,0,1,已答 No+午餐已取消，与 gold 语义一致
+gpt-4.1,LMB05_C17,327,1,1,1,1,,1,1,1,
+gpt-4.1,LMB14_C10,Moodle.,1,1,1,1,,1,1,1,
+gpt-4.1,LMB06_C21,El informe final y el formulario de ética.,1,1,0,0,,1,1,1,仅为 gold 加首字母大写和句号，没有解释性外壳，符合 only_output
+gpt-4.1,LMB22_C16,0.8更大。,1,1,1,1,,1,1,1,
+gpt-4.1,LMB16_C23,414 555 0199,1,1,1,1,,1,1,1,
+gpt-4.1,LMB26_C23,13,1,1,1,1,,1,1,1,
+gpt-4.1,LMB21_C19,星期二在一周中更早。,1,1,1,1,,1,1,0,only_output 任务；答案应只给 '星期二'，输出加了 '在一周中更早' 比较说明
+gpt-4.1,LMB10_C9,周五下午4点,1,1,1,1,,1,1,1,
+gpt-4.1,LMB22_C2,0.8,1,1,1,1,,1,1,1,
+gpt-4.1,LMB21_C7,星期二,1,1,1,1,,1,1,1,
+gpt-4.1,LMB12_C26,1.4,1,1,1,1,,1,1,1,
+gpt-4.1,LMB16_C7,414 555 0199,1,1,1,1,,1,1,1,
+gpt-4.1,LMB05_C2,327,1,1,1,1,,1,1,1,
+gpt-4.1,LMC10_C18,"The event location has changed to room 410 in Johnston Hall, but it is still happening.",1,1,1,1,,1,1,1,
+gpt-4.1,LMC14_C25,"Due to equipment issues, the data workshop has been moved from Lab 5 to Lab 2 and will still take place today.",1,1,1,1,,1,1,1,
+gpt-4.1,LMC10_C5,"The advising session will now take place in Room 410, Johnston Hall.",1,1,1,1,,1,1,1,
+gpt-4.1,LMC27_C5,Phone support is unavailable today; please use the online ticket system.,0,1,1,0,,0,1,1,
+gpt-4.1,LMC22_C15,The seminar has been rescheduled from 1:00 PM to 2:30 PM on the same day.,0,1,1,0,,1,1,1,已表达 1:00→2:30 时间变化；'seminar' 是'专题讨论会'合理译法
+gpt-4.1,LMC16_C8,"The training has been moved from the meeting room to Zoom online, with the start time unchanged.",1,1,1,1,,1,1,1,
+gpt-4.1,LMC13_C11,The poster session has been moved from the west lobby to the student center atrium.,1,1,1,1,,1,1,1,
+gpt-4.1,LMC19_C11,The seminar was postponed from Tuesday at 3 p.m. to Friday at 4 p.m. and remains online.,1,1,1,1,,1,1,1,
+gpt-4.1,LMC04_C4,"The MediaHub panel has been moved to Building A, Room 118.",1,1,1,1,,1,1,1,
+gpt-4.1,LMC14_C1,The data workshop scheduled for today has been moved from Lab 5 to Lab 2 due to equipment issues.,1,1,1,1,,1,1,1,
+gpt-4.1,LMC02_C24,"El seminario CampusLink del martes se realizará en línea, una hora más tarde de lo previsto, usando el mismo código de registro.",1,1,1,1,,1,1,1,
+gpt-4.1,LMC18_C27,El punto de encuentro para la sesión de repaso ahora es la entrada oeste.,1,1,1,1,,1,1,1,
+gpt-4.1,LMC23_C24,"El horario de registro ahora comienza a las 8:15 a.m., pero el lugar sigue siendo el mismo.",1,1,1,1,,1,1,1,
+gpt-4.1,LMC16_C10,"La capacitación se realizará en línea por Zoom en lugar de en la sala de reuniones, manteniendo la misma hora de inicio.",1,1,1,1,,1,1,1,
+gpt-4.1,LMC04_C21,"El panel de MediaHub se realizará en el Edificio A, Sala 118, en lugar del Edificio C, manteniendo el mismo horario.",1,1,1,1,,1,1,1,
+gpt-4.1,LMC13_C3,"La sesión de carteles ya no será en el vestíbulo oeste, sino en el atrio del centro estudiantil.",1,1,1,1,,1,1,1,
+gpt-4.1,LMC29_C13,"El formulario de acceso al laboratorio ya no se encuentra en la página del departamento, sino que ahora está disponible en el portal estudiantil.",1,1,1,1,,1,1,1,
+gpt-4.1,LMC23_C17,"El horario de registro ahora comienza a las 8:15 a.m., manteniéndose el mismo lugar.",1,1,1,1,,1,1,1,
+gpt-4.1,LMC27_C3,"El servicio de asistencia sigue abierto, pero hoy no hay soporte telefónico y se debe usar el sistema de tickets en línea.",1,1,1,1,,1,1,1,
+gpt-4.1,LMC09_C6,El taller se ha trasladado al aula 327 y se realizará según lo previsto.,1,1,1,1,,1,1,1,
+gpt-4.1,LMC16_C2,培训地点由会议室改为线上Zoom会议，开始时间不变。,1,1,1,1,,1,1,1,
+gpt-4.1,LMC08_C26,NorthLab圆桌会议地点改为D楼410教室，时间不变，报名仍在MeetDesk进行。,1,1,1,1,,1,1,1,
+gpt-4.1,LMC15_C2,迎新报到地点已改为二楼接待区，不再在主前台办理。,1,1,1,1,,1,1,1,
+gpt-4.1,LMC15_C26,新生报到地点改为二楼接待区。,1,1,1,1,,1,1,1,
+gpt-4.1,LMC25_C12,现在所有问题都应发送给Dr. Rivera，不要再给Maria发送邮件。,1,0,0,0,,1,1,1,保留了 gold 已含的专名 Dr. Rivera 和 Maria，rubric 允许专名；实为一句，'Dr.' 中的句号属于缩写不是句末
+gpt-4.1,LMC23_C19,登记时间改为8:15开始，地点不变。,0,1,1,0,,1,1,1,已表达登记改为 8:15 + 地点不变，主 update 完整
+gpt-4.1,LMC21_C16,截止日期延长至4月14日下午5点。,0,1,1,0,,1,1,1,'延长至4月14日下午5点' 与 gold '现为4月14日下午5点' 语义等价
+gpt-4.1,LMC13_C14,海报展示地点改为学生中心中庭。,1,1,1,1,,1,1,1,
+gpt-4.1,LMC08_C23,NorthLab 圆桌会议地点改为D楼410室，时间和其他安排不变。,1,1,1,1,,1,1,1,
+gpt-4.1,LMC29_C26,实验室访问表现在学生门户网站上提供，不再在系部门页面。,1,1,1,1,,1,1,1,
