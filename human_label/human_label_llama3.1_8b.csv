@@ -1,0 +1,32 @@
+﻿loc_random_fixed,item_id,SC,LC,CC,JC,,human_SemanticCorrect,human_LangCorrect,human_ConstraintCorrect,HumanCorrect,,correct?,Flag,notes,adjudication_status,adjudication_note
+1895,LMC11_C6,1,1,0,0,,1,1,0,0,,1,,"Semantic and language are fine, but this is two sentences, so one_sentence CC should remain 0.",reject,"Semantic and language are fine, but this is two sentences, so one_sentence CC should remain 0."
+1348,LMB20_C26,0,1,0,0,,0,1,0,0,,1,,,,
+806,LMA30_C24,0,1,1,0,,0,1,1,0,,1,,tricky. Surface meaning,,
+1007,LMB08_C9,1,1,1,1,,1,1,1,1,,1,,,,
+594,LMA23_C1,1,1,1,1,,1,1,1,1,,1,,,,
+868,LMB03_C5,1,1,1,1,,1,1,1,1,,1,,,,
+965,LMB06_C21,1,1,0,0,,1,1,1,1,,0,Y,"Borderline wording, but close enough as a concise final requirement.",accept,"Borderline wording, but close enough as a concise final requirement."
+1732,LMC05_C5,1,1,1,1,,1,1,1,1,,1,,,,
+601,LMA23_C8,1,1,1,1,,1,1,1,1,,1,,,,
+52,LMA02_C26,1,1,1,1,,1,1,1,1,,1,,,,
+1829,LMC08_C21,0,1,1,0,,1,1,1,1,,0,Y,Core NorthLab location update is correct.,accept,Core NorthLab location update is correct.
+2091,LMC18_C13,1,1,1,1,,1,1,1,1,,1,,,,
+493,LMA19_C8,1,0,1,0,,1,0,1,0,,1,,"The output correctly identifies criticism of the plan; Chinese quote affects LC, not SC.",reject,"The output correctly identifies criticism of the plan; Chinese quote affects LC, not SC."
+850,LMB02_C14,1,1,0,0,,1,1,0,0,,1,,Complete explanatory sentence violates Family B only_output.,reject,Complete explanatory sentence violates Family B only_output.
+878,LMB03_C15,1,0,1,0,,1,0,1,0,,1,,,,
+3,LMA01_C4,0,1,1,0,,0,1,1,0,,1,,,,
+1372,LMB21_C23,1,1,1,1,,1,1,1,1,,1,,,,
+1932,LMC12_C16,1,1,1,1,,1,1,1,1,,1,,,,
+900,LMB04_C10,1,1,1,1,,1,1,1,1,,1,,,,
+2286,LMC25_C19,1,1,1,1,,1,1,1,1,,1,,Localized personal names are acceptable; lack of retained English proper names should not be CC=0.,reject,Localized personal names are acceptable; lack of retained English proper names should not be CC=0.
+274,LMA11_C5,1,0,1,0,,1,0,1,0,,1,,,,
+1473,LMB25_C16,1,1,0,0,,1,1,0,0,,1,,答案是12 is an explanatory prefix under only_output; CC should remain 0.,reject,答案是12 is an explanatory prefix under only_output; CC should remain 0.
+1372,LMB21_C23,1,1,1,1,,1,1,1,1,,1,,,,
+2079,LMC18_C1,0,1,1,0,,1,1,1,1,,0,Y,Core west-entrance update is correct.,accept,Core west-entrance update is correct.
+678,LMA26_C4,1,1,1,1,,1,1,1,1,,1,,,,
+1165,LMB14_C5,1,1,0,0,,1,1,0,0,,1,,Upload through Moodle only is not only the final answer Moodle.,reject,Upload through Moodle only is not only the final answer Moodle.
+2169,LMC21_C10,1,0,1,0,,1,1,1,1,,0,Y,5 pm is acceptable shorthand in Spanish target here.,accept,5 pm is acceptable shorthand in Spanish target here.
+2230,LMC23_C17,1,0,1,0,,1,0,1,0,,1,,,,
+2071,LMC17_C20,0,0,1,0,,1,1,1,1,,0,Y,Career Center can be treated as an institutional proper name; core location update is correct.,accept,Career Center can be treated as an institutional proper name; core location update is correct.
+1243,LMB17_C2,0,0,0,0,,1,0,1,0,,0,Y,No + Chinese reason satisfies CC; language mixing affects LC only.,accept,No + Chinese reason satisfies CC; language mixing affects LC only.
+,,,,,,,,,,,,错误率,12/30,,,
