@@ -3,7 +3,7 @@ gpt-4.1,LMA07_C8,"The column's final judgment is that the translator's restraint
 gpt-4.1,LMA02_C8,"The narrator's real point is that his indifference to winning or losing is not genuine, but rather a kind of act or pretense.",1,1,1,1,,1,1,1,
 gpt-4.1,LMA16_C15,"No.
 
-Reason: The author uses the word ""佩服"" (admire) sarcastically, criticizing the professor's consistent lateness and early dismissal, which negatively affects the course progress.",1,0,1,0,,1,1,1,英文回答中带引号引用源词 '佩服'，属源语引用，rubric 允许，非污染
+Reason: The author uses the word ""佩服"" (admire) sarcastically, criticizing the professor's consistent lateness and early dismissal, which negatively affects the course progress.",1,0,1,0,,1,0,1,
 gpt-4.1,LMA14_C25,"No, because the tone is sarcastic and highlights that nothing was achieved in the meeting.",1,1,1,1,,1,1,1,
 gpt-4.1,LMA13_C18,"No.
 
@@ -26,10 +26,10 @@ gpt-4.1,LMA13_C17,"No.
 gpt-4.1,LMA26_C17,"No.  
 El autor no tiene una opinión positiva porque menciona varios problemas durante el proyecto, como la falta de comunicación y la finalización apresurada.",1,1,1,1,,1,1,1,
 gpt-4.1,LMA16_C23,否。因为作者用“佩服”是讽刺，实际上是在批评教授不负责任。,1,1,1,1,,1,1,1,
-gpt-4.1,LMA01_C12,No. 作者指出教授的权威其实是恐惧伪装的，并没有真正认可他。,1,0,0,0,,1,0,0,
-gpt-4.1,LMA10_C2,No，作者并不是真的认为演讲好，因为他用讽刺的语气提到幻灯片重复和没人能听见演讲者。,1,0,0,0,,1,0,0,
-gpt-4.1,LMA25_C2,No，作者对这次航班不满意。原因是他们登机晚、在跑道上等了一个小时，而且还有两件行李没有到。,1,0,0,0,,1,0,0,
-gpt-4.1,LMA20_C12,No，因为作者最后认为新设计抹去了这个地方原本值得珍惜的特色。,1,0,0,0,,1,0,0,
+gpt-4.1,LMA01_C12,No. 作者指出教授的权威其实是恐惧伪装的，并没有真正认可他。,1,0,0,0,,1,0,1,以 No 起手 + 简短理由，CC 格式已满足；'No' 错语言只算 LC，不双扣 CC
+gpt-4.1,LMA10_C2,No，作者并不是真的认为演讲好，因为他用讽刺的语气提到幻灯片重复和没人能听见演讲者。,1,0,0,0,,1,0,1,以 No 起手 + 简短理由，CC 格式已满足；'No' 错语言只算 LC，不双扣 CC
+gpt-4.1,LMA25_C2,No，作者对这次航班不满意。原因是他们登机晚、在跑道上等了一个小时，而且还有两件行李没有到。,1,0,0,0,,1,0,1,以 No 起手 + 简短理由，CC 格式已满足；'No' 错语言只算 LC，不双扣 CC
+gpt-4.1,LMA20_C12,No，因为作者最后认为新设计抹去了这个地方原本值得珍惜的特色。,1,0,0,0,,1,0,1,以 No 起手 + 简短理由，CC 格式已满足；'No' 错语言只算 LC，不双扣 CC
 gpt-4.1,LMA09_C23,否。作者实际上是在讽刺这项政策，认为它浪费了大家的时间。,1,1,1,1,,1,1,1,
 gpt-4.1,LMA13_C9,不推荐。因为作者提到等了很久，汤还是冷的，表达了不满。,1,1,1,1,,1,1,1,
 gpt-4.1,LMA20_C7,否，因为作者最后说新设计抹去了博物馆原有的特色。,1,1,1,1,,1,1,1,

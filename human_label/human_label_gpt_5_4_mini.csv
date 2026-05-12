@@ -1,7 +1,7 @@
 model,item_id,model_output,SC,LC,CC,JC,,human_SC,human_LC,human_CC,reason
 gpt-5.4-mini,LMA07_C8,"The column ultimately judges the translator’s restraint as fidelity to the original, not cowardice.",1,1,1,1,,1,1,1,
 gpt-5.4-mini,LMA02_C8,"The narrator’s real point is that his indifference to winning, losing, and rankings is not a sincere conviction but a kind of performance.",1,1,1,1,,1,1,1,
-gpt-5.4-mini,LMA16_C15,No. The quotation marks around “佩服” show sarcasm; the author is actually criticizing the professor for being consistently late and ending early.,1,0,1,0,,1,1,1,英文回答中带引号引用源词 '佩服'，属源语引用，rubric 允许，非污染
+gpt-5.4-mini,LMA16_C15,No. The quotation marks around “佩服” show sarcasm; the author is actually criticizing the professor for being consistently late and ending early.,1,0,1,0,,1,0,1,
 gpt-5.4-mini,LMA14_C25,"No — it’s sarcastic, since it says they learned nothing, solved nothing, and even went over time.",1,1,1,1,,1,1,1,
 gpt-5.4-mini,LMA13_C18,"No — the description is clearly sarcastic, since they waited an hour and the soup arrived cold.",1,1,1,1,,1,1,1,
 gpt-5.4-mini,LMA08_C25,"No. The article ends up defending the committee’s delay, saying it was a refusal to approve a flawed reform rather than simple cowardice.",1,1,1,1,,1,1,1,
@@ -20,9 +20,9 @@ gpt-5.4-mini,LMA24_C24,"No. Se lo describe como poco activo: tardó seis semanas
 gpt-5.4-mini,LMA13_C17,"No. El texto es sarcástico y negativo: tuvieron que esperar una hora y la sopa llegó fría, así que no la recomienda.",1,1,1,1,,1,1,1,
 gpt-5.4-mini,LMA26_C17,"No. Porque el texto dice que no fue una de las mejores colaboraciones: dos personas desaparecieron, una corrigió mal el documento y las diapositivas se terminaron a última hora.",1,1,1,1,,1,1,1,
 gpt-5.4-mini,LMA16_C23,否。这里的“佩服”是反讽，后面说他总是迟到、早退，说明作者其实是在批评这位教授。,1,1,1,1,,1,1,1,
-gpt-5.4-mini,LMA01_C12,No。作者最后指出这位教授把恐吓当成严谨、把沉默当成尊重，实际是在批评他。,1,0,0,0,,1,0,0,
-gpt-5.4-mini,LMA10_C2,No。因为文中“幻灯片重复”和“没人能听见演讲者”显然是在反讽，说明作者并不真的觉得演示很好。,1,0,0,0,,1,0,0,
-gpt-5.4-mini,LMA25_C2,No，作者对这次航班不满意，因为登机晚、在跑道上等了一个小时，而且还丢了两件行李。,1,0,0,0,,1,0,0,
+gpt-5.4-mini,LMA01_C12,No。作者最后指出这位教授把恐吓当成严谨、把沉默当成尊重，实际是在批评他。,1,0,0,0,,1,0,1,以 No 起手 + 简短理由，CC 格式已满足；'No' 错语言只算 LC，不双扣 CC
+gpt-5.4-mini,LMA10_C2,No。因为文中“幻灯片重复”和“没人能听见演讲者”显然是在反讽，说明作者并不真的觉得演示很好。,1,0,0,0,,1,0,1,以 No 起手 + 简短理由，CC 格式已满足；'No' 错语言只算 LC，不双扣 CC
+gpt-5.4-mini,LMA25_C2,No，作者对这次航班不满意，因为登机晚、在跑道上等了一个小时，而且还丢了两件行李。,1,0,0,0,,1,0,1,以 No 起手 + 简短理由，CC 格式已满足；'No' 错语言只算 LC，不双扣 CC
 gpt-5.4-mini,LMA20_C12,否；结尾说新设计抹去了原本让这个地方值得一看的特色，态度是负面的。,1,1,1,1,,1,1,1,
 gpt-5.4-mini,LMA09_C23,否。作者是在反讽，表面上说政策“效率惊人”，实际上是在抱怨它反复排队、重复填表，浪费时间。,1,1,1,1,,1,1,1,
 gpt-5.4-mini,LMA13_C9,不，因为作者是在抱怨等待太久、汤还很冷，并没有真正推荐这家餐厅。,1,1,1,1,,1,1,1,

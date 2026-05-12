@@ -1,7 +1,7 @@
 model,item_id,model_output,SC,LC,CC,JC,,human_SC,human_LC,human_CC,reason
 gpt-5.4,LMA07_C8,"The column ultimately judges that the translator’s restraint reflects faithfulness to the original, not cowardice.",1,1,1,1,,1,1,1,
 gpt-5.4,LMA02_C8,"The narrator’s real point is that his claimed indifference to winning and rankings is not genuine belief but a performance, since he clearly cares deeply about the results.",1,1,1,1,,1,1,1,
-gpt-5.4,LMA16_C15,"No. The author is being sarcastic: “佩服” is used ironically, because the professor is always late, ends early, and falls behind in the course.",1,0,1,0,,1,1,1,英文回答中带引号引用源词 '佩服'，属源语引用，rubric 允许，非污染
+gpt-5.4,LMA16_C15,"No. The author is being sarcastic: “佩服” is used ironically, because the professor is always late, ends early, and falls behind in the course.",1,0,1,0,,1,0,1,
 gpt-5.4,LMA14_C25,"No — it’s sarcastic; the speaker says the meeting taught nothing, solved nothing, and ran overtime.",1,1,1,1,,1,1,1,
 gpt-5.4,LMA13_C18,"No — the description is sarcastic: the long wait and cold soup suggest a bad experience, not a real recommendation.",1,1,1,1,,1,1,1,
 gpt-5.4,LMA08_C25,"No — it ultimately defends the committee, saying the delay reflected careful judgment rather than cowardice.",1,1,1,1,,1,1,1,
@@ -22,7 +22,7 @@ gpt-5.4,LMA26_C17,"No. Porque el autor dice que no fue una buena colaboración: 
 gpt-5.4,LMA16_C23,否，因为“佩服”带有反讽意味，作者其实是在批评教授总是迟到、早退、耽误进度。,1,1,1,1,,1,1,1,
 gpt-5.4,LMA01_C12,不，因为作者后来指出他把恐吓当作严谨，所谓权威其实常是伪装的恐惧。,1,1,1,1,,1,1,1,
 gpt-5.4,LMA10_C2,不是，因为后文是在反讽，提到幻灯片重复、听不清演讲者。,1,1,1,1,,1,1,1,
-gpt-5.4,LMA25_C2,No，因为登机晚点、在跑道上等了一个小时，而且还丢了两件行李。,0,0,0,0,,1,0,0,已答 No 并列出登机晚/等一小时/丢两件行李，立场不满
+gpt-5.4,LMA25_C2,No，因为登机晚点、在跑道上等了一个小时，而且还丢了两件行李。,0,0,0,0,,1,0,1,已答 No 并列出登机晚/等一小时/丢两件行李，立场不满；以 No 起手 + 简短理由，CC 格式已满足；'No' 错语言只算 LC，不双扣 CC
 gpt-5.4,LMA20_C12,不是，因为作者最后认为新设计抹去了这个地方原本最珍贵的特色。,1,1,1,1,,1,1,1,
 gpt-5.4,LMA09_C23,否，因为作者是在反讽；表面说“效率惊人”“佩服”，实际上是在批评这项政策浪费时间、流程繁琐。,1,1,1,1,,1,1,1,
 gpt-5.4,LMA13_C9,不，因为作者是在反讽，实际在抱怨等太久而且汤是冷的。,1,1,1,1,,1,1,1,

@@ -1,7 +1,7 @@
 model,item_id,model_output,SC,LC,CC,JC,,human_SC,human_LC,human_CC,reason
 gpt-5.3-codex,LMA07_C8,"The column ultimately judges that the translator’s restraint reflects faithful loyalty to the original text’s intended ambiguity, not cowardice.",1,1,1,1,,1,1,1,
 gpt-5.3-codex,LMA02_C8,"The narrator’s real point is that his claimed indifference to winning and rankings is not genuine conviction but a façade, since his anxiety before results and lingering disappointment after poor outcomes reveal that he actually cares deeply.",1,1,1,1,,1,1,1,
-gpt-5.3-codex,LMA16_C15,"No. The author is being sarcastic—putting “佩服” in quotes and then criticizing the professor for always starting late, ending early, and falling behind schedule.",1,0,1,0,,1,1,1,英文回答中带引号引用源词 '佩服'，属源语引用，rubric 允许，非污染
+gpt-5.3-codex,LMA16_C15,"No. The author is being sarcastic—putting “佩服” in quotes and then criticizing the professor for always starting late, ending early, and falling behind schedule.",1,0,1,0,,1,0,1,
 gpt-5.3-codex,LMA14_C25,"No — the praise is sarcastic, since it says they learned nothing, solved nothing, and still ran overtime.",1,1,1,1,,1,1,1,
 gpt-5.3-codex,LMA13_C18,"No. The author is being sarcastic—mentioning a one-hour wait and very cold soup suggests criticism, not a real recommendation.",1,1,1,1,,1,1,1,
 gpt-5.3-codex,LMA08_C25,"No — by the end, it **defends** the committee, framing the delay as careful judgment rather than cowardly indecision.",1,1,1,1,,1,1,1,
@@ -20,10 +20,10 @@ gpt-5.3-codex,LMA24_C24,"No. Se describe al propietario de forma **negativa**: t
 gpt-5.3-codex,LMA13_C17,"No. El autor usa ironía: esperaron una hora y la sopa llegó tan fría que claramente está criticando la experiencia, no recomendando el restaurante.",1,1,1,1,,1,1,1,
 gpt-5.3-codex,LMA26_C17,"No. Porque el autor describe muchos problemas (compañeros desaparecidos, errores en el documento y diapositivas terminadas a última hora), así que su valoración no es positiva.",0,1,1,0,,1,1,1,已答 No 并列出失联/改错文档/最后十分钟做PPT，立场负面
 gpt-5.3-codex,LMA16_C23,否。这里“佩服”加了引号，是反讽；后文都在批评教授迟到、早退、拖慢进度。,1,1,1,1,,1,1,1,
-gpt-5.3-codex,LMA01_C12,**No。**因为作者后面明确批评他把“恐吓”当“严谨”，所谓权威其实是伪装的恐惧。,1,0,0,0,,1,0,0,
-gpt-5.3-codex,LMA10_C2,**No（不）**，因为“每张幻灯片都重复、听不见讲者”是在讽刺，说明演讲体验很差。,1,0,0,0,,1,0,0,
+gpt-5.3-codex,LMA01_C12,**No。**因为作者后面明确批评他把“恐吓”当“严谨”，所谓权威其实是伪装的恐惧。,1,0,0,0,,1,0,1,以 No 起手 + 简短理由，CC 格式已满足；'No' 错语言只算 LC，不双扣 CC
+gpt-5.3-codex,LMA10_C2,**No（不）**，因为“每张幻灯片都重复、听不见讲者”是在讽刺，说明演讲体验很差。,1,0,0,0,,1,0,1,以 No 起手 + 简短理由，CC 格式已满足；'No' 错语言只算 LC，不双扣 CC
 gpt-5.3-codex,LMA25_C2,不，因为航班延误严重且还有两件行李未到。,0,1,1,0,,1,1,1,已答'不'并指出延误严重和行李未到，与 gold'不满意'一致
-gpt-5.3-codex,LMA20_C12,No，不是；因为作者最后批评新设计抹去了这个地方原本最有价值的特色。,1,0,0,0,,1,0,0,
+gpt-5.3-codex,LMA20_C12,No，不是；因为作者最后批评新设计抹去了这个地方原本最有价值的特色。,1,0,0,0,,1,0,1,以 No 起手 + 简短理由，CC 格式已满足；'No' 错语言只算 LC，不双扣 CC
 gpt-5.3-codex,LMA09_C23,否。作者是在反讽：表面说“效率惊人”，实际通过“排三次队、同一张表填两遍”批评这项政策很浪费时间。,1,1,1,1,,1,1,1,
 gpt-5.3-codex,LMA13_C9,不，因为语气明显是反讽，强调久等且汤是冷的，说明体验很差。,1,1,1,1,,1,1,1,
 gpt-5.3-codex,LMA20_C7,否。结尾认为新设计抹去了这地方原本最值得参观的特色，因此最终评价是不利的。,1,1,1,1,,1,1,1,
