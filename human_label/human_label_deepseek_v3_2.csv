@@ -27,7 +27,7 @@ deepseek-v3_2,LMA02_C9,叙述者认为他表面上的淡然并非真实想法，
 deepseek-v3_2,LMC20_C8,The Monday morning Q&A session has been rescheduled to Wednesday noon.,1,1,1,1,,,,,
 deepseek-v3_2,LMA06_C9,文章最终认为，老图书馆看似过时的特质实际上是对专注力的保护与捍卫。,1,1,1,1,,,,,
 deepseek-v3_2,LMC04_C11,"The MediaHub panel has been relocated from building C to building A, room 118, at the originally scheduled time, and the event remains active.",1,1,1,1,,,,,
-deepseek-v3_2,LMB19_C7,中国乡村犬通常更大。,0,1,1,0,,1,1,0,中国乡村犬 and 中华田园犬 refer to the same breed so SC stays 1; the added 通常更大 is explanation past only-output so CC should be 0
+deepseek-v3_2,LMB19_C7,中国乡村犬通常更大。,0,1,1,0,,1,1,0,中国乡村犬 and 中华田园犬 refer to the same breed so SC should be 1; the added 通常更大 is explanation past only-output so CC should be 0
 deepseek-v3_2,LMC14_C23,因设备问题，数据工作坊今日照常在2号实验室进行。,1,1,1,1,,,,,
 deepseek-v3_2,LMC17_C21,La entrevista se ha reubicado en la Sala 12 del Centro de Carreras.,1,1,1,1,,,,,
 deepseek-v3_2,LMC12_C24,"Por razones no especificadas, se solicita no asistir al antiguo auditorio porque la conferencia se trasladará a un aula subterránea de la biblioteca.",1,1,1,1,,,,,
