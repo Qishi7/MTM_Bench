@@ -1,0 +1,4 @@
+quantity,observed,ci_lower,ci_upper,metric,comparison,n_boot,seed,cluster,n_core,n_models
+JS_resp_only,0.6936,0.6439,0.7378,JointSuccess,full_mismatch_minus_resp_only,5000,2026,core_id,90,20
+JS_full_mismatch,0.7051,0.6562,0.7489,JointSuccess,full_mismatch_minus_resp_only,5000,2026,core_id,90,20
+diff_full_minus_resp,0.0115,0.0011,0.0221,JointSuccess,full_mismatch_minus_resp_only,5000,2026,core_id,90,20

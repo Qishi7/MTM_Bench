@@ -1,0 +1,2 @@
+audit_subset,n,component_overrides,component_override_rate,js_overrides,js_override_rate,sc_agreement,lc_agreement,cc_agreement,overall_component_agreement
+targeted,1022,186,0.18199608610567514,157,0.15362035225048923,0.9148727984344422,0.9863013698630136,0.9041095890410958,0.8180039138943248

@@ -1,0 +1,7 @@
+Predictor,Coef.,SE,95% CI lower,95% CI upper,p_value,n_clusters
+Instruction: Spanish vs. English,0.0106,0.0079,-0.0048,0.026,0.1771,90
+Instruction: Chinese vs. English,-0.007,0.0095,-0.0255,0.0116,0.4616,90
+Content: Spanish vs. English,0.0293,0.0092,0.0112,0.0474,0.0015,90
+Content: Chinese vs. English,0.0208,0.0119,-0.0025,0.0441,0.0804,90
+Response: Spanish vs. English,-0.1084,0.0198,-0.1473,-0.0695,0.0,90
+Response: Chinese vs. English,-0.113,0.0204,-0.153,-0.0729,0.0,90

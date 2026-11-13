@@ -1,0 +1,3 @@
+subset,n,component_overrides,component_override_rate,js_overrides,js_override_rate,sc_agreement,lc_agreement,cc_agreement,overall_agreement,source_file
+Targeted audit set,1022,186,0.18199608610567514,157,0.15362035225048923,0.9148727984344422,0.9863013698630136,0.9041095890410958,0.8180039138943248,human_validation/targeted_audit_cases.csv
+Unflagged check,300,22,0.07333333333333333,22,0.07333333333333333,1.0,0.9966666666666667,0.93,0.9266666666666666,human_validation/unflagged_sanity_check.csv

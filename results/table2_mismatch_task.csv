@@ -1,0 +1,9 @@
+Block,Class,n,SemanticCorrect,LangCorrect,ConstraintCorrect,CTR,JointSuccess
+By mismatch class,same,270,0.92,0.975,0.91,0.008,0.829
+By mismatch class,instr_only,540,0.909,0.939,0.888,0.022,0.795
+By mismatch class,content_only,540,0.89,0.913,0.891,0.039,0.746
+By mismatch class,resp_only,540,0.88,0.86,0.86,0.065,0.694
+By mismatch class,full_mismatch,540,0.878,0.871,0.864,0.064,0.705
+By task family,A: Sem. rev.,810,0.925,0.888,0.906,0.066,0.786
+By task family,B: Final-state,810,0.937,0.948,0.796,0.036,0.728
+By task family,C: Lang. purity,810,0.816,0.878,0.936,0.027,0.722

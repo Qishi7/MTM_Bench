@@ -1,0 +1,4 @@
+Axis,Range,CI_lower,CI_upper,n_boot,cluster
+Instruction,0.0176,0.006,0.033,2000,core_id
+Content,0.0293,0.0123,0.0487,2000,core_id
+Response,0.113,0.0832,0.1556,2000,core_id

@@ -1,0 +1,10 @@
+Axis,Delta_JS,Lang,SemanticCorrect,LangCorrect,ConstraintCorrect,CTR,JointSuccess
+Instruction,0.018,en,0.896,0.882,0.875,0.043,0.744
+Instruction,0.018,es,0.894,0.908,0.898,0.051,0.755
+Instruction,0.018,zh,0.888,0.925,0.866,0.036,0.737
+Content,0.029,en,0.893,0.889,0.874,0.036,0.729
+Content,0.029,es,0.888,0.928,0.88,0.033,0.758
+Content,0.029,zh,0.897,0.897,0.884,0.06,0.75
+Response,0.113,en,0.942,0.965,0.887,0.023,0.819
+Response,0.113,es,0.885,0.89,0.873,0.039,0.711
+Response,0.113,zh,0.851,0.86,0.878,0.067,0.706

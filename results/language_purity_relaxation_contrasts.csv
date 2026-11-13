@@ -1,0 +1,3 @@
+contrast,original_penalty,relaxed_penalty,penalty_change,threshold
+ES_vs_EN_penalty,-0.3533,-0.2667,0.0867,0.05
+ZH_vs_EN_penalty,-0.3783,-0.3767,0.0017,0.05

@@ -1,0 +1,4 @@
+response_language,n,original_JS,relaxed_JS,delta_JS,original_LC,relaxed_LC,rescued_rows,threshold
+en,600,0.9033,0.9033,0.0,0.9933,0.9933,0,0.05
+es,600,0.55,0.6367,0.0867,0.605,0.6917,52,0.05
+zh,600,0.525,0.5267,0.0017,0.6933,0.695,1,0.05
