@@ -1,0 +1,52 @@
+cff-version: 1.2.0
+message: "If you use MTM-Bench, please cite the accepted EACL 2027 paper."
+title: "Disentangling Language Roles in Multilingual LLM Task Execution"
+authors:
+  - family-names: Zhan
+    given-names: Qishi
+  - family-names: Hu
+    given-names: Minxuan
+  - family-names: Jang
+    given-names: Seoyeon
+  - family-names: Zhao
+    given-names: Lei
+  - family-names: Chen
+    given-names: Ziheng
+  - family-names: Liang
+    given-names: Man
+  - family-names: Xiang
+    given-names: Xinyue
+  - family-names: Liu
+    given-names: Jiaxin
+  - family-names: Wang
+    given-names: Guansu
+  - family-names: He
+    given-names: Liang
+url: "https://github.com/Qishi7/MTM_Bench"
+preferred-citation:
+  type: generic
+  title: "Disentangling Language Roles in Multilingual LLM Task Execution"
+  authors:
+    - family-names: Zhan
+      given-names: Qishi
+    - family-names: Hu
+      given-names: Minxuan
+    - family-names: Jang
+      given-names: Seoyeon
+    - family-names: Zhao
+      given-names: Lei
+    - family-names: Chen
+      given-names: Ziheng
+    - family-names: Liang
+      given-names: Man
+    - family-names: Xiang
+      given-names: Xinyue
+    - family-names: Liu
+      given-names: Jiaxin
+    - family-names: Wang
+      given-names: Guansu
+    - family-names: He
+      given-names: Liang
+  year: 2027
+  notes: "Accepted to EACL 2027 Main Conference. Provisional citation pending proceedings metadata."
+  url: "https://github.com/Qishi7/MTM_Bench"

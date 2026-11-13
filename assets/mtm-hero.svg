@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
+  <title id="title">MTM-Bench: three language roles</title>
+  <desc id="description">An academic pastel banner with three connected speech bubbles for instruction language EN, content language ES, and response language Chinese.</desc>
+  <rect width="1200" height="360" fill="#FDFBF6"/>
+  <path d="M0 0h1200v12H0z" fill="#D9C8EA"/>
+  <path d="M0 348h1200v12H0z" fill="#DCEFE7"/>
+
+  <g fill="none" stroke="#D7D5D2" stroke-width="2">
+    <path d="M64 76h466"/>
+    <path d="M64 292h466"/>
+  </g>
+  <text x="64" y="64" fill="#665487" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="2">MULTILINGUAL TASK EXECUTION</text>
+  <text x="58" y="176" fill="#283E3D" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700">MTM-Bench</text>
+  <text x="64" y="221" fill="#4D6260" font-family="Arial, Helvetica, sans-serif" font-size="23">Three roles. Twenty-seven triplets.</text>
+  <text x="64" y="263" fill="#4D6260" font-family="Arial, Helvetica, sans-serif" font-size="23">One question: can the model follow through?</text>
+
+  <g fill="none" stroke="#9F9DA8" stroke-width="3" stroke-linecap="round">
+    <path d="M750 169h28"/>
+    <path d="m772 162 8 7-8 7"/>
+    <path d="M935 169h28"/>
+    <path d="m957 162 8 7-8 7"/>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <g>
+      <path d="M585 110a18 18 0 0 1 18-18h132a18 18 0 0 1 18 18v111a18 18 0 0 1-18 18h-73l-25 22v-22h-34a18 18 0 0 1-18-18z" fill="#EDE3F5" stroke="#8A6CAB" stroke-width="2"/>
+      <text x="669" y="139" fill="#584474" font-size="15" font-weight="700">INSTRUCTION</text>
+      <text x="669" y="195" fill="#352C40" font-size="43" font-weight="700">EN</text>
+    </g>
+    <g>
+      <path d="M781 110a18 18 0 0 1 18-18h132a18 18 0 0 1 18 18v111a18 18 0 0 1-18 18h-73l-25 22v-22h-34a18 18 0 0 1-18-18z" fill="#DFF2EA" stroke="#5E9C83" stroke-width="2"/>
+      <text x="865" y="139" fill="#326752" font-size="15" font-weight="700">CONTENT</text>
+      <text x="865" y="195" fill="#29473C" font-size="43" font-weight="700">ES</text>
+    </g>
+    <g>
+      <path d="M977 110a18 18 0 0 1 18-18h132a18 18 0 0 1 18 18v111a18 18 0 0 1-18 18h-73l-25 22v-22h-34a18 18 0 0 1-18-18z" fill="#FCE6EC" stroke="#C7859D" stroke-width="2"/>
+      <text x="1061" y="139" fill="#925069" font-size="15" font-weight="700">RESPONSE</text>
+      <text x="1061" y="194" fill="#643C4C" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', sans-serif" font-size="35" font-weight="700">中文</text>
+    </g>
+  </g>
+
+  <g fill="none" stroke="#A28AB6" stroke-width="2" stroke-linecap="round">
+    <path d="M555 54v14m-7-7h14"/>
+    <path d="M1149 51v12m-6-6h12"/>
+    <path d="M1102 286v10m-5-5h10"/>
+  </g>
+  <g transform="translate(729 293)" fill="#E8B4C6">
+    <ellipse cx="0" cy="-9" rx="5" ry="9"/>
+    <ellipse cx="0" cy="9" rx="5" ry="9"/>
+    <ellipse cx="-9" cy="0" rx="9" ry="5"/>
+    <ellipse cx="9" cy="0" rx="9" ry="5"/>
+    <circle r="4" fill="#FDFBF6"/>
+  </g>
+</svg>
