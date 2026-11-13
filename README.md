@@ -43,7 +43,19 @@ MTM-Bench separates three roles that are often bundled together in multilingual 
 | **Content** | The language of the source material |
 | **Response** | The language the model must use in its answer |
 
-English (EN), Spanish (ES), and Chinese (ZH) fill each role independently, giving all **3 x 3 x 3 = 27** language triplets for every base item. For example, an *illustrative* `(EN, ES, ZH)` item gives the instruction in English, presents the source in Spanish, and asks for a Chinese response.
+English (EN), Spanish (ES), and Chinese (ZH) fill each role independently, giving all **3 x 3 x 3 = 27** language triplets for every base item. A real benchmark instance, [`LMB13_C12`](data/tri_main.csv), uses `(EN, ES, ZH)`:
+
+> **Instruction · EN**
+>
+> Read the following Spanish notice and answer in Chinese with only the final answer. Do not add explanation.
+>
+> **Content · ES**
+>
+> El seminario estaba previsto para el martes a las 2 p. m. de forma presencial, luego se movió en línea a las 3 p. m. y finalmente se confirmó para el viernes a las 3 p. m. en línea.
+>
+> **Question · EN** What is the final valid schedule?
+>
+> **Reference answer · ZH** 周五下午3点线上
 
 | Family | Task | What the model must do |
 | --- | --- | --- |

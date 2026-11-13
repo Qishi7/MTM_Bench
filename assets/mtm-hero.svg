@@ -10,11 +10,18 @@
     <path d="M64 292h466"/>
   </g>
   <text x="64" y="64" fill="#665487" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="2">MULTILINGUAL TASK EXECUTION</text>
-  <text x="58" y="176" fill="#283E3D" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700">MTM-Bench</text>
-  <text x="64" y="221" fill="#4D6260" font-family="Arial, Helvetica, sans-serif" font-size="23">Three roles. Twenty-seven triplets.</text>
-  <text x="64" y="263" fill="#4D6260" font-family="Arial, Helvetica, sans-serif" font-size="23">One question: can the model follow through?</text>
+  <g transform="translate(58 100) scale(.29)">
+    <path d="M242 51q14-8 28 0l158 91q14 8 14 24v180q0 16-14 24l-158 91q-14 8-28 0L84 370q-14-8-14-24V166q0-16 14-24z" fill="none" stroke="#536269" stroke-width="22" stroke-linejoin="round"/>
+    <path d="M256 145 160 323 352 323Z" fill="none" stroke="#849198" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="256" cy="145" r="52" fill="#DCC7EE" stroke="#765693" stroke-width="16"/>
+    <rect x="108" y="271" width="104" height="104" rx="29" fill="#CDEBDD" stroke="#477F66" stroke-width="16"/>
+    <path d="M352 262q8 0 14 7l40 40q14 14 0 28l-40 40q-14 14-28 0l-40-40q-14-14 0-28l40-40q6-7 14-7z" fill="#F6CFDB" stroke="#AC617D" stroke-width="16" stroke-linejoin="round"/>
+  </g>
+  <text x="220" y="163" fill="#283E3D" font-family="Arial, Helvetica, sans-serif" font-size="39" font-weight="700">Three roles.</text>
+  <text x="220" y="210" fill="#283E3D" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">27 triplets.</text>
+  <text x="220" y="252" fill="#4D6260" font-family="Arial, Helvetica, sans-serif" font-size="23">One benchmark.</text>
 
-  <g fill="none" stroke="#9F9DA8" stroke-width="3" stroke-linecap="round">
+  <g fill="none" stroke="#849198" stroke-width="3" stroke-linecap="round">
     <path d="M750 169h28"/>
     <path d="m772 162 8 7-8 7"/>
     <path d="M935 169h28"/>
@@ -23,17 +30,17 @@
 
   <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
     <g>
-      <path d="M585 110a18 18 0 0 1 18-18h132a18 18 0 0 1 18 18v111a18 18 0 0 1-18 18h-73l-25 22v-22h-34a18 18 0 0 1-18-18z" fill="#EDE3F5" stroke="#8A6CAB" stroke-width="2"/>
+      <path d="M585 110a18 18 0 0 1 18-18h132a18 18 0 0 1 18 18v111a18 18 0 0 1-18 18h-73l-25 22v-22h-34a18 18 0 0 1-18-18z" fill="#EDE3F5" stroke="#765693" stroke-width="2"/>
       <text x="669" y="139" fill="#584474" font-size="15" font-weight="700">INSTRUCTION</text>
       <text x="669" y="195" fill="#352C40" font-size="43" font-weight="700">EN</text>
     </g>
     <g>
-      <path d="M781 110a18 18 0 0 1 18-18h132a18 18 0 0 1 18 18v111a18 18 0 0 1-18 18h-73l-25 22v-22h-34a18 18 0 0 1-18-18z" fill="#DFF2EA" stroke="#5E9C83" stroke-width="2"/>
+      <path d="M781 110a18 18 0 0 1 18-18h132a18 18 0 0 1 18 18v111a18 18 0 0 1-18 18h-73l-25 22v-22h-34a18 18 0 0 1-18-18z" fill="#DFF2EA" stroke="#477F66" stroke-width="2"/>
       <text x="865" y="139" fill="#326752" font-size="15" font-weight="700">CONTENT</text>
       <text x="865" y="195" fill="#29473C" font-size="43" font-weight="700">ES</text>
     </g>
     <g>
-      <path d="M977 110a18 18 0 0 1 18-18h132a18 18 0 0 1 18 18v111a18 18 0 0 1-18 18h-73l-25 22v-22h-34a18 18 0 0 1-18-18z" fill="#FCE6EC" stroke="#C7859D" stroke-width="2"/>
+      <path d="M977 110a18 18 0 0 1 18-18h132a18 18 0 0 1 18 18v111a18 18 0 0 1-18 18h-73l-25 22v-22h-34a18 18 0 0 1-18-18z" fill="#FCE6EC" stroke="#AC617D" stroke-width="2"/>
       <text x="1061" y="139" fill="#925069" font-size="15" font-weight="700">RESPONSE</text>
       <text x="1061" y="194" fill="#643C4C" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', sans-serif" font-size="35" font-weight="700">中文</text>
     </g>

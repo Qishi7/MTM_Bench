@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="logo-title logo-desc">
+  <title id="logo-title">MTM-Bench logo</title>
+  <desc id="logo-desc">A rounded hexagon enclosing three interconnected lavender, mint, and pink geometric nodes for instruction, content, and response language roles.</desc>
+  <path d="M242 51q14-8 28 0l158 91q14 8 14 24v180q0 16-14 24l-158 91q-14 8-28 0L84 370q-14-8-14-24V166q0-16 14-24z" fill="none" stroke="#536269" stroke-width="22" stroke-linejoin="round"/>
+  <g fill="none" stroke="#849198" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M256 145 160 323 352 323Z"/>
+  </g>
+  <circle cx="256" cy="145" r="52" fill="#DCC7EE" stroke="#765693" stroke-width="16"/>
+  <rect x="108" y="271" width="104" height="104" rx="29" fill="#CDEBDD" stroke="#477F66" stroke-width="16"/>
+  <path d="M352 262q8 0 14 7l40 40q14 14 0 28l-40 40q-14 14-28 0l-40-40q-14-14 0-28l40-40q6-7 14-7z" fill="#F6CFDB" stroke="#AC617D" stroke-width="16" stroke-linejoin="round"/>
+</svg>
