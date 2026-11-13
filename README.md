@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Qishi7/MTM_Bench/bd1f88867d7955ab2aebac0a062c2025e4c8eeb9/assets/mtm-hero.svg" alt="MTM-Bench: instruction EN, content ES, and response 中文 shown as connected speech bubbles" width="100%">
+  <img src="assets/mtm-hero.svg" alt="MTM-Bench: instruction EN, content ES, and response 中文 shown as connected speech bubbles" width="100%">
 </p>
 
 <h1 align="center">MTM-Bench</h1>
@@ -121,15 +121,17 @@ The provider-specific `scripts/run_models_*.py` runners and `scripts/score_outpu
 
 ## Citation
 
-This is a **provisional citation** for the accepted paper. Official proceedings metadata will replace it when available; no DOI or ACL Anthology URL has been assigned here.
+The [2026 arXiv preprint](https://arxiv.org/abs/2605.27649) is accepted to EACL 2027 Main Conference. Proceedings metadata will replace this citation when available.
 
 ```bibtex
-@misc{zhan2027mtmbench,
-  title={Disentangling Language Roles in Multilingual {LLM} Task Execution},
-  author={Zhan, Qishi and Hu, Minxuan and Jang, Seoyeon and Zhao, Lei and Chen, Ziheng and Liang, Man and Xiang, Xinyue and Liu, Jiaxin and Wang, Guansu and He, Liang},
-  year={2027},
-  note={Accepted to EACL 2027 Main Conference},
-  url={https://github.com/Qishi7/MTM_Bench}
+@misc{zhan2026disentanglinglanguagerolesmultilingual,
+  title={Disentangling Language Roles in Multilingual LLM Task Execution},
+  author={Qishi Zhan and Minxuan Hu and Seoyeon Jang and Lei Zhao and Ziheng Chen and Man Liang and Xinyue Xiang and Jiaxin Liu and Guansu Wang and Liang He},
+  year={2026},
+  eprint={2605.27649},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2605.27649}
 }
 ```
 

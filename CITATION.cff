@@ -47,6 +47,6 @@ preferred-citation:
       given-names: Guansu
     - family-names: He
       given-names: Liang
-  year: 2027
-  notes: "Accepted to EACL 2027 Main Conference. Provisional citation pending proceedings metadata."
-  url: "https://github.com/Qishi7/MTM_Bench"
+  year: 2026
+  notes: "arXiv:2605.27649. Accepted to EACL 2027 Main Conference; proceedings metadata pending."
+  url: "https://arxiv.org/abs/2605.27649"

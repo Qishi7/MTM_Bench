@@ -10,7 +10,7 @@
     <path d="M64 292h466"/>
   </g>
   <text x="64" y="64" fill="#665487" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="2">MULTILINGUAL TASK EXECUTION</text>
-  <g transform="translate(58 100) scale(.29)">
+  <g transform="translate(42 84) scale(.36)">
     <path d="M242 51q14-8 28 0l158 91q14 8 14 24v180q0 16-14 24l-158 91q-14 8-28 0L84 370q-14-8-14-24V166q0-16 14-24z" fill="none" stroke="#536269" stroke-width="22" stroke-linejoin="round"/>
     <path d="M256 145 160 323 352 323Z" fill="none" stroke="#849198" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="256" cy="145" r="52" fill="#DCC7EE" stroke="#765693" stroke-width="16"/>
