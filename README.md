@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/mtm-hero.svg?v=2" alt="MTM-Bench: instruction EN, content ES, and response 中文 shown as connected speech bubbles" width="100%">
+  <img src="https://raw.githubusercontent.com/Qishi7/MTM_Bench/bd1f88867d7955ab2aebac0a062c2025e4c8eeb9/assets/mtm-hero.svg" alt="MTM-Bench: instruction EN, content ES, and response 中文 shown as connected speech bubbles" width="100%">
 </p>
 
 <h1 align="center">MTM-Bench</h1>
