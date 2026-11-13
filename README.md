@@ -30,8 +30,8 @@
 
 ## Authors
 
-**Qishi Zhan**<sup>&#42;</sup> · Minxuan Hu · Seoyeon Jang · Lei Zhao · Ziheng Chen · Man Liang · Xinyue Xiang · Jiaxin Liu · Guansu Wang · Liang He<br>
-<sup>&#42;</sup> Corresponding author
+**Qishi Zhan**<sup>1</sup> · Minxuan Hu · Seoyeon Jang · Lei Zhao · Ziheng Chen · Man Liang · Xinyue Xiang · Jiaxin Liu · Guansu Wang · Liang He<br>
+<sup>1</sup> Corresponding author
 
 ## Overview
 
