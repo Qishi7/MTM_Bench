@@ -139,7 +139,7 @@ Top three models by Joint Success under the paper's original automatic scoring p
 
 [View the full results for all 20 models →](results/table1_main_results.csv)
 
-Scores are displayed to three decimal places. The linked summary tables mirror the manuscript's displayed values; original per-instance scoring records are preserved in [outputs_scored/](outputs_scored/).
+Scores are displayed to three decimal places, matching the paper.
 
 <details>
 <summary><strong>Explore all 27 language triplets</strong></summary>
